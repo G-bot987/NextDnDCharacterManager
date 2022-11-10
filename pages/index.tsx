@@ -27,7 +27,7 @@ export default function App() {
 
   const handlePageChange = (page: any) => setCurrentPG(page);
   return (
-    <div>
+    <div className="flex-col flex justify-evenly flex-wrap">
       <Header />
       {/* We are passing the currentPage from state and the function to update it */}
       <NavTabs currentPage={pg} handlePageChange={handlePageChange} />

@@ -2,25 +2,26 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div>
+    <div className="flex flex-col">
       <h1>DnD character Manager</h1>
-      <div className="headercontainer">
-        <div className="headertab">
+
+      <ul className="inline-flex text-base p-8 italic space-x-4">
+        <li className="headertab">
           <a href="#">my characters</a>
-        </div>
+        </li>
 
-        <div className="headertab">
+        <li className="headertab">
           <a href="#">friends </a>
-        </div>
+        </li>
 
-        <div className="headertab">
+        <li className="headertab">
           <a href="#">my games</a>
-        </div>
+        </li>
 
-        <div className="headertab">
+        <li className="headertab">
           <a href="#">profile</a>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   );
 }
