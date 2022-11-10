@@ -23,13 +23,17 @@ const template = {
     {
       attname: "Strength",
       abr: "Str",
-      score: 8,
+      score: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ],
       skills: [{ name: "athletics" }],
     },
     {
       attname: "Dexterity",
       abr: "Dex",
-      score: 8,
+      score: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ],
       skills: [
         { name: "acrobatics" },
         { name: "sleight of hand" },
@@ -40,7 +44,9 @@ const template = {
     {
       attname: "Charisma",
       abr: "Cha",
-      score: 8,
+      score: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ],
       skills: [
         { name: "deception" },
         { name: "intimatation" },
@@ -51,7 +57,9 @@ const template = {
     {
       attname: "Inteligence",
       abr: "Int",
-      score: 8,
+      score: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ],
       skills: [
         { name: "arcana" },
         { name: "dark arcana" },
@@ -67,7 +75,9 @@ const template = {
     {
       attname: "Wisdom",
       abr: "Wis",
-      score: 8,
+      score: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ],
       skills: [
         { name: "animal handling" },
         { name: "insight" },
