@@ -1,0 +1,69 @@
+export interface templateInterface {
+  profile?: profileInterface;
+  attributes?: attributesInterface[];
+  languages?: languagesInterface;
+}
+
+export interface profileInterface {
+  charName: string;
+  classes?: classesInterface[];
+  lv?: number[];
+  xp: number;
+  race: raceInterface[];
+  background: string;
+  strenght: string;
+  weakness: string;
+  image?: imageInterface;
+}
+
+export interface classesInterface {
+  name: string;
+  marker: number;
+}
+
+export interface raceInterface {
+  name: string;
+  marker: number;
+}
+
+export interface imageInterface {
+  avatar: string;
+  alt: string;
+}
+
+export interface attributesInterface {
+  attname: string;
+  abr: string;
+  score: number[];
+  skills: skillsInterface[];
+}
+
+export interface skillsInterface {
+  name: string;
+}
+
+export interface languagesInterface {
+  imperialtongues: languageInterface[];
+  tonguesofoldman: languageInterface[];
+  endetongues: languageInterface[];
+  mountainkintongues: languageInterface[];
+  arcanetongues: languageInterface[];
+  pyrictongues: languageInterface[];
+}
+
+export interface languageInterface {
+  language: string;
+  written?: null;
+  spoken?: null;
+  inflection?: string;
+  proficiency?: string;
+  dialect?: dialectInterface[];
+}
+
+export interface dialectInterface {
+  name: string;
+  written: null;
+  spoken: null;
+  inflection: string;
+  proficiency: null;
+}
