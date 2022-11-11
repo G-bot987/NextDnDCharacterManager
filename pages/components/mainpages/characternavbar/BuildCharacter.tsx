@@ -27,12 +27,10 @@ export default function BuildCharacter({
       <li className="navtab">
         <a
           href="#attributes"
-          onClick={() => handleBuildCharacterTabChange("attributes")}
-          className={
-            currentTab === "Attributes" ? "nav-link active" : "nav-link"
-          }
+          onClick={() => handleBuildCharacterTabChange("card")}
+          className={currentTab === "card" ? "nav-link active" : "nav-link"}
         >
-          attributes
+          card
         </a>
       </li>
 
