@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 import Header from "./mainnav/Header";
-import { BuildCharacter } from "./components/mainpages/characternavbar/BuildCharacter";
+import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
 import MyCharacters from "./components/mainpages/MyCharacters";
 import FriendsPg from "./components/mainpages/FriendsPg";
 import GamesPg from "./components/mainpages/GamesPg";
