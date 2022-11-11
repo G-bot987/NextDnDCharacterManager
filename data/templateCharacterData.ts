@@ -2,7 +2,7 @@
 
 const template = {
   profile: {
-    charName: "Your Characters Name",
+    charName: "Name",
     classes: [
       { name: "class 1", marker: 1 },
       { name: "class 2", marker: 2 },
