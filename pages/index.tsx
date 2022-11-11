@@ -2,36 +2,68 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
-import Bio from "./navbar/tabs/Bio";
-import Attributes from "./navbar/tabs/Attributes";
-import Notes from "./navbar/tabs/Notes";
-import Header from "./components/Header";
-import NavTabs from "./navbar/NavLinks";
+import Header from "./mainnav/Header";
+import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
+import MyCharacters from "./components/mainpages/MyCharacters";
+import FriendsPg from "./components/mainpages/FriendsPg";
+import GamesPg from "./components/mainpages/GamesPg";
+import Profile from "./components/mainpages/Profile";
+
+import Attributes from "./components/mainpages/characternavbar/tabs/Attributes";
+import Bio from "./components/mainpages/characternavbar/tabs/Bio";
+import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 
 export default function App() {
   // use state hook to render different pg's
 
   const [pg, setCurrentPG] = useState(`bio`);
-  // const [data, setData] = useState(character);
+  const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
+
   const renderPage = () => {
-    if (pg === "bio") {
-      return <Bio />;
+    if (pg === "BuildCharacter") {
+      const handleBuildCharacterTabChange = (buildCharTab: any) =>
+        setCurrentbuildCharTab(buildCharTab);
+
+      const renderTab = () => {
+        if (buildCharTab === "attributes") {
+          return <Attributes />;
+        }
+        if (buildCharTab === "notes") {
+          return <Notes />;
+        }
+        if (buildCharTab === "bio") {
+          return <Bio />;
+        }
+      };
+      return (
+        <div>
+          <BuildCharacter
+            currentTab={buildCharTab}
+            handleBuildCharacterTabChange={handleBuildCharacterTabChange}
+          />
+          {renderTab()}
+        </div>
+      );
     }
-    if (pg === "attributes") {
-      return <Attributes />;
+    if (pg === "MyCharacters") {
+      return <MyCharacters />;
     }
-    if (pg === "notes") {
-      return <Notes />;
+    if (pg === "FriendsPg") {
+      return <FriendsPg />;
+    }
+    if (pg === "GamesPg") {
+      return <GamesPg />;
+    }
+    if (pg === "Profile") {
+      return <Profile />;
     }
   };
 
   const handlePageChange = (page: any) => setCurrentPG(page);
   return (
     <div className="flex-col flex justify-evenly flex-wrap">
-      <Header />
-      {/* We are passing the currentPage from state and the function to update it */}
-      <NavTabs currentPage={pg} handlePageChange={handlePageChange} />
-      {/* Here we are calling the renderPage method which will return a component  */}
+      <Header currentPage={pg} handlePageChange={handlePageChange} />
+
       {renderPage()}
     </div>
   );
