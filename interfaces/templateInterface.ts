@@ -11,7 +11,7 @@ export interface profileInterface {
   xp: number;
   race: raceInterface[];
   background: string;
-  strenght: string;
+  strength: string;
   weakness: string;
   image?: imageInterface;
 }
@@ -40,6 +40,7 @@ export interface attributesInterface {
 
 export interface skillsInterface {
   name: string;
+  proficiency: null | boolean;
 }
 
 export interface languagesInterface {
@@ -52,18 +53,18 @@ export interface languagesInterface {
 }
 
 export interface languageInterface {
-  language: string;
-  written?: null;
-  spoken?: null;
+  language: string | boolean;
+  written?: null | boolean;
+  spoken?: null | boolean;
   inflection?: string;
-  proficiency?: string;
+  proficiency?: null | boolean;
   dialect?: dialectInterface[];
 }
 
 export interface dialectInterface {
   name: string;
-  written: null;
-  spoken: null;
+  written: null | boolean;
+  spoken: null | boolean;
   inflection: string;
-  proficiency: null;
+  proficiency: null | boolean;
 }

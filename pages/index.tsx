@@ -1,17 +1,21 @@
-import Head from "next/head";
-import Image from "next/image";
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
+
 import Header from "./mainnav/Header";
+// top lv tabs
 import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
 import MyCharacters from "./components/mainpages/MyCharacters";
 import FriendsPg from "./components/mainpages/FriendsPg";
 import GamesPg from "./components/mainpages/GamesPg";
 import Profile from "./components/mainpages/Profile";
 
+// character building tabs
 import Attributes from "./components/mainpages/characternavbar/tabs/Attributes";
 import Bio from "./components/mainpages/characternavbar/tabs/Bio";
 import Notes from "./components/mainpages/characternavbar/tabs/Notes";
+
+// data & interfaces
+import template from "../data/templateCharacterData";
 
 export default function App() {
   // use state hook to render different pg's
@@ -26,7 +30,7 @@ export default function App() {
 
       const renderTab = () => {
         if (buildCharTab === "attributes") {
-          return <Attributes />;
+          return <Attributes {...template} />;
         }
         if (buildCharTab === "notes") {
           return <Notes />;
