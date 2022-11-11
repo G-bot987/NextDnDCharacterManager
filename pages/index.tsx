@@ -10,7 +10,7 @@ import GamesPg from "./components/mainpages/GamesPg";
 import Profile from "./components/mainpages/Profile";
 
 // character building tabs
-import Attributes from "./components/mainpages/characternavbar/tabs/Attributes";
+import Card from "./components/mainpages/characternavbar/tabs/Card";
 import Bio from "./components/mainpages/characternavbar/tabs/Bio";
 import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 
@@ -29,8 +29,8 @@ export default function App() {
         setCurrentbuildCharTab(buildCharTab);
 
       const renderTab = () => {
-        if (buildCharTab === "attributes") {
-          return <Attributes {...template} />;
+        if (buildCharTab === "card") {
+          return <Card {...template} />;
         }
         if (buildCharTab === "notes") {
           return <Notes />;
@@ -40,7 +40,7 @@ export default function App() {
         }
       };
       return (
-        <div>
+        <div className="min-h-full">
           <BuildCharacter
             currentTab={buildCharTab}
             handleBuildCharacterTabChange={handleBuildCharacterTabChange}
