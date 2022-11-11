@@ -40,9 +40,9 @@ const template = {
     weakness: "Your Weaknesses",
     image: { avatar: "a image", alt: "your characters image" },
   },
-  Attributes: [
+  attributes: [
     {
-      attname: "Strength",
+      name: "Strength",
       abr: "Str",
       score: [
         { value: 1, selected: null },
@@ -69,7 +69,7 @@ const template = {
       skills: [{ name: "athletics", proficiency: null }],
     },
     {
-      attname: "Dexterity",
+      name: "Dexterity",
       abr: "Dex",
       score: [
         { value: 1, selected: null },
@@ -99,9 +99,35 @@ const template = {
         { name: "stealth", proficiency: null },
       ],
     },
-    { attname: "Constitution", abr: "Con", score: 8, skills: [] },
     {
-      attname: "Charisma",
+      name: "Constitution",
+      abr: "Con",
+      score: [
+        { value: 1, selected: null },
+        { value: 2, selected: null },
+        { value: 3, selected: null },
+        { value: 4, selected: null },
+        { value: 5, selected: null },
+        { value: 6, selected: null },
+        { value: 7, selected: null },
+        { value: 8, selected: null },
+        { value: 9, selected: null },
+        { value: 10, selected: null },
+        { value: 11, selected: null },
+        { value: 12, selected: null },
+        { value: 13, selected: null },
+        { value: 14, selected: null },
+        { value: 15, selected: null },
+        { value: 16, selected: null },
+        { value: 17, selected: null },
+        { value: 18, selected: null },
+        { value: 19, selected: null },
+        { value: 20, selected: null },
+      ],
+      skills: [],
+    },
+    {
+      name: "Charisma",
       abr: "Cha",
       score: [
         { value: 1, selected: null },
@@ -133,7 +159,7 @@ const template = {
       ],
     },
     {
-      attname: "Inteligence",
+      name: "Inteligence",
       abr: "Int",
       score: [
         { value: 1, selected: null },
@@ -170,7 +196,7 @@ const template = {
       ],
     },
     {
-      attname: "Wisdom",
+      name: "Wisdom",
       abr: "Wis",
       score: [
         { value: 1, selected: null },

@@ -1,7 +1,7 @@
 export interface templateInterface {
-  profile?: profileInterface;
-  attributes?: attributesInterface[];
-  languages?: languagesInterface;
+  profile: profileInterface;
+  attributes: attributesInterface[];
+  languages: languagesInterface;
 }
 
 export interface profileInterface {
@@ -36,10 +36,10 @@ export interface imageInterface {
 }
 
 export interface attributesInterface {
-  attname: string;
+  name: string;
   abr: string;
   score: scoreInterface[];
-  skills: skillsInterface[];
+  skills?: skillsInterface[];
 }
 
 export interface scoreInterface {
