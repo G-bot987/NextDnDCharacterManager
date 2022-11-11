@@ -4,14 +4,13 @@ import React from "react";
 // import "./Attributes.css";
 // import template from "../../data/templatecard";
 // import Langbox from "./Langbox";
+import { templateInterface } from "../../../../../interfaces/templateInterface";
 
-export default function Attributes(
-  {
-    // character
-  }
-) {
+export default function Attributes(Props: templateInterface) {
   //   const languages = template.languages;
-
+  console.log("props in attributes");
+  console.log(Props);
+  console.log("--");
   return (
     <div>
       Attributes
