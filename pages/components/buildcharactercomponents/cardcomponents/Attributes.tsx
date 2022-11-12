@@ -3,9 +3,6 @@ import { attributesInterface } from "../../../../interfaces/templateInterface";
 import Attribute from "./attributescomponents/Attribute";
 
 export default function Attributes(Props: attributesInterface[]) {
-  console.log("Props in Attributes");
-  console.log(Props);
-  console.log("--");
   return (
     <div className="flex flex-row justify-center text-center justify-around">
       attributes
