@@ -2,20 +2,34 @@ import React from "react";
 
 import { templateInterface } from "../../../../../interfaces/templateInterface";
 
-import Attributes from "../../../buildcharactercomponents/cardcomponents/Attributes";
-import Languages from "../../../buildcharactercomponents/cardcomponents/Languages";
+import Attribute from "../../../buildcharactercomponents/cardcomponents/Attribute";
+import Language from "../../../buildcharactercomponents/cardcomponents/Language";
 import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 
 export default function Card(Props: templateInterface) {
   const { profile, attributes, languages } = Props;
 
- 
-
   return (
     <div className=" flex flex-col justify-around min-h-full">
-      <Profile {...profile}></Profile>
-      <Attributes {...attributes}></Attributes>
-      <Languages {...languages}></Languages>
+      <ul>
+        <li>
+          <Profile {...profile}></Profile>
+        </li>
+        <li>
+          <ul className="min-h-min flex flex-col justify-around">
+            {Object.keys(attributes).map((attribute: any, index: number) => (
+              <Attribute {...attributes[attribute]} key={`${index}`} />
+            ))}
+          </ul>
+        </li>
+        <li>
+          <ul>
+            {Object.keys(languages).map((language: any, index: number) => (
+              <Language {...languages[language]} key={`${index}`} />
+            ))}
+          </ul>
+        </li>
+      </ul>
     </div>
   );
 }
