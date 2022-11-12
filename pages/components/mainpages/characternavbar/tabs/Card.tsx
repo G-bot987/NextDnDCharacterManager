@@ -11,6 +11,7 @@ import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 export default function Card(Props: templateInterface) {
   const { profile, attributes, languages } = Props;
   const [showAttributes, setShowAttributes] = useState(false);
+  const [showLanguages, setShoLanguages] = useState(false);
 
   return (
     <div className=" flex flex-col justify-around min-h-full">
@@ -40,10 +41,21 @@ export default function Card(Props: templateInterface) {
           )}
         </li>
         <li>
-          {languages && (
+          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+            <div
+              className={`${styles.attributearrow}`}
+              style={{
+                transform: showLanguages ? "rotate(130deg)" : "",
+                transition: "transform 150ms ease",
+                margin: showLanguages ? "0.3rem 0 0 0.4rem" : "",
+              }}
+              onClick={() => setShoLanguages(!showLanguages)}
+            ></div>
+          </div>
+          {showLanguages && languages && (
             <ul className="min-h-min flex flex-row justify-around">
               {Object.keys(languages).map((language: any, index: number) => (
-                <Language {...languages[language]} key={`${index}`} />
+                <Language {...languages[language] } key={`${index}`} />
               ))}
             </ul>
           )}
