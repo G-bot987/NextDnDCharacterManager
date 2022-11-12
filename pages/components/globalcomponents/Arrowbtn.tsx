@@ -10,10 +10,10 @@ export default function ArrowBtn(Props: any) {
   const [show, setShow] = useState(false);
 
   return (
-    <div>
+    <div className="min-w-full flex flex flex-row inline-flex ">
       <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
         <div
-          className={`${styles.attributearrow}`}
+          className={`${styles.arrowright}`}
           style={{
             transform: show ? "rotate(130deg)" : "",
             transition: "transform 150ms ease",
@@ -23,7 +23,7 @@ export default function ArrowBtn(Props: any) {
         />
       </div>
       {show && attributes && (
-        <ul className="min-h-min flex flex-row justify-around">
+        <ul className="min-h-min flex flex-row justify-around min-w-full">
           {Object.keys(attributes).map((attribute: any, index: number) => (
             <Attribute {...attributes[attribute]} key={`${index}`} />
           ))}
@@ -31,7 +31,7 @@ export default function ArrowBtn(Props: any) {
       )}
 
       {show && languages && (
-        <ul className="min-h-min flex flex-row justify-around">
+        <ul className="min-h-min flex flex-row justify-around  min-w-full">
           {Object.keys(languages).map((language: any, index: number) => (
             <Language {...languages[language]} key={`${index}`} />
           ))}
