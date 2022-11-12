@@ -6,8 +6,8 @@ export interface templateInterface {
 
 export interface profileInterface {
   charName: string;
-  classes?: classesInterface[];
-  lv?: lvInterface[];
+  classes: classesInterface[];
+  lv: lvInterface[];
   xp: number;
   race: raceInterface[];
   background: string;

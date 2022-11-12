@@ -35,9 +35,9 @@ const template = {
       { name: "race 2", marker: 2 },
       { name: "race 3", marker: 3 },
     ],
-    background: "Your Background",
-    strength: "Your Strengths",
-    weakness: "Your Weaknesses",
+    background: "Background",
+    strength: "Strengths",
+    weakness: "Weaknesses",
     image: { avatar: "a image", alt: "your characters image" },
   },
   attributes: [
