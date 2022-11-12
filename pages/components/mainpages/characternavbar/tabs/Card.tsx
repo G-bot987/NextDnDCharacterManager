@@ -9,9 +9,7 @@ import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 export default function Card(Props: templateInterface) {
   const { profile, attributes, languages } = Props;
 
-  console.log("attributes in card ");
-  console.log(attributes);
-  console.log("--");
+ 
 
   return (
     <div className=" flex flex-col justify-around min-h-full">

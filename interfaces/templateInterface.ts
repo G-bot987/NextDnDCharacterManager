@@ -1,13 +1,13 @@
 export interface templateInterface {
   profile: profileInterface;
   attributes: attributesInterface[];
-  languages: languagesInterface;
+  languages: languagesInterface[];
 }
 
 export interface profileInterface {
   charName: string;
-  classes?: classesInterface[];
-  lv?: lvInterface[];
+  classes: classesInterface[];
+  lv: lvInterface[];
   xp: number;
   race: raceInterface[];
   background: string;
@@ -53,12 +53,8 @@ export interface skillsInterface {
 }
 
 export interface languagesInterface {
-  imperialtongues: languageInterface[];
-  tonguesofoldman: languageInterface[];
-  endetongues: languageInterface[];
-  mountainkintongues: languageInterface[];
-  arcanetongues: languageInterface[];
-  pyrictongues: languageInterface[];
+  name: string;
+  varients: languageInterface[];
 }
 
 export interface languageInterface {
