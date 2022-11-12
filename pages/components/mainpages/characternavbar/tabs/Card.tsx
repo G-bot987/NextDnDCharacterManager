@@ -16,18 +16,22 @@ export default function Card(Props: templateInterface) {
           <Profile {...profile}></Profile>
         </li>
         <li>
-          <ul className="min-h-min flex flex-col justify-around">
-            {Object.keys(attributes).map((attribute: any, index: number) => (
-              <Attribute {...attributes[attribute]} key={`${index}`} />
-            ))}
-          </ul>
+          {attributes && (
+            <ul className="min-h-min flex flex-col justify-around">
+              {Object.keys(attributes).map((attribute: any, index: number) => (
+                <Attribute {...attributes[attribute]} key={`${index}`} />
+              ))}
+            </ul>
+          )}
         </li>
         <li>
-          <ul>
-            {Object.keys(languages).map((language: any, index: number) => (
-              <Language {...languages[language]} key={`${index}`} />
-            ))}
-          </ul>
+          {languages && (
+            <ul>
+              {Object.keys(languages).map((language: any, index: number) => (
+                <Language {...languages[language]} key={`${index}`} />
+              ))}
+            </ul>
+          )}
         </li>
       </ul>
     </div>
