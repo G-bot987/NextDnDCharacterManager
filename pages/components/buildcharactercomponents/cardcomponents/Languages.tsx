@@ -9,7 +9,7 @@ export default function Languages(Props: languagesInterface) {
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col  ">
+    <li className="flex flex-col space-y-4">
       <div
         className="flex justify-center text-center flex-row"
         onClick={() => setShow(!show)}
@@ -37,7 +37,7 @@ export default function Languages(Props: languagesInterface) {
         </div>
       </div>
       {show && (
-        <ul className="flex flex-col justify-around  text-center">
+        <ul className="flex flex-col justify-around  text-center  space-y-4">
           {varients.map((varient: any, index: number) => (
             <Language {...varient} key={index} />
           ))}

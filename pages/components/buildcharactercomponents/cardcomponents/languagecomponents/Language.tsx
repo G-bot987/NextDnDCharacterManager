@@ -20,7 +20,7 @@ export default function Language(Props: languageInterface) {
   return (
     <li className="flex flex-col">
       <div
-        className="flex justify-center text-center flex-row bg-white rounded-t-lg"
+        className="flex justify-center text-center flex-row bg-white rounded-lg"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 l">
@@ -44,19 +44,19 @@ export default function Language(Props: languageInterface) {
         </div>
       </div>
       {show && !dialects && (
-        <div className="flex flex-row justify-around">
-          <div className="flex flex-col  justify-center text-center">
-            <p>{written}</p>
+        <div className="flex flex-row  border-solid border-2 border-white rounded-lg">
+          <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
+            <p className="border-b-2 border-solid border-white">{written}</p>
             <p>{spoken}</p>
           </div>
-          <div className="flex flex-col justify-center text-center ">
-            <p>{inflection}</p>
+          <div className="flex flex-col justify-center text-center min-w-[50%] ">
+            <p className="border-b-2 border-solid border-white">{inflection}</p>
             <p>{proficiency}</p>
           </div>
         </div>
       )}
       {show && dialects && (
-        <ul>
+        <ul className="rounded-lg border-solid border-white border-2">
           {dialects.map((dialect, index) => (
             <Dialect {...dialect} key={index} />
           ))}
