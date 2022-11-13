@@ -8,10 +8,7 @@ import Languageproperty from "./Languageproperty";
 export default function Dialect(Props: dialectInterface) {
   const [open, setOpen] = useState(false);
 
-  const { name, written, spoken, inflection, proficiency } = Props;
-
-  const keysForNoDialect = Object.keys(Props);
-
+  const { language, written, spoken, inflection, proficiency } = Props;
 
   return (
     <li className="flex flex-col justify-around">
@@ -29,7 +26,7 @@ export default function Dialect(Props: dialectInterface) {
           />
         </div>
 
-        <p className="max-h-min">{name}</p>
+        <p className="max-h-min">{language}</p>
 
         <div className="w-6 h-6">
           <div
@@ -46,15 +43,15 @@ export default function Dialect(Props: dialectInterface) {
         <div className="flex flex-row justify-around border-solid border-white border-y-2">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty {...{ written, name }} />
+              <Languageproperty {...{ written, language }} />
             </div>
-            <Languageproperty {...{ spoken, name }} />
+            <Languageproperty {...{ spoken, language }} />
           </div>
           <div className="flex flex-col justify-center text-center  min-w-[50%] ">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty {...{ inflection, name }} />
+              <Languageproperty {...{ inflection, language }} />
             </div>
-            <Languageproperty {...{ proficiency, name }} />
+            <Languageproperty {...{ proficiency, language }} />
           </div>
         </div>
       )}

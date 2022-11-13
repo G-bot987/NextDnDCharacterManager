@@ -9,7 +9,7 @@ export interface profileInterface {
   classes: classesInterface[];
   lv: lvInterface[];
   xp: number;
-  race: raceInterface[];
+  races: raceInterface[];
   background: string;
   strength: string;
   weakness: string;
@@ -17,7 +17,7 @@ export interface profileInterface {
 }
 
 export interface classesInterface {
-  name: string;
+  class: string;
   marker: number;
 }
 export interface lvInterface {
@@ -26,7 +26,7 @@ export interface lvInterface {
 }
 
 export interface raceInterface {
-  name: string;
+  race: string;
   marker: number;
 }
 
@@ -36,7 +36,7 @@ export interface imageInterface {
 }
 
 export interface attributesInterface {
-  name: string;
+  attribute: string;
   abr: string;
   score: scoreInterface[];
   skills?: skillsInterface[];
@@ -48,7 +48,7 @@ export interface scoreInterface {
 }
 
 export interface skillsInterface {
-  name: string;
+  skill: string;
   proficiency: null | boolean;
 }
 
@@ -67,7 +67,7 @@ export interface languageInterface {
 }
 
 export interface dialectInterface {
-  name: string;
+  language: string;
   written: null | boolean;
   spoken: null | boolean;
   inflection: null | boolean;

@@ -5,7 +5,7 @@ import styles from "../../../../styles/Home.module.css";
 import { attributesInterface } from "../../../../interfaces/templateInterface";
 
 export default function Attribute(Props: attributesInterface) {
-  const { name } = Props;
+  const { attribute } = Props;
 
   const [show, setShow] = useState(false);
 
@@ -21,7 +21,7 @@ export default function Attribute(Props: attributesInterface) {
           }}
         />
       </div>
-      {name}
+      {attribute}
       <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
         <div
           onClick={() => setShow(!show)}
