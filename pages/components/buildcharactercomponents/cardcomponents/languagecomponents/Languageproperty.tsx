@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import styles from "../../../../../styles/Home.module.css";
 
 interface PropsInterface {
-  language: string;
+  language?: string;
+  name?: string;
   written?: boolean | null;
   spoken?: boolean | null;
   inflection?: boolean | null;
