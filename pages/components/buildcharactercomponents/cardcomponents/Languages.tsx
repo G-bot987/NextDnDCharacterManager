@@ -37,7 +37,7 @@ export default function Languages(Props: languagesInterface) {
         </div>
       </div>
       {show && (
-        <ul className="flex flex-col justify-around">
+        <ul className="flex flex-col justify-around  text-center">
           {varients.map((varient: any, index: number) => (
             <Language {...varient} key={index} />
           ))}
