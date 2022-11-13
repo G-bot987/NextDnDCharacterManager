@@ -16,16 +16,18 @@ export default function Languageproperty(Props: PropsInterface) {
   const property = keysForNoDialect[0];
 
   const [selected, setSelect] = useState(() => {
-    const saved: any = localStorage.getItem(language + property);
+    if (typeof window !== "undefined") {
+      const saved: any = localStorage.getItem(language + property);
 
-    const intialValue = JSON.parse(saved);
-    return intialValue || false;
+      const intialValue = JSON.parse(saved);
+      return intialValue || false;
+    }
   });
 
   useEffect(() => {
     // storing
     localStorage.setItem(language + property, JSON.stringify(selected));
-  }, [selected]);
+  }, [selected, language, property]);
 
   return (
     <p
