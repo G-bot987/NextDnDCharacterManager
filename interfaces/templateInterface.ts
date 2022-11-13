@@ -58,10 +58,10 @@ export interface languagesInterface {
 }
 
 export interface languageInterface {
-  language: string | boolean;
+  language: string;
   written?: null | boolean;
   spoken?: null | boolean;
-  inflection?: string;
+  inflection?: null | boolean;
   proficiency?: null | boolean;
   dialects?: dialectInterface[];
 }
@@ -70,6 +70,6 @@ export interface dialectInterface {
   name: string;
   written: null | boolean;
   spoken: null | boolean;
-  inflection: string;
+  inflection: null | boolean;
   proficiency: null | boolean;
 }
