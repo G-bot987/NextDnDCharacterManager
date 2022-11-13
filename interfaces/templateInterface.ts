@@ -63,7 +63,7 @@ export interface languageInterface {
   spoken?: null | boolean;
   inflection?: string;
   proficiency?: null | boolean;
-  dialect?: dialectInterface[];
+  dialects?: dialectInterface[];
 }
 
 export interface dialectInterface {
