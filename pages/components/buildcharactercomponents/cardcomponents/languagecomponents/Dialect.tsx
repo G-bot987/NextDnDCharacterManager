@@ -49,12 +49,12 @@ export default function Dialect(Props: dialectInterface) {
 
       {open && (
         <div className="flex flex-row justify-around border-solid border-white border-y-2">
-          <div className="flex flex-col  justify-center text-center">
-            <p>{written}</p>
+          <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
+            <p className="border-b-2 border-solid border-white">{written}</p>
             <p>{spoken}</p>
           </div>
-          <div className="flex flex-col justify-center text-center ">
-            <p>{inflection}</p>
+          <div className="flex flex-col justify-center text-center  min-w-[50%] ">
+            <p className="border-b-2 border-solid border-white">{inflection}</p>
             <p>{proficiency}</p>
           </div>
         </div>
