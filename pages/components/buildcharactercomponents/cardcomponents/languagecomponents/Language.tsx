@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { languageInterface } from "../../../../../interfaces/templateInterface";
 
 import styles from "../../../../../styles/Home.module.css";
+import Dialect from "./Dialect";
 
 export default function Language(Props: languageInterface) {
-  const { language, dialect } = Props;
+  const { language, dialects } = Props;
 
   const [show, setShow] = useState(false);
 
@@ -42,7 +43,7 @@ export default function Language(Props: languageInterface) {
           />
         </div>
       </div>
-      {show && !dialect && (
+      {show && !dialects && (
         <div className="flex flex-row justify-around">
           <div className="flex flex-col  justify-center text-center">
             <p>{written}</p>
@@ -54,7 +55,13 @@ export default function Language(Props: languageInterface) {
           </div>
         </div>
       )}
-      {show && dialect && <p> i do have dialect</p>}
+      {show && dialects && (
+        <ul>
+          {dialects.map((dialect, index) => (
+            <Dialect {...dialect} key={index} />
+          ))}
+        </ul>
+      )}
     </li>
   );
 }
