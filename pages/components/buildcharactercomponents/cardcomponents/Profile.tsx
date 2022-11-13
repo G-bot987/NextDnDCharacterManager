@@ -9,7 +9,7 @@ export default function Profile(Props: profileInterface) {
     weakness,
     xp,
     lv,
-    race,
+    races,
     classes,
     image,
   } = Props;
