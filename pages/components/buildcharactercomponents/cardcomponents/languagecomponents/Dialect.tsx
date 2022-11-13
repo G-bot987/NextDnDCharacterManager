@@ -3,18 +3,15 @@ import React, { useState } from "react";
 import styles from "../../../../../styles/Home.module.css";
 
 import { dialectInterface } from "../../../../../interfaces/templateInterface";
+import Languageproperty from "./Languageproperty";
 
 export default function Dialect(Props: dialectInterface) {
   const [open, setOpen] = useState(false);
 
-  const { name } = Props;
+  const { name, written, spoken, inflection, proficiency } = Props;
 
   const keysForNoDialect = Object.keys(Props);
 
-  const written = keysForNoDialect[1];
-  const spoken = keysForNoDialect[2];
-  const inflection = keysForNoDialect[3];
-  const proficiency = keysForNoDialect[4];
 
   return (
     <li className="flex flex-col justify-around">
@@ -48,12 +45,16 @@ export default function Dialect(Props: dialectInterface) {
       {open && (
         <div className="flex flex-row justify-around border-solid border-white border-y-2">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
-            <p className="border-b-2 border-solid border-white">{written}</p>
-            <p>{spoken}</p>
+            <div className="border-b-2 border-solid border-white">
+              <Languageproperty {...{ written, name }} />
+            </div>
+            <Languageproperty {...{ spoken, name }} />
           </div>
           <div className="flex flex-col justify-center text-center  min-w-[50%] ">
-            <p className="border-b-2 border-solid border-white">{inflection}</p>
-            <p>{proficiency}</p>
+            <div className="border-b-2 border-solid border-white">
+              <Languageproperty {...{ inflection, name }} />
+            </div>
+            <Languageproperty {...{ proficiency, name }} />
           </div>
         </div>
       )}
