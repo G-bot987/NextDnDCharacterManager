@@ -21,12 +21,12 @@ export default function Dialect(Props: dialectInterface) {
   return (
     <li className="flex flex-col justify-around">
       <div
-        className="border-solid border-white border-2 flex flex-row inline-flex justify-around "
+        className=" flex flex-row inline-flex justify-around "
         onClick={() => setOpen(!open)}
       >
         <div className="w-6 h-6">
           <div
-            className={` border-white ${styles.arrowdownwhite}`}
+            className={styles.arrowdownwhite}
             style={{
               transform: open ? "rotate(225deg)" : "",
               transition: "transform 150ms ease",
@@ -48,7 +48,7 @@ export default function Dialect(Props: dialectInterface) {
       </div>
 
       {open && (
-        <div className="flex flex-row justify-around border-solid border-white border-x-2">
+        <div className="flex flex-row justify-around border-solid border-white border-y-2">
           <div className="flex flex-col  justify-center text-center">
             <p>{written}</p>
             <p>{spoken}</p>

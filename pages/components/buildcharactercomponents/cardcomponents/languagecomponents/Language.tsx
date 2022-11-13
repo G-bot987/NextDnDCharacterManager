@@ -20,7 +20,7 @@ export default function Language(Props: languageInterface) {
   return (
     <li className="flex flex-col">
       <div
-        className="flex justify-center text-center flex-row bg-white rounded-t-lg"
+        className="flex justify-center text-center flex-row bg-white rounded-lg"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 l">
@@ -56,7 +56,7 @@ export default function Language(Props: languageInterface) {
         </div>
       )}
       {show && dialects && (
-        <ul>
+        <ul className="rounded-lg border-solid border-white border-2">
           {dialects.map((dialect, index) => (
             <Dialect {...dialect} key={index} />
           ))}
