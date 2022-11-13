@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import styles from "../../../styles/Home.module.css";
 import Attribute from "../buildcharactercomponents/cardcomponents/Attribute";
-import Language from "../buildcharactercomponents/cardcomponents/Language";
+import Languages from "../buildcharactercomponents/cardcomponents/Languages";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
@@ -33,7 +33,7 @@ export default function ArrowBtn(Props: any) {
       {show && languages && (
         <ul className="min-h-min flex flex-row justify-around  min-w-full">
           {Object.keys(languages).map((language: any, index: number) => (
-            <Language {...languages[language]} key={`${index}`} />
+            <Languages {...languages[language]} key={`${index}`} />
           ))}
         </ul>
       )}

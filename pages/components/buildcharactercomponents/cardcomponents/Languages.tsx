@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { languagesInterface } from "../../../../interfaces/templateInterface";
 
 import styles from "../../../../styles/Home.module.css";
+import Language from "./languagecomponents/Language";
 
-export default function Language(Props: languagesInterface) {
-  const { name, varients } = Props;
+export default function Languages(Props: languagesInterface) {
+  const { ancestralgroup, varients } = Props;
   const [show, setShow] = useState(false);
 
   return (
@@ -22,7 +23,9 @@ export default function Language(Props: languagesInterface) {
             }}
           />
         </div>
-        <div className="border-white border-2 rounded-full">{name}</div>
+        <div className="border-white border-2 rounded-full">
+          {ancestralgroup}
+        </div>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div
             className={styles.arrowdown}
@@ -36,7 +39,7 @@ export default function Language(Props: languagesInterface) {
       {show && (
         <ul className="flex flex-col justify-around">
           {varients.map((varient: any, index: number) => (
-            <li key={index}> {varient.language}</li>
+            <Language {...varient} key={index} />
           ))}
         </ul>
       )}
