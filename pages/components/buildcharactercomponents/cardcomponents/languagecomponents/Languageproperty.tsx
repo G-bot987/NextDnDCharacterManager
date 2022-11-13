@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "../../../../../styles/Home.module.css";
 
@@ -15,7 +15,17 @@ export default function Languageproperty(Props: PropsInterface) {
   const keysForNoDialect = Object.keys(Props);
   const property = keysForNoDialect[0];
 
-  const [selected, setSelect] = useState(false);
+  const [selected, setSelect] = useState(() => {
+    const saved: any = localStorage.getItem(language + property);
+
+    const intialValue = JSON.parse(saved);
+    return intialValue || false;
+  });
+
+  useEffect(() => {
+    // storing
+    localStorage.setItem(language + property, JSON.stringify(selected));
+  }, [selected]);
 
   return (
     <p
