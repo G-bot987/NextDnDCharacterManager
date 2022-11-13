@@ -10,9 +10,6 @@ export default function Dialect(Props: dialectInterface) {
 
   const { name, written, spoken, inflection, proficiency } = Props;
 
-  const keysForNoDialect = Object.keys(Props);
-
-
   return (
     <li className="flex flex-col justify-around">
       <div
