@@ -4,18 +4,13 @@ import { languageInterface } from "../../../../../interfaces/templateInterface";
 
 import styles from "../../../../../styles/Home.module.css";
 import Dialect from "./Dialect";
+import Languageproperty from "./Languageproperty";
 
 export default function Language(Props: languageInterface) {
-  const { language, dialects } = Props;
+  const { language, dialects, written, spoken, inflection, proficiency } =
+    Props;
 
   const [show, setShow] = useState(false);
-
-  const keysForNoDialect = Object.keys(Props);
-
-  const written = keysForNoDialect[1];
-  const spoken = keysForNoDialect[2];
-  const inflection = keysForNoDialect[3];
-  const proficiency = keysForNoDialect[4];
 
   return (
     <li className="flex flex-col">
@@ -46,12 +41,21 @@ export default function Language(Props: languageInterface) {
       {show && !dialects && (
         <div className="flex flex-row  border-solid border-2 border-white rounded-lg">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
-            <p className="border-b-2 border-solid border-white">{written}</p>
-            <p>{spoken}</p>
+            {/* <p className="border-b-2 border-solid border-white">{written}</p> */}
+            <div>
+              <div className="border-b-2 border-solid border-white">
+                <Languageproperty {...{ written, language }} />
+              </div>
+              <Languageproperty {...{ spoken, language }} />
+            </div>
           </div>
           <div className="flex flex-col justify-center text-center min-w-[50%] ">
-            <p className="border-b-2 border-solid border-white">{inflection}</p>
-            <p>{proficiency}</p>
+            <div>
+              <div className="border-b-2 border-solid border-white">
+                <Languageproperty {...{ inflection, language }} />
+              </div>
+              <Languageproperty {...{ proficiency, language }} />
+            </div>
           </div>
         </div>
       )}
