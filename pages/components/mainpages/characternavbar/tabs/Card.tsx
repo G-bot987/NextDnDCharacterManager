@@ -14,10 +14,10 @@ export default function Card(Props: templateInterface) {
         <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around ">
           <Profile {...profile}></Profile>
         </li>
-        <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around">
+        <li className=" border-solid border-white border-2 rounded-lg flex flex-row justify-around">
           <ArrowBtn {...{ attributes }} />
         </li>
-        <li className=" border-solid border-white border-2 rounded-full">
+        <li className=" border-solid border-white border-2 rounded-lg">
           <ArrowBtn {...{ languages }} />
         </li>
       </ul>
