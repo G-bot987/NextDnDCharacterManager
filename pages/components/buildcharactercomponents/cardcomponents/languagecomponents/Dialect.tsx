@@ -16,8 +16,6 @@ export default function Dialect(Props: dialectInterface) {
   const inflection = keysForNoDialect[3];
   const proficiency = keysForNoDialect[4];
 
-  console.log(written, spoken, inflection, proficiency);
-
   return (
     <li className="flex flex-col justify-around">
       <div
