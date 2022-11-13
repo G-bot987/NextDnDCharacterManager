@@ -53,7 +53,7 @@ export interface skillsInterface {
 }
 
 export interface languagesInterface {
-  name: string;
+  ancestralgroup: string;
   varients: languageInterface[];
 }
 

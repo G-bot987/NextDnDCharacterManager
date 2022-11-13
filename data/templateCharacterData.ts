@@ -231,7 +231,7 @@ const template = {
   ],
   languages: [
     {
-      name: "imperialtongues",
+      ancestralgroup: "imperialtongues",
       varients: [
         {
           language: "high imperial",
@@ -403,7 +403,7 @@ const template = {
       ],
     },
     {
-      name: "tonguesofoldman",
+      ancestralgroup: "tonguesofoldman",
       varients: [
         {
           language: "Hulecian",
@@ -618,7 +618,7 @@ const template = {
     },
 
     {
-      name: "endetongues",
+      ancestralgroup: "endetongues",
       varients: [
         {
           language: "Haulende",
@@ -670,7 +670,7 @@ const template = {
     },
 
     {
-      name: "mountainkintongues",
+      ancestralgroup: "mountainkintongues",
       varients: [
         {
           language: "Clans of Fulgrix",
@@ -722,7 +722,7 @@ const template = {
     },
 
     {
-      name: "arcanetongues",
+      ancestralgroup: "arcanetongues",
       varients: [
         {
           language: "Rocian",
@@ -741,7 +741,7 @@ const template = {
       ],
     },
     {
-      name: "pyrictongues",
+      ancestralgroup: "pyrictongues",
       varients: [
         {
           language: "pyric",
