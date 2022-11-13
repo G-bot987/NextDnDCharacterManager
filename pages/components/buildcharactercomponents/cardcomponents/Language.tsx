@@ -8,11 +8,13 @@ export default function Language(Props: languagesInterface) {
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col  border-white border-2 rounded-t-lg shrink max-h-min ">
-      <div className="flex justify-center text-center flex-row">
+    <li className="flex flex-col  ">
+      <div
+        className="flex justify-center text-center flex-row"
+        onClick={() => setShow(!show)}
+      >
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div
-            onClick={() => setShow(!show)}
             className={styles.arrowdown}
             style={{
               transform: show ? "rotate(225deg)" : "",
@@ -20,10 +22,9 @@ export default function Language(Props: languagesInterface) {
             }}
           />
         </div>
-        {name}
+        <div className="border-white border-2 rounded-full">{name}</div>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div
-            onClick={() => setShow(!show)}
             className={styles.arrowdown}
             style={{
               transform: show ? "rotate(225deg)" : "",
