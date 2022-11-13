@@ -241,9 +241,9 @@ const template = {
           proficiency: null,
         },
         {
-          language: "imperial dialect",
+          language: "imperial dialects",
 
-          dialect: [
+          dialects: [
             {
               name: "Cala",
               written: null,
@@ -408,7 +408,7 @@ const template = {
         {
           language: "Hulecian",
 
-          dialect: [
+          dialects: [
             {
               name: "old",
               written: null,
@@ -429,7 +429,7 @@ const template = {
         {
           language: "Liundian",
 
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -450,7 +450,7 @@ const template = {
         {
           language: "Heroneese",
 
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -597,7 +597,7 @@ const template = {
         {
           language: "Deep valley",
 
-          dialect: [
+          dialects: [
             {
               name: "ende",
               written: null,
@@ -623,7 +623,7 @@ const template = {
         {
           language: "Haulende",
 
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -642,7 +642,7 @@ const template = {
         },
         {
           language: "Astralende",
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -675,7 +675,7 @@ const template = {
         {
           language: "Clans of Fulgrix",
 
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -701,7 +701,7 @@ const template = {
         },
         {
           language: "Sons of Aiger",
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,
@@ -746,7 +746,7 @@ const template = {
         {
           language: "pyric",
 
-          dialect: [
+          dialects: [
             {
               name: "high",
               written: null,

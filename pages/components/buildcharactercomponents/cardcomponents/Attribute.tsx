@@ -9,9 +9,6 @@ export default function Attribute(Props: attributesInterface) {
 
   const [show, setShow] = useState(false);
 
-  // console.log("Props");
-  // console.log(Props);
-  // console.log("---");
   return (
     <li className="flex flex-row justify-center text-center border-solid border-white border-2 rounded-t-lg">
       <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
