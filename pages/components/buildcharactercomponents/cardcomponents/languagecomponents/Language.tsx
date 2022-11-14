@@ -59,10 +59,10 @@ export default function Language(Props: languageInterface) {
           </div>
         </div>
       )}
-      {show && dialects && (
+      {show && dialects && language && (
         <ul className="rounded-lg border-solid border-white border-2">
           {dialects.map((dialect, index) => (
-            <Dialect {...dialect} key={index} />
+            <Dialect {...{ dialect, language }} key={index} />
           ))}
         </ul>
       )}
