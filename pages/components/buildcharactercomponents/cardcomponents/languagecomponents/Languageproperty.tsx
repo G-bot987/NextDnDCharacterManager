@@ -4,6 +4,7 @@ import styles from "../../../../../styles/Home.module.css";
 
 interface PropsInterface {
   language: string;
+  dialectLanguage?: string;
   written?: boolean | null;
   spoken?: boolean | null;
   inflection?: boolean | null;
@@ -11,23 +12,39 @@ interface PropsInterface {
 }
 
 export default function Languageproperty(Props: PropsInterface) {
-  const { language } = Props;
+  const { language, dialectLanguage } = Props;
   const keysForNoDialect = Object.keys(Props);
   const property = keysForNoDialect[0];
 
   const [selected, setSelect] = useState(() => {
     if (typeof window !== "undefined") {
-      const saved: any = localStorage.getItem(language + property);
+      if (typeof dialectLanguage === "string") {
+        const saved: any = localStorage.getItem(
+          language + property + dialectLanguage
+        );
 
-      const intialValue = JSON.parse(saved);
-      return intialValue || false;
+        const intialValue = JSON.parse(saved);
+        return intialValue || false;
+      } else {
+        const saved: any = localStorage.getItem(language + property);
+
+        const intialValue = JSON.parse(saved);
+        return intialValue || false;
+      }
     }
   });
 
   useEffect(() => {
+    if (typeof dialectLanguage === "string") {
+      localStorage.setItem(
+        language + property + dialectLanguage,
+        JSON.stringify(selected)
+      );
+    } else {
+      localStorage.setItem(language + property, JSON.stringify(selected));
+    }
     // storing
-    localStorage.setItem(language + property, JSON.stringify(selected));
-  }, [selected, language, property]);
+  }, [selected, language, property, dialectLanguage]);
 
   return (
     <p

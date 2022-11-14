@@ -5,10 +5,11 @@ import styles from "../../../../../styles/Home.module.css";
 import { dialectInterface } from "../../../../../interfaces/templateInterface";
 import Languageproperty from "./Languageproperty";
 
-export default function Dialect(Props: dialectInterface) {
+export default function Dialect(Props: any) {
   const [open, setOpen] = useState(false);
 
-  const { language, written, spoken, inflection, proficiency } = Props;
+  const { language, written, spoken, inflection, proficiency, dialect } = Props;
+  const dialectLanguage = dialect?.language;
 
   return (
     <li className="flex flex-col justify-around">
@@ -26,7 +27,7 @@ export default function Dialect(Props: dialectInterface) {
           />
         </div>
 
-        <p className="max-h-min">{language}</p>
+        <p className="max-h-min">{dialectLanguage}</p>
 
         <div className="w-6 h-6">
           <div
@@ -39,19 +40,21 @@ export default function Dialect(Props: dialectInterface) {
         </div>
       </div>
 
-      {open && (
+      {open && language && (
         <div className="flex flex-row justify-around border-solid border-white border-y-2">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty {...{ written, language }} />
+              <Languageproperty {...{ written, language, dialectLanguage }} />
             </div>
-            <Languageproperty {...{ spoken, language }} />
+            <Languageproperty {...{ spoken, language, dialectLanguage }} />
           </div>
           <div className="flex flex-col justify-center text-center  min-w-[50%] ">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty {...{ inflection, language }} />
+              <Languageproperty
+                {...{ inflection, language, dialectLanguage }}
+              />
             </div>
-            <Languageproperty {...{ proficiency, language }} />
+            <Languageproperty {...{ proficiency, language, dialectLanguage }} />
           </div>
         </div>
       )}
