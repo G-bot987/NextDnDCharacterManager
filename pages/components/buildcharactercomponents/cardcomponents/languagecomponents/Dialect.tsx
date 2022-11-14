@@ -5,10 +5,21 @@ import styles from "../../../../../styles/Home.module.css";
 import { dialectInterface } from "../../../../../interfaces/templateInterface";
 import Languageproperty from "./Languageproperty";
 
-export default function Dialect(Props: any) {
+interface Props {
+  dialect: dialectInterface;
+  language: string;
+}
+
+export default function Dialect(Props: Props) {
   const [open, setOpen] = useState(false);
 
-  const { language, written, spoken, inflection, proficiency, dialect } = Props;
+  const { language, dialect } = Props;
+
+  // find cleaner way to do this
+  const written = dialect?.written;
+  const spoken = dialect?.spoken;
+  const proficiency = dialect?.proficiency;
+  const inflection = dialect?.inflection;
   const dialectLanguage = dialect?.language;
 
   return (

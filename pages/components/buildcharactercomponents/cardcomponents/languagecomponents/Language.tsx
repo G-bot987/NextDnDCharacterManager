@@ -41,7 +41,6 @@ export default function Language(Props: languageInterface) {
       {show && !dialects && (
         <div className="flex flex-row  border-solid border-2 border-white rounded-lg">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
-            {/* <p className="border-b-2 border-solid border-white">{written}</p> */}
             <div>
               <div className="border-b-2 border-solid border-white">
                 <Languageproperty {...{ written, language }} />
