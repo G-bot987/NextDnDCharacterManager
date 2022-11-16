@@ -40,24 +40,29 @@ export default function Languageproperty(Props: PropsInterface) {
       }
     }
   });
-  const pre = language + property + dialectLanguage;
-  const test = { pre };
-  console.log("test in comp ", test);
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
-      localStorage.setItem(
-        language + property + dialectLanguage,
-        JSON.stringify(selected)
-      );
+      // localStorage.setItem(
+      //   language + property + dialectLanguage,
+      //   JSON.stringify(selected)
+      // );
+      const value = language + property + dialectLanguage;
+      const languageProperty = { value, selected: selected };
+
+      dispatch(addLanguagePro(languageProperty));
     } else {
-      localStorage.setItem(language + property, JSON.stringify(selected));
+      // localStorage.setItem(language + property, JSON.stringify(selected));
+      const value = language + property;
+      const languageProperty = { value, selected: selected };
+
+      dispatch(addLanguagePro(languageProperty));
     }
     // storing
-  }, [selected, language, property, dialectLanguage]);
+  }, [selected, language, property, dialectLanguage, dispatch]);
 
   return (
     <p
-      onClick={() => dispatch(addLanguagePro(test))}
+      onClick={(e) => setSelect(!selected)}
       style={{
         background: selected ? "purple" : "",
       }}
