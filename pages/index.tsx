@@ -17,9 +17,9 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 // data & interfaces
 import template from "../data/templateCharacterData";
 
-export default function App() {
-  // use state hook to render different pg's
+// redux
 
+export default function App() {
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 
 import styles from "../../../../../styles/Home.module.css";
 
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { addLanguagePro, rootState } from "../../../../../slices/languageSlice";
+
 interface PropsInterface {
   language: string;
   dialectLanguage?: string;
@@ -12,6 +16,9 @@ interface PropsInterface {
 }
 
 export default function Languageproperty(Props: PropsInterface) {
+  const count = useSelector(rootState);
+  const dispatch = useDispatch();
+
   const { language, dialectLanguage } = Props;
   const keysForNoDialect = Object.keys(Props);
   const property = keysForNoDialect[0];
@@ -33,7 +40,9 @@ export default function Languageproperty(Props: PropsInterface) {
       }
     }
   });
-
+  const pre = language + property + dialectLanguage;
+  const test = { pre };
+  console.log("test in comp ", test);
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
       localStorage.setItem(
@@ -48,7 +57,7 @@ export default function Languageproperty(Props: PropsInterface) {
 
   return (
     <p
-      onClick={() => setSelect(!selected)}
+      onClick={() => dispatch(addLanguagePro(test))}
       style={{
         background: selected ? "purple" : "",
       }}
