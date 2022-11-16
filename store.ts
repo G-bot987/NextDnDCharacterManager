@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import counterReducer from "./slices/testSlice";
+import { languagePropertiesReducer } from "./slices/languageSlice";
 
 export const store = configureStore({
   reducer: {
-    fff: counterReducer,
+    languagePropertiesReducer: languagePropertiesReducer,
   },
 });
 

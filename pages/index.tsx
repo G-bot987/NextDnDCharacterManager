@@ -18,14 +18,8 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 import template from "../data/templateCharacterData";
 
 // redux
-import { useSelector, useDispatch } from "react-redux";
-import { decrement, frog, increment } from "../slices/testSlice";
 
 export default function App() {
-
-  const count = useSelector(frog);
-  const dispatch = useDispatch();
-
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 
@@ -73,12 +67,6 @@ export default function App() {
   return (
     <div className="flex-col flex justify-evenly flex-wrap">
       <Header currentPage={pg} handlePageChange={handlePageChange} />
-
-      <h1>counter slkajdflkjsdl</h1>
-      <p>count {count}</p>
-      <button onClick={() => dispatch(increment())}>increment </button>
-
-      <button onClick={() => dispatch(decrement())}>decrement</button>
 
       {renderPage()}
     </div>
