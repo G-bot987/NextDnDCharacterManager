@@ -1,12 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export interface LanguageProficiencyState {
   languagesArray: languageInterface[];
 }
 export interface languageInterface {
-  languageProperty: string;
+  value: string;
+  selected?: boolean;
 }
 const initialState: LanguageProficiencyState = {
   languagesArray: [],
@@ -29,31 +28,29 @@ const removeLanguagePro = () => {
 export function languagePropertiesReducer(state = initialState, action: any) {
   switch (action.type) {
     case "ADD_LANGUAGE_PROFICIENCY":
-      console.log("inside switch", action.payload);
-      return {
-        ...state,
-        languagesArray: [...state.languagesArray, action.payload],
-      };
-
-    case "DELETE_LANGUAGE_PROFICIENCY":
-      console.log("inside del");
-      return {
-        ...state,
-        languageProData: { ...state.languagesArray, ...action.payload },
-      };
+      const { value, selected } = action.payload;
+      const { languagesArray } = state;
+      const languageProperty = languagesArray.find(
+        (languageProperty) => languageProperty.value === value
+      );
+      if (languageProperty === undefined) {
+        console.log("does not exists so adding");
+        return {
+          ...state,
+          languagesArray: [...state.languagesArray, action.payload],
+        };
+      } else {
+        return {
+          languagesArray: [
+            ...state.languagesArray.filter((x) => x !== action.payload),
+          ],
+        };
+      }
 
     default:
       return state;
   }
 }
-
-// var state = {};
-// state = languagePropertiesReducer(undefined, {
-//   type: "ADD_LANGUAGE_PROFICIENCY",
-//   payload: { React: { name: "React", quantity: 1 } },
-// });
-
-// Action creators are generated for each case reducer function
 
 export const rootState = (state: RootState) =>
   state.languagePropertiesReducer.languagesArray;
