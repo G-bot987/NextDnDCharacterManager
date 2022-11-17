@@ -57,12 +57,11 @@ export default function Languageproperty(Props: PropsInterface) {
 
       dispatch(addLanguagePro(languageProperty));
     }
-    // storing
   }, [selected, language, property, dialectLanguage, dispatch]);
 
   return (
     <p
-      onClick={(e) => setSelect(!selected)}
+      onClick={() => setSelect(!selected)}
       style={{
         background: selected ? "purple" : "",
       }}
