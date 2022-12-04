@@ -24,7 +24,7 @@ export default function ArrowBtn(Props: any) {
       </div>
       {show && attributes && (
         <ul className="min-h-min flex flex-row justify-around min-w-full min-w-min grow ">
-          {Object.keys(attributes).map((attribute: any, index: number) => (
+          {Object.keys(attributes).map((attribute: string, index: number) => (
             <Attribute {...attributes[attribute]} key={`${index}`} />
           ))}
         </ul>
@@ -32,7 +32,7 @@ export default function ArrowBtn(Props: any) {
 
       {show && languages && (
         <ul className="min-h-min flex flex-row justify-around   min-w-min grow ">
-          {Object.keys(languages).map((language: any, index: number) => (
+          {Object.keys(languages).map((language: string, index: number) => (
             <Languages {...languages[language]} key={`${index}`} />
           ))}
         </ul>
