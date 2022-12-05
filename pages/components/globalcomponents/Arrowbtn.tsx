@@ -12,7 +12,7 @@ export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
 
   const store = useSelector(rootState);
-  
+
   const hasSelectedLanguageProperties = store.filter(
     (selectedVals) => selectedVals.selected === true
   );
@@ -41,7 +41,7 @@ export default function ArrowBtn(Props: any) {
 
       {show && languages && (
         <ul className="min-h-min flex flex-row justify-around   min-w-min grow ">
-          {hasSelectedLanguageProperties && (
+          {hasSelectedLanguageProperties.length > 0 && (
             <Selectedlanguageproperties {...hasSelectedLanguageProperties} />
           )}
           {Object.keys(languages).map((language: string, index: number) => (
