@@ -15,10 +15,6 @@ interface PropsInterface {
 
 export default function Languageproperty(Props: PropsInterface) {
   const store = useSelector(rootState);
-  console.log(" count ");
-  console.log(store);
-  console.log("--");
-
   const dispatch = useDispatch();
 
   const { language, dialectLanguage } = Props;
