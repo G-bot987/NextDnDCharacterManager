@@ -29,15 +29,7 @@ export default function Languageproperty(Props: PropsInterface) {
 
   const [selected, setSelect] = useState(() => {
     if (typeof dialectLanguage === "string") {
-      const saved: any = localStorage.getItem(
-        language + property + dialectLanguage
-      );
-
-      const intialValue = JSON.parse(saved);
-      return intialValue || false;
-    } else {
-      // const saved: any = localStorage.getItem(language + property);
-      const value = language + property;
+      const value = language + property + dialectLanguage;
       const thisLangProp = store.find((element: languageInterface) => {
         if (element.value === value) {
           return element;
@@ -45,6 +37,21 @@ export default function Languageproperty(Props: PropsInterface) {
           return;
         }
       });
+
+      if (thisLangProp) {
+        return thisLangProp.selected;
+      }
+    } else {
+      const value = language + property;
+
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
+
       if (thisLangProp) {
         return thisLangProp.selected;
       }
@@ -52,14 +59,36 @@ export default function Languageproperty(Props: PropsInterface) {
   });
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
-      // localStorage.setItem(
-      //   language + property + dialectLanguage,
-      //   JSON.stringify(selected)
-      // );
-      // const value = language + property + dialectLanguage;
-      // const languageProperty = { value, selected: selected };
-      // return;
-      // dispatch(addLanguagePro(languageProperty));
+      const value = language + property + dialectLanguage;
+      if (store === undefined) {
+        return;
+      }
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
+
+      if (thisLangProp === undefined) {
+        const value = language + property + dialectLanguage;
+        const languageProperty = { value, selected: selected };
+        dispatch(addLanguagePro(languageProperty));
+      } else {
+        if (selected === thisLangProp.selected) {
+          // this prevents useEffect running twice on mount unmount this is a poor behaviour is react 18.2
+          return console.log("catch");
+        } else {
+          const value = language + property + dialectLanguage;
+          const languageProperty = { value, selected: selected };
+          if (selected === true) {
+            dispatch(LanguageProTrue(languageProperty));
+          } else {
+            dispatch(LanguageProFalse(languageProperty));
+          }
+        }
+      }
     } else {
       const value = language + property;
       if (store === undefined) {
@@ -91,8 +120,6 @@ export default function Languageproperty(Props: PropsInterface) {
           }
         }
       }
-
-      // localStorage.setItem(language + property, JSON.stringify(selected));
     }
   }, [selected, language, property, dialectLanguage, dispatch]);
 
