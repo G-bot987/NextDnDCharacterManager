@@ -3,10 +3,19 @@ import React, { useState } from "react";
 import styles from "../../../styles/Home.module.css";
 import Attribute from "../buildcharactercomponents/cardcomponents/Attribute";
 import Languages from "../buildcharactercomponents/cardcomponents/Languages";
+import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponents/languagecomponents/Selectedlanguageproperties";
+
+import { useSelector } from "react-redux";
+import { rootState } from "../../../slices/languageSlice";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
 
+  const store = useSelector(rootState);
+  
+  const hasSelectedLanguageProperties = store.filter(
+    (selectedVals) => selectedVals.selected === true
+  );
   const [show, setShow] = useState(false);
 
   return (
@@ -32,6 +41,9 @@ export default function ArrowBtn(Props: any) {
 
       {show && languages && (
         <ul className="min-h-min flex flex-row justify-around   min-w-min grow ">
+          {hasSelectedLanguageProperties && (
+            <Selectedlanguageproperties {...hasSelectedLanguageProperties} />
+          )}
           {Object.keys(languages).map((language: string, index: number) => (
             <Languages {...languages[language]} key={`${index}`} />
           ))}
