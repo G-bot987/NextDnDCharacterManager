@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import styles from "../../../../../styles/Home.module.css";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { addLanguagePro, rootState } from "../../../../../slices/languageSlice";
+import {
+  addLanguagePro,
+  LanguageProTrue,
+  LanguageProFalse,
+  rootState,
+} from "../../../../../slices/languageSlice";
 
 interface PropsInterface {
   language: string;
@@ -33,6 +38,14 @@ export default function Languageproperty(Props: PropsInterface) {
       } else {
         const saved: any = localStorage.getItem(language + property);
 
+        // const thisLangProp = store.find((element: any) => {
+        //   if (element.value === value) {
+        //     return element;
+        //   } else {
+        //     return;
+        //   }
+        // });
+
         const intialValue = JSON.parse(saved);
         return intialValue || false;
       }
@@ -40,16 +53,15 @@ export default function Languageproperty(Props: PropsInterface) {
   });
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
-      localStorage.setItem(
-        language + property + dialectLanguage,
-        JSON.stringify(selected)
-      );
-      const value = language + property + dialectLanguage;
-      const languageProperty = { value, selected: selected };
-      return;
+      // localStorage.setItem(
+      //   language + property + dialectLanguage,
+      //   JSON.stringify(selected)
+      // );
+      // const value = language + property + dialectLanguage;
+      // const languageProperty = { value, selected: selected };
+      // return;
       // dispatch(addLanguagePro(languageProperty));
     } else {
-      console.log("i am here");
       // const x = localStorage.getItem(language + property);
       const value = language + property;
       if (store === undefined) {
@@ -74,7 +86,11 @@ export default function Languageproperty(Props: PropsInterface) {
         } else {
           const value = language + property;
           const languageProperty = { value, selected: selected };
-          dispatch(addLanguagePro(languageProperty));
+          if (selected === true) {
+            dispatch(LanguageProTrue(languageProperty));
+          } else {
+            dispatch(LanguageProFalse(languageProperty));
+          }
         }
       }
 

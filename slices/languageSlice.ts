@@ -18,9 +18,17 @@ export const addLanguagePro = (test: any) => ({
   payload: test,
 });
 
-const removeLanguagePro = () => {
+export const LanguageProTrue = (test: any) => {
   return {
-    type: "REMOVE_LANGUAGE_PROFICIENCY",
+    type: "LANGUAGE_PROFICIENCY_TRUE",
+    payload: test,
+  };
+};
+
+export const LanguageProFalse = (test: any) => {
+  return {
+    type: "LANGUAGE_PROFICIENCY_FALSE",
+    payload: test,
   };
 };
 
@@ -34,19 +42,26 @@ export function languagePropertiesReducer(state = initialState, action: any) {
         (languageProperty) => languageProperty.value === value
       );
       if (languageProperty === undefined) {
-        console.log("does not exists so adding");
         return {
           ...state,
           languagesArray: [...state.languagesArray, action.payload],
         };
       } else {
-        return {
-          languagesArray: [
-            ...state.languagesArray.filter((x) => x !== action.payload),
-          ],
-        };
       }
-
+    case "LANGUAGE_PROFICIENCY_TRUE":
+      const storeData = state.languagesArray.filter(
+        (languageProperty) => languageProperty.value !== action.payload.value
+      );
+      return {
+        ...state,
+        languagesArray: [...storeData, action.payload],
+      };
+    case "LANGUAGE_PROFICIENCY_FALSE":
+    // console.log("action.type "), console.log(action.type);
+    // console.log("---");
+    // console.log("lang pro false ");
+    // console.log(action.payload);
+    // console.log("000");
     default:
       return state;
   }
