@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../../../../styles/Home.module.css";
+import { languageInterface } from "../../../../../slices/languageSlice";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -27,27 +28,25 @@ export default function Languageproperty(Props: PropsInterface) {
   const property = keysForNoDialect[0];
 
   const [selected, setSelect] = useState(() => {
-    if (typeof window !== "undefined") {
-      if (typeof dialectLanguage === "string") {
-        const saved: any = localStorage.getItem(
-          language + property + dialectLanguage
-        );
+    if (typeof dialectLanguage === "string") {
+      const saved: any = localStorage.getItem(
+        language + property + dialectLanguage
+      );
 
-        const intialValue = JSON.parse(saved);
-        return intialValue || false;
-      } else {
-        const saved: any = localStorage.getItem(language + property);
-
-        // const thisLangProp = store.find((element: any) => {
-        //   if (element.value === value) {
-        //     return element;
-        //   } else {
-        //     return;
-        //   }
-        // });
-
-        const intialValue = JSON.parse(saved);
-        return intialValue || false;
+      const intialValue = JSON.parse(saved);
+      return intialValue || false;
+    } else {
+      // const saved: any = localStorage.getItem(language + property);
+      const value = language + property;
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
+      if (thisLangProp) {
+        return thisLangProp.selected;
       }
     }
   });
@@ -62,12 +61,11 @@ export default function Languageproperty(Props: PropsInterface) {
       // return;
       // dispatch(addLanguagePro(languageProperty));
     } else {
-      // const x = localStorage.getItem(language + property);
       const value = language + property;
       if (store === undefined) {
         return;
       }
-      const thisLangProp = store.find((element: any) => {
+      const thisLangProp = store.find((element: languageInterface) => {
         if (element.value === value) {
           return element;
         } else {
