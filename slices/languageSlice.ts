@@ -13,22 +13,22 @@ const initialState: LanguageProficiencyState = {
 
 // actions
 
-export const addLanguagePro = (test: any) => ({
+export const addLanguagePro = (language: languageInterface) => ({
   type: "ADD_LANGUAGE_PROFICIENCY",
-  payload: test,
+  payload: language,
 });
 
-export const LanguageProTrue = (test: any) => {
+export const LanguageProTrue = (language: languageInterface) => {
   return {
     type: "LANGUAGE_PROFICIENCY_TRUE",
-    payload: test,
+    payload: language,
   };
 };
 
-export const LanguageProFalse = (test: any) => {
+export const LanguageProFalse = (language: languageInterface) => {
   return {
     type: "LANGUAGE_PROFICIENCY_FALSE",
-    payload: test,
+    payload: language,
   };
 };
 
@@ -57,11 +57,13 @@ export function languagePropertiesReducer(state = initialState, action: any) {
         languagesArray: [...storeData, action.payload],
       };
     case "LANGUAGE_PROFICIENCY_FALSE":
-    // console.log("action.type "), console.log(action.type);
-    // console.log("---");
-    // console.log("lang pro false ");
-    // console.log(action.payload);
-    // console.log("000");
+      const storeDataFalse = state.languagesArray.filter(
+        (languageProperty) => languageProperty.value !== action.payload.value
+      );
+      return {
+        ...state,
+        languagesArray: [...storeDataFalse, action.payload],
+      };
     default:
       return state;
   }
