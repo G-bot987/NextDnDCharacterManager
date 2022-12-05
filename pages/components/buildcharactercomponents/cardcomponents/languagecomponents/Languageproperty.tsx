@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import styles from "../../../../../styles/Home.module.css";
-
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { addLanguagePro, rootState } from "../../../../../slices/languageSlice";
@@ -42,20 +40,34 @@ export default function Languageproperty(Props: PropsInterface) {
   });
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
-      // localStorage.setItem(
-      //   language + property + dialectLanguage,
-      //   JSON.stringify(selected)
-      // );
+      localStorage.setItem(
+        language + property + dialectLanguage,
+        JSON.stringify(selected)
+      );
       const value = language + property + dialectLanguage;
       const languageProperty = { value, selected: selected };
-
-      dispatch(addLanguagePro(languageProperty));
+      return;
+      // dispatch(addLanguagePro(languageProperty));
     } else {
+      const x = localStorage.getItem(language + property);
+      let status;
+      if (x === "true") {
+        status = true;
+      } else if (x === "false") {
+        status = false;
+      }
+
+      if (selected === status) {
+        // this prevents useEffect running twice on mount unmount this is a poor behaviour is react 18.2
+        return;
+      } else {
+        localStorage.setItem(language + property, JSON.stringify(selected));
+      }
       // localStorage.setItem(language + property, JSON.stringify(selected));
       const value = language + property;
       const languageProperty = { value, selected: selected };
 
-      dispatch(addLanguagePro(languageProperty));
+      // dispatch(addLanguagePro(languageProperty));
     }
   }, [selected, language, property, dialectLanguage, dispatch]);
 
