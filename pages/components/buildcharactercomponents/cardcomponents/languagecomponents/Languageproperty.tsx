@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../../../../styles/Home.module.css";
+import { languageInterface } from "../../../../../slices/languageSlice";
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { addLanguagePro, rootState } from "../../../../../slices/languageSlice";
+import {
+  addLanguagePro,
+  LanguageProTrue,
+  LanguageProFalse,
+  rootState,
+} from "../../../../../slices/languageSlice";
 
 interface PropsInterface {
   language: string;
@@ -22,40 +28,73 @@ export default function Languageproperty(Props: PropsInterface) {
   const property = keysForNoDialect[0];
 
   const [selected, setSelect] = useState(() => {
-    if (typeof window !== "undefined") {
-      if (typeof dialectLanguage === "string") {
-        const saved: any = localStorage.getItem(
-          language + property + dialectLanguage
-        );
+    if (typeof dialectLanguage === "string") {
+      const value = language + property + dialectLanguage;
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
 
-        const intialValue = JSON.parse(saved);
-        return intialValue || false;
-      } else {
-        const saved: any = localStorage.getItem(language + property);
+      if (thisLangProp) {
+        return thisLangProp.selected;
+      }
+    } else {
+      const value = language + property;
 
-        const intialValue = JSON.parse(saved);
-        return intialValue || false;
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
+
+      if (thisLangProp) {
+        return thisLangProp.selected;
       }
     }
   });
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
-      localStorage.setItem(
-        language + property + dialectLanguage,
-        JSON.stringify(selected)
-      );
       const value = language + property + dialectLanguage;
-      const languageProperty = { value, selected: selected };
-      return;
-      // dispatch(addLanguagePro(languageProperty));
+      if (store === undefined) {
+        return;
+      }
+      const thisLangProp = store.find((element: languageInterface) => {
+        if (element.value === value) {
+          return element;
+        } else {
+          return;
+        }
+      });
+
+      if (thisLangProp === undefined) {
+        const value = language + property + dialectLanguage;
+        const languageProperty = { value, selected: selected };
+        dispatch(addLanguagePro(languageProperty));
+      } else {
+        if (selected === thisLangProp.selected) {
+          // this prevents useEffect running twice on mount unmount this is a poor behaviour is react 18.2
+          return console.log("catch");
+        } else {
+          const value = language + property + dialectLanguage;
+          const languageProperty = { value, selected: selected };
+          if (selected === true) {
+            dispatch(LanguageProTrue(languageProperty));
+          } else {
+            dispatch(LanguageProFalse(languageProperty));
+          }
+        }
+      }
     } else {
-      console.log("i am here");
-      // const x = localStorage.getItem(language + property);
       const value = language + property;
       if (store === undefined) {
         return;
       }
-      const thisLangProp = store.find((element: any) => {
+      const thisLangProp = store.find((element: languageInterface) => {
         if (element.value === value) {
           return element;
         } else {
@@ -74,11 +113,13 @@ export default function Languageproperty(Props: PropsInterface) {
         } else {
           const value = language + property;
           const languageProperty = { value, selected: selected };
-          dispatch(addLanguagePro(languageProperty));
+          if (selected === true) {
+            dispatch(LanguageProTrue(languageProperty));
+          } else {
+            dispatch(LanguageProFalse(languageProperty));
+          }
         }
       }
-
-      // localStorage.setItem(language + property, JSON.stringify(selected));
     }
   }, [selected, language, property, dialectLanguage, dispatch]);
 
