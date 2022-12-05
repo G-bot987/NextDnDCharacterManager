@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { languagesInterface } from "../../../../interfaces/templateInterface";
+import {
+  languagesInterface,
+  languageInterface,
+} from "../../../../interfaces/templateInterface";
 
 import styles from "../../../../styles/Home.module.css";
 import Language from "./languagecomponents/Language";
@@ -38,7 +41,7 @@ export default function Languages(Props: languagesInterface) {
       </div>
       {show && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
-          {varients.map((varient: any, index: number) => (
+          {varients.map((varient: languageInterface, index: number) => (
             <Language {...varient} key={index} />
           ))}
         </ul>
