@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../../../../styles/Home.module.css";
+import Selectedlanguageproperty from "./Selectedlanguageproperty";
 
 interface PropsInterface {
   value: string;
@@ -41,7 +42,7 @@ export default function Selectedlanguageproperties(Props: any) {
       {show && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
           {Object.keys(Props).map((property: any, index: number) => (
-            <li key={index}>{Props[property].value}</li>
+            <Selectedlanguageproperty {...Props[property]} key={index} />
           ))}
         </ul>
       )}
