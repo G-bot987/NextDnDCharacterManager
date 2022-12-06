@@ -4,7 +4,6 @@ import { languageInterface } from "../../../../../slices/languageSlice";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addLanguagePro,
   LanguageProTrue,
   LanguageProFalse,
   rootState,
@@ -22,10 +21,28 @@ interface PropsInterface {
 export default function Languageproperty(Props: PropsInterface) {
   const store = useSelector(rootState);
   const dispatch = useDispatch();
-
   const { language, dialectLanguage } = Props;
   const keysForNoDialect = Object.keys(Props);
   const property = keysForNoDialect[0];
+
+  const nameOfProperty = (() => {
+    if (!dialectLanguage) {
+      return language + property;
+    } else {
+      return language + property + dialectLanguage;
+    }
+  })();
+
+  const valueInStore = store.find((element: languageInterface) => {
+    if (element.value === nameOfProperty) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  
+  if (!dialectLanguage) {
+  }
 
   const [selected, setSelect] = useState(() => {
     if (typeof dialectLanguage === "string") {
@@ -74,7 +91,7 @@ export default function Languageproperty(Props: PropsInterface) {
       if (thisLangProp === undefined) {
         const value = language + property + dialectLanguage;
         const languageProperty = { value, selected: selected };
-        dispatch(addLanguagePro(languageProperty));
+        dispatch(LanguageProTrue(languageProperty));
       } else {
         if (selected === thisLangProp.selected) {
           // this prevents useEffect running twice on mount unmount this is a poor behaviour is react 18.2
@@ -105,7 +122,7 @@ export default function Languageproperty(Props: PropsInterface) {
       if (thisLangProp === undefined) {
         const value = language + property;
         const languageProperty = { value, selected: selected };
-        dispatch(addLanguagePro(languageProperty));
+        dispatch(LanguageProTrue(languageProperty));
       } else {
         if (selected === thisLangProp.selected) {
           // this prevents useEffect running twice on mount unmount this is a poor behaviour is react 18.2
@@ -124,13 +141,17 @@ export default function Languageproperty(Props: PropsInterface) {
   }, [selected, language, property, dialectLanguage, dispatch]);
 
   return (
-    <p
-      onClick={() => setSelect(!selected)}
-      style={{
-        background: selected ? "purple" : "",
-      }}
-    >
-      {property}
-    </p>
+    <div>
+      {valueInStore && (
+        <p
+          onClick={() => setSelect(!selected)}
+          style={{
+            background: valueInStore.selected ? "purple" : "",
+          }}
+        >
+          {property}
+        </p>
+      )}
+    </div>
   );
 }
