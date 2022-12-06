@@ -7,6 +7,7 @@ import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponen
 
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
+import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skilcomponents/Myskills";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
@@ -14,6 +15,10 @@ export default function ArrowBtn(Props: any) {
   const store = useSelector(rootState);
 
   const hasSelectedLanguageProperties = store.filter(
+    (selectedVals) => selectedVals.selected === true
+  );
+
+  const SelectedSkillProperties = store.filter(
     (selectedVals) => selectedVals.selected === true
   );
   const [show, setShow] = useState(false);
@@ -33,6 +38,7 @@ export default function ArrowBtn(Props: any) {
       </div>
       {show && attributes && (
         <ul className="min-h-min flex flex-row justify-around min-w-full min-w-min grow ">
+          {SelectedSkillProperties.length > 1000 && <Myskills />}
           {Object.keys(attributes).map((attribute: string, index: number) => (
             <Attribute {...attributes[attribute]} key={`${index}`} />
           ))}
