@@ -9,18 +9,16 @@ export default function Card(Props: templateInterface) {
   const { profile, attributes, languages } = Props;
 
   return (
-    <div className=" flex flex-col justify-around min-h-full">
-      <ul>
-        <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around ">
-          <Profile {...profile}></Profile>
-        </li>
-        <li>
-          <ArrowBtn {...{ attributes }} />
-        </li>
-        <li>
-          <ArrowBtn {...{ languages }} />
-        </li>
-      </ul>
-    </div>
+    <ul className=" flex flex-col justify-around min-h-full space-y-4">
+      <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around ">
+        <Profile {...profile}></Profile>
+      </li>
+      <li>
+        <ArrowBtn {...{ attributes }} />
+      </li>
+      <li>
+        <ArrowBtn {...{ languages }} />
+      </li>
+    </ul>
   );
 }
