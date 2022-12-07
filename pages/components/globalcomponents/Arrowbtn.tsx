@@ -11,8 +11,9 @@ import Myskills from "../buildcharactercomponents/cardcomponents/attributecompon
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
-
   const store = useSelector(rootState);
+  const cardValue = Object.keys(Props);
+  const silderTitle = cardValue[0];
 
   const hasSelectedLanguageProperties = store.filter(
     (selectedVals) => selectedVals.selected === true
@@ -21,10 +22,18 @@ export default function ArrowBtn(Props: any) {
   const SelectedSkillProperties = store.filter(
     (selectedVals) => selectedVals.selected === true
   );
+
   const [show, setShow] = useState(false);
 
   return (
     <div className="min-w-full flex flex flex-row inline-flex ">
+      <p
+        style={{
+          display: show ? "none" : "",
+        }}
+      >
+        {silderTitle}
+      </p>
       <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
         <div
           className={`${styles.arrowright}`}
