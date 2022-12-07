@@ -2,10 +2,15 @@ import React, { useState } from "react";
 
 import styles from "../../../../styles/Home.module.css";
 
-import { attributesInterface } from "../../../../interfaces/templateInterface";
+import {
+  attributesInterface,
+  skillInterface,
+  scoreInterface,
+} from "../../../../interfaces/templateInterface";
+import Skills from "./attributecomponents/skillcomponents/Skills";
 
 export default function Attribute(Props: attributesInterface) {
-  const { attribute } = Props;
+  const { attribute, score, skills } = Props;
 
   console.log("props ");
   console.log(Props);
@@ -40,9 +45,9 @@ export default function Attribute(Props: attributesInterface) {
       </div>
       {show && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
-          {/* {varients.map((varient: languageInterface, index: number) => (
-            <Language {...varient} key={index} />
-          ))} */}
+          {skills?.map((skill: skillInterface, index: number) => (
+            <Skills {...skill} key={index} />
+          ))}
         </ul>
       )}
     </li>

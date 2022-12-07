@@ -39,7 +39,7 @@ export interface attributesInterface {
   attribute: string;
   abr: string;
   score: scoreInterface[];
-  skills?: skillsInterface[];
+  skills?: skillInterface[];
 }
 
 export interface scoreInterface {
@@ -47,7 +47,7 @@ export interface scoreInterface {
   selected: null | boolean;
 }
 
-export interface skillsInterface {
+export interface skillInterface {
   skill: string;
   proficiency: null | boolean;
 }
