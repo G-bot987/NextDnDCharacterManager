@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { skillInterface } from "../../../../../../interfaces/templateInterface";
+import Skillproficiency from "./Skillproficiency";
 
-export default function Skills(Props: skillInterface) {
-  const { skill } = Props;
+interface SKillsInterface {
+  skill: string;
+  proficiency: null | boolean;
+}
 
-  return <li className="flex flex-col">{skill}</li>;
+interface PropsInterface {
+  attribute: string;
+  skill?: SKillsInterface;
+}
+
+export default function Skills(Props: PropsInterface) {
+  const skillName = Props.skill?.skill;
+  var proficiency = Props.skill?.proficiency;
+
+  const [select, setSelect] = useState(false);
+
+  useEffect(() => {
+    if (select === true) {
+      proficiency = true;
+    } else {
+      proficiency = false;
+    }
+  });
+
+  return (
+    <li className="flex flex-col" onClick={() => setSelect(!select)}>
+      <p>{skillName}</p>
+      <Skillproficiency />
+    </li>
+  );
 }
