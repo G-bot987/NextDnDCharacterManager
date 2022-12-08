@@ -124,7 +124,6 @@ const template = {
         { value: 19, selected: null },
         { value: 20, selected: null },
       ],
-      skills: [],
     },
     {
       attribute: "Charisma",

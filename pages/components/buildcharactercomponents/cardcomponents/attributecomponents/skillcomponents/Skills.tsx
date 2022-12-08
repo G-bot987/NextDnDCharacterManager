@@ -4,5 +4,5 @@ import { skillInterface } from "../../../../../../interfaces/templateInterface";
 export default function Skills(Props: skillInterface) {
   const { skill } = Props;
 
-  return <div>{skill}</div>;
+  return <li className="flex flex-col">{skill}</li>;
 }
