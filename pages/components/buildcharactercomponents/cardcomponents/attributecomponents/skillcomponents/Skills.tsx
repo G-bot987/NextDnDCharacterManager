@@ -9,13 +9,16 @@ export default function Skills(Props: any) {
   const skillName = skill.skill;
   const [select, setSelect] = useState(false);
 
-  useEffect(() => {
-    if (select === true) {
-      proficiency = true;
-    } else {
-      proficiency = false;
-    }
-  });
+  // useEffect(() => {
+  //   if (select === true) {
+  //     proficiency = true;
+  //   } else {
+  //     proficiency = false;
+  //   }
+  //   console.log("---");
+  //   console.log(skillName, proficiency);
+  //   console.log("----");
+  // });
 
   return (
     <li className="flex flex-col" onClick={() => setSelect(!select)}>
