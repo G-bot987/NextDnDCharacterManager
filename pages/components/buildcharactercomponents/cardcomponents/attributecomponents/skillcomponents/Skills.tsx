@@ -2,11 +2,20 @@ import React, { useState, useEffect } from "react";
 import { skillInterface } from "../../../../../../interfaces/templateInterface";
 import Skillproficiency from "./Skillproficiency";
 
-export default function Skills(Props: any) {
-  const { skill } = Props;
-  var { proficiency } = Props;
+interface SKillsInterface {
+  skill: string;
+  proficiency: null | boolean;
+}
 
-  const skillName = skill.skill;
+interface PropsInterface {
+  attribute: string;
+  skill?: SKillsInterface;
+}
+
+export default function Skills(Props: PropsInterface) {
+  const skillName = Props.skill?.skill;
+  var proficiency = Props.skill?.proficiency;
+
   const [select, setSelect] = useState(false);
 
   useEffect(() => {
@@ -15,9 +24,6 @@ export default function Skills(Props: any) {
     } else {
       proficiency = false;
     }
-    console.log("---");
-    console.log(skillName, proficiency);
-    console.log("----");
   });
 
   return (
