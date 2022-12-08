@@ -12,9 +12,6 @@ import Skills from "./attributecomponents/skillcomponents/Skills";
 export default function Attribute(Props: attributesInterface) {
   const { attribute, score, skills } = Props;
 
-  console.log("props ");
-  console.log(Props);
-  console.log("---");
 
   const [show, setShow] = useState(false);
 
@@ -50,10 +47,10 @@ export default function Attribute(Props: attributesInterface) {
           </div>
         )}
       </div>
-      {show && (
+      {show && skills && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
-          {skills?.map((skill: skillInterface, index: number) => (
-            <Skills {...skill} key={index} />
+          {skills.map((skill: skillInterface, index: number) => (
+            <Skills {...{ skill, attribute }} key={index} />
           ))}
         </ul>
       )}
