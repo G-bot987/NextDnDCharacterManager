@@ -1,5 +1,12 @@
 import React from "react";
 
-export default function Skillproficiency() {
-  return <div>Skillproficiency</div>;
+interface SkillproficiencyInterface {
+  proficiency?: boolean | null | undefined;
+  skillName?: string | null;
+  attribute?: string;
+}
+
+export default function Skillproficiency(Props: SkillproficiencyInterface) {
+  const { proficiency } = Props;
+  return <div>Skillproficiency {proficiency}</div>;
 }
