@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { skillInterface } from "../../../../../../interfaces/templateInterface";
 import Skillproficiency from "./Skillproficiency";
 
 interface SKillsInterface {
@@ -13,6 +12,7 @@ interface PropsInterface {
 }
 
 export default function Skills(Props: PropsInterface) {
+  const { attribute } = Props;
   const skillName = Props.skill?.skill;
   var proficiency = Props.skill?.proficiency;
 
@@ -24,12 +24,13 @@ export default function Skills(Props: PropsInterface) {
     } else {
       proficiency = false;
     }
+    console.log(skillName, proficiency);
   });
 
   return (
     <li className="flex flex-col" onClick={() => setSelect(!select)}>
       <p>{skillName}</p>
-      <Skillproficiency />
+      <Skillproficiency {...{ proficiency, skillName, attribute }} />
     </li>
   );
 }
