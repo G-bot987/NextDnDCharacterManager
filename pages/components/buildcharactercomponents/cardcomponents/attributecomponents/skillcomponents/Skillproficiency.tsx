@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SkillproficiencyInterface {
-  proficiency?: boolean | null | undefined;
+  proficiency?: boolean | undefined | null;
   skillName?: string | null;
   attribute?: string;
 }

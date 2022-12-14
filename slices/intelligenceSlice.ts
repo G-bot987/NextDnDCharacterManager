@@ -1,14 +1,14 @@
 import { RootState } from "../store";
 
-export interface LanguageProficiencyState {
-  languagesArray: languageInterface[];
+export interface SkillProficiencyState {
+  skillArray: skillInterface[];
 }
-export interface languageInterface {
+export interface skillInterface {
   value: string;
   selected?: boolean;
 }
-const initialState: LanguageProficiencyState = {
-  languagesArray: [],
+const initialState: SkillProficiencyState = {
+  skillArray: [],
 };
 
 // actions
@@ -35,7 +35,10 @@ export const skillProFalse = (skill: any) => {
 };
 
 // reducers
-export function languagePropertiesReducer(state = initialState, action: any) {
+export function intelligencePropertiesReducer(
+  state = initialState,
+  action: any
+) {
   switch (action.type) {
     case "ATTRIBUTE_VALUE":
 

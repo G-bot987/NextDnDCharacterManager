@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { languagePropertiesReducer } from "./slices/languageSlice";
+import { intelligencePropertiesReducer } from "./slices/intelligenceSlice";
 
 export const store = configureStore({
   reducer: {
-    languagePropertiesReducer: languagePropertiesReducer,
+    languagePropertiesReducer,
+    intelligencePropertiesReducer,
   },
 });
 
