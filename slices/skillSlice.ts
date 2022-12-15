@@ -35,7 +35,7 @@ export const skillProFalse = (skill: any) => {
 };
 
 // reducers
-export function intelligencePropertiesReducer(
+export function skillPropertiesReducer(
   state = initialState,
   action: any
 ) {
