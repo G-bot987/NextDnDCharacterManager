@@ -56,4 +56,4 @@ export function skillPropertiesReducer(state = initialState, action: any) {
 }
 
 export const rootState = (state: RootState) =>
-  state.languagePropertiesReducer.languagesArray;
+  state.skillPropertiesReducer.skillArray;
