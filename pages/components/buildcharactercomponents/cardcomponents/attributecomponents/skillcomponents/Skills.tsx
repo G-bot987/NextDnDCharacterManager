@@ -34,12 +34,14 @@ export default function Skills(Props: PropsInterface) {
   const [select, setSelect] = useState(false);
 
   useEffect(() => {
+    const name = skillName + attribute;
+    const skillProperty = { name, selected: select };
+
     if (select === true) {
-      proficiency = true;
+      dispatch(skillProTrue(skillProperty));
     } else {
-      proficiency = false;
+      dispatch(skillProFalse(skillProperty));
     }
-    console.log(skillName, proficiency);
   });
 
   return (
