@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "../../../../../styles/Home.module.css";
 
 import { dialectInterface } from "../../../../../interfaces/templateInterface";
-import Languageproperty from "./Languageproperty";
+import LanguageProperties from "./languageproperties/LanguageProperties";
 
 interface Props {
   dialect: dialectInterface;
@@ -55,17 +55,20 @@ export default function Dialect(Props: Props) {
         <div className="flex flex-row justify-around border-solid border-white border-y-2">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty {...{ written, language, dialectLanguage }} />
+              {/* <Languageproperty {...{ written, language, dialectLanguage }} /> */}
+              <LanguageProperties {...{ written, language, dialectLanguage }} />
             </div>
-            <Languageproperty {...{ spoken, language, dialectLanguage }} />
+            <LanguageProperties {...{ spoken, language, dialectLanguage }} />
           </div>
           <div className="flex flex-col justify-center text-center  min-w-[50%] ">
             <div className="border-b-2 border-solid border-white">
-              <Languageproperty
+              <LanguageProperties
                 {...{ inflection, language, dialectLanguage }}
               />
             </div>
-            <Languageproperty {...{ proficiency, language, dialectLanguage }} />
+            <LanguageProperties
+              {...{ proficiency, language, dialectLanguage }}
+            />
           </div>
         </div>
       )}

@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { languageInterface } from "../../../../../interfaces/templateInterface";
 
 import styles from "../../../../../styles/Home.module.css";
+
 import Dialect from "./Dialect";
-import Languageproperty from "./Languageproperty";
+
+import LanguageProperties from "./languageproperties/LanguageProperties";
 
 export default function Language(Props: languageInterface) {
   const { language, dialects, written, spoken, inflection, proficiency } =
@@ -43,17 +45,18 @@ export default function Language(Props: languageInterface) {
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
             <div>
               <div className="border-b-2 border-solid border-white">
-                <Languageproperty {...{ written, language }} />
+                {/* <Languageproperty {...{ written, language }} /> */}
+                <LanguageProperties {...{ written, language }} />
               </div>
-              <Languageproperty {...{ spoken, language }} />
+              <LanguageProperties {...{ spoken, language }} />
             </div>
           </div>
           <div className="flex flex-col justify-center text-center min-w-[50%] ">
             <div>
               <div className="border-b-2 border-solid border-white">
-                <Languageproperty {...{ inflection, language }} />
+                <LanguageProperties {...{ inflection, language }} />
               </div>
-              <Languageproperty {...{ proficiency, language }} />
+              <LanguageProperties {...{ proficiency, language }} />
             </div>
           </div>
         </div>
