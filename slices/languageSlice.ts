@@ -1,11 +1,8 @@
+import { ReduxLanguageInterface } from "../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
 import { RootState } from "../store";
 
 export interface LanguageProficiencyState {
-  languagesArray: languageInterface[];
-}
-export interface languageInterface {
-  value: string;
-  selected?: boolean;
+  languagesArray: ReduxLanguageInterface[];
 }
 const initialState: LanguageProficiencyState = {
   languagesArray: [],
@@ -13,14 +10,14 @@ const initialState: LanguageProficiencyState = {
 
 // actions
 
-export const LanguageProTrue = (language: languageInterface) => {
+export const LanguageProTrue = (language: ReduxLanguageInterface) => {
   return {
     type: "LANGUAGE_PROFICIENCY_TRUE",
     payload: language,
   };
 };
 
-export const LanguageProFalse = (language: languageInterface) => {
+export const LanguageProFalse = (language: ReduxLanguageInterface) => {
   return {
     type: "LANGUAGE_PROFICIENCY_FALSE",
     payload: language,
@@ -32,7 +29,9 @@ export function languagePropertiesReducer(state = initialState, action: any) {
   switch (action.type) {
     case "LANGUAGE_PROFICIENCY_TRUE":
       const storeData = state.languagesArray.filter(
-        (languageProperty) => languageProperty.value !== action.payload.value
+        (languageProperty) =>
+          languageProperty.property !== action.payload.property ||
+          languageProperty.dialect !== action.payload.dialect
       );
       return {
         ...state,
@@ -40,7 +39,9 @@ export function languagePropertiesReducer(state = initialState, action: any) {
       };
     case "LANGUAGE_PROFICIENCY_FALSE":
       const storeDataFalse = state.languagesArray.filter(
-        (languageProperty) => languageProperty.value !== action.payload.value
+        (languageProperty) =>
+          languageProperty.property !== action.payload.property ||
+          languageProperty.dialect !== action.payload.dialect
       );
       return {
         ...state,
