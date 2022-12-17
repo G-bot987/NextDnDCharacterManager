@@ -8,6 +8,7 @@ import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponen
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
 import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/Myskills";
+
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
   const store = useSelector(rootState);
