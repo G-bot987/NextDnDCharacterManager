@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styles from "../../../../../styles/Home.module.css";
+
+import { ReduxLanguageInterface } from "../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
+
 import Selectedlanguageproperty from "./Selectedlanguageproperty";
 
-interface PropsInterface {
-  value: string;
-  selected: boolean;
-}
-
-export default function Selectedlanguageproperties(Props: any) {
-  const properties = [Props];
+export default function Selectedlanguageproperties(
+  Props: ReduxLanguageInterface[]
+) {
   const [show, setShow] = useState(false);
 
   return (

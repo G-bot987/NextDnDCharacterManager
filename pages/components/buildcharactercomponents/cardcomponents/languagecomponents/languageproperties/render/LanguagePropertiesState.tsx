@@ -1,8 +1,9 @@
 import React from "react";
 import { LanguagePropertiesRenderInterface } from "../../../../../../../interfaces/componentInterfaces/languageInterfaces/interfaces";
 
-export default function LanguagePropertiesState(Props: any) {
-
+export default function LanguagePropertiesState(
+  Props: LanguagePropertiesRenderInterface
+) {
   const { selected } = Props;
   return (
     <div
