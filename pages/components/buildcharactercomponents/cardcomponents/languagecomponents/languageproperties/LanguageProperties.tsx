@@ -11,8 +11,6 @@ import {
 } from "../../../../../../slices/languageSlice";
 
 export default function Written(Props: LanguagePropertyInterace) {
-
-
   const store = useSelector(rootState);
   const dispatch = useDispatch();
   const { language } = Props;
@@ -40,18 +38,13 @@ export default function Written(Props: LanguagePropertyInterace) {
     }
   })();
 
-
-
   const languageState = (() => {
     if (inStore === undefined) {
       return false;
     } else {
-
       return inStore.selected;
     }
   })();
-
-
 
   const [select, setSelect] = useState(languageState);
 
@@ -70,8 +63,6 @@ export default function Written(Props: LanguagePropertyInterace) {
       dialect: Props?.dialectLanguage || language,
     };
     if (select === true) {
-
-
       dispatch(LanguageProTrue(reduxPayLoad));
     } else if (select === false) {
       dispatch(LanguageProFalse(reduxPayLoad));

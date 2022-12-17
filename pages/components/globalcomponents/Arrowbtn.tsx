@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 
 import styles from "../../../styles/Home.module.css";
+
 import Attribute from "../buildcharactercomponents/cardcomponents/Attribute";
 import Languages from "../buildcharactercomponents/cardcomponents/Languages";
 import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponents/languagecomponents/Selectedlanguageproperties";
+import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/Myskills";
 
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
-import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/Myskills";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
+
   const store = useSelector(rootState);
+
   const cardValue = Object.keys(Props);
   const silderTitle = cardValue[0];
 
