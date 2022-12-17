@@ -9,7 +9,6 @@ interface PropsInterface {
 }
 
 export default function Selectedlanguageproperty(Props: any) {
-
   const { selected, property, dialect, language } = Props;
   // const { value, selected } = Props;
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ export default function Selectedlanguageproperty(Props: any) {
 
   useEffect(() => {
     if (deselect === true) {
-      console.log("pre dispatch", Props);
       const reduxPayLoad = { property, selected: false, dialect, language };
       dispatch(LanguageProFalse(reduxPayLoad));
     }
