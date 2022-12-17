@@ -57,7 +57,6 @@ export default function Skills(Props: PropsInterface) {
     if (select === true) {
       dispatch(skillProTrue(skillProperty));
     } else {
-      console.log("entering false");
       dispatch(skillProFalse(skillProperty));
     }
   }, [select]);

@@ -28,7 +28,6 @@ export const skillProFalse = (skill: skillInterface) => {
   };
 };
 
-// reducers
 export function skillPropertiesReducer(state = initialState, action: any) {
   switch (action.type) {
     case "SKILL_PROFICIENCY_TRUE":
