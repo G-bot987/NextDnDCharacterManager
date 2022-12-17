@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 
+import { ReduxLanguageInterface } from "../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
+
 import { useDispatch } from "react-redux";
 import { LanguageProFalse } from "../../../../../slices/languageSlice";
 
-interface PropsInterface {
-  value: string;
-  selected: boolean;
-}
-
-export default function Selectedlanguageproperty(Props: any) {
+export default function Selectedlanguageproperty(
+  Props: ReduxLanguageInterface
+) {
   const { selected, property, dialect, language } = Props;
-  // const { value, selected } = Props;
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const [deselect, setDeselect] = useState(!selected);
 
   useEffect(() => {
