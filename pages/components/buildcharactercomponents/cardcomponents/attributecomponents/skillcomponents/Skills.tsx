@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Skillproficiency from "./Skillproficiency";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -27,22 +27,49 @@ export default function Skills(Props: PropsInterface) {
   var proficiency = Props.skill?.proficiency;
   const dispatch = useDispatch();
 
-  if (proficiency === null) {
-    proficiency = false;
-  }
+  const skill = skillName + attribute;
 
-  const [select, setSelect] = useState(false);
+  // const skill = `${skillName} ${attribute}`;
+  const inStore = store.find((element) => {
+    return element.skill === skill;
+  });
+
+  const skillState = (() => {
+    if (inStore === undefined) {
+      return false;
+    } else {
+      return inStore.proficiency;
+    }
+  })();
+
+  const [select, setSelect] = useState(skillState);
+  console.log("select");
+  console.log(select);
+  console.log("---");
 
   useEffect(() => {
-    const name = skillName + attribute;
-    const skillProperty = { name, selected: select };
+    const skill = skillName + attribute;
+    const skillProperty = { skill, proficiency: select };
+
+    const inStore = store.find((element) => {
+      return element.skill === skillProperty.skill;
+    });
+    console.log("instore");
+    console.log(inStore);
+    console.log("---");
+    if (inStore) {
+      if (inStore.proficiency === select) {
+        return console.log("catch");
+      }
+    }
 
     if (select === true) {
       dispatch(skillProTrue(skillProperty));
     } else {
+      console.log("entering false");
       dispatch(skillProFalse(skillProperty));
     }
-  });
+  }, [select]);
 
   return (
     <li className="flex flex-col" onClick={() => setSelect(!select)}>
