@@ -8,23 +8,27 @@ interface PropsInterface {
   selected: boolean;
 }
 
-export default function Selectedlanguageproperty(Props: PropsInterface) {
-  const { value, selected } = Props;
+export default function Selectedlanguageproperty(Props: any) {
+
+  const { selected, property, dialect, language } = Props;
+  // const { value, selected } = Props;
   const dispatch = useDispatch();
 
-  const [deselect, setDeselect] = useState(false);
+  const [deselect, setDeselect] = useState(!selected);
 
   useEffect(() => {
     if (deselect === true) {
       console.log("pre dispatch", Props);
-      const property = { value, selected: false };
-      dispatch(LanguageProFalse(property));
+      const reduxPayLoad = { property, selected: false, dialect, language };
+      dispatch(LanguageProFalse(reduxPayLoad));
     }
   }, [deselect]);
 
   return (
     <div className="flex justify-center text-center flex-row bg-white rounded-lg">
-      <div className="text-black">{value}</div>
+      <div className="text-black">
+        {property} {dialect} {language}
+      </div>
 
       <div
         className="bg-black border-2 border-solid"
