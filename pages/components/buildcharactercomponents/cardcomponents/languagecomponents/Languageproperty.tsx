@@ -40,7 +40,7 @@ export default function Languageproperty(Props: PropsInterface) {
       return false;
     }
   });
-  
+
   if (!dialectLanguage) {
   }
 
@@ -74,6 +74,7 @@ export default function Languageproperty(Props: PropsInterface) {
       }
     }
   });
+
   useEffect(() => {
     if (typeof dialectLanguage === "string") {
       const value = language + property + dialectLanguage;

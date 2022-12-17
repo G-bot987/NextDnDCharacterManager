@@ -4,8 +4,8 @@ export interface SkillProficiencyState {
   skillArray: skillInterface[];
 }
 export interface skillInterface {
-  name: string;
-  selected?: boolean;
+  skill: string;
+  proficiency?: boolean;
 }
 const initialState: SkillProficiencyState = {
   skillArray: [],
@@ -32,7 +32,7 @@ export function skillPropertiesReducer(state = initialState, action: any) {
   switch (action.type) {
     case "SKILL_PROFICIENCY_TRUE":
       const storeData = state.skillArray.filter(
-        (skillProperty) => skillProperty.name !== action.payload.name
+        (skillProperty) => skillProperty.skill !== action.payload.skill
       );
 
       return {
@@ -42,7 +42,7 @@ export function skillPropertiesReducer(state = initialState, action: any) {
 
     case "SKILL_PROFICIENCY_FALSE":
       const storeDataFalse = state.skillArray.filter(
-        (skillProperty) => skillProperty.name !== action.payload.name
+        (skillProperty) => skillProperty.skill !== action.payload.skill
       );
 
       return {
@@ -56,4 +56,4 @@ export function skillPropertiesReducer(state = initialState, action: any) {
 }
 
 export const rootState = (state: RootState) =>
-  state.languagePropertiesReducer.languagesArray;
+  state.skillPropertiesReducer.skillArray;
