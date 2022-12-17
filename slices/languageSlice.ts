@@ -31,7 +31,8 @@ export function languagePropertiesReducer(state = initialState, action: any) {
       const storeData = state.languagesArray.filter(
         (languageProperty) =>
           languageProperty.property !== action.payload.property ||
-          languageProperty.dialect !== action.payload.dialect
+          languageProperty.dialect !== action.payload.dialect ||
+          languageProperty.language !== action.payload.language
       );
       return {
         ...state,
@@ -41,7 +42,8 @@ export function languagePropertiesReducer(state = initialState, action: any) {
       const storeDataFalse = state.languagesArray.filter(
         (languageProperty) =>
           languageProperty.property !== action.payload.property ||
-          languageProperty.dialect !== action.payload.dialect
+          languageProperty.dialect !== action.payload.dialect ||
+          languageProperty.language !== action.payload.language
       );
       return {
         ...state,
