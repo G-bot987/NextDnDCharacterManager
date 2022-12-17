@@ -1,25 +1,10 @@
-export interface WrittenInterace {
-  written: boolean | null | undefined;
+export interface LanguagePropertyInterace {
+  written?: boolean | null | undefined;
+  spoken?: boolean | null | undefined;
+  inflection?: boolean | null | undefined;
+  proficiency?: boolean | null | undefined;
   language: string;
-  dialect?: string;
-}
-
-export interface SpokenInterace {
-  spoken: boolean | null | undefined;
-  language: string;
-  dialect?: string;
-}
-
-export interface InflectionInterace {
-  inflection: boolean | null | undefined;
-  language: string;
-  dialect?: string;
-}
-
-export interface ProficiencyInterace {
-  proficiency: boolean | null | undefined;
-  language: string;
-  dialect?: string;
+  dialectLanguage?: string;
 }
 
 export interface LanguagePropertiesRenderInterface {
