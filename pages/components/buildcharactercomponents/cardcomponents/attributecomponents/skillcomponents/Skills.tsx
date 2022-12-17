@@ -24,14 +24,11 @@ export default function Skills(Props: PropsInterface) {
 
   const { attribute } = Props;
   const skillName = Props.skill?.skill;
-  var proficiency = Props.skill?.proficiency;
   const dispatch = useDispatch();
-
-  const skill = skillName + attribute;
 
   // const skill = `${skillName} ${attribute}`;
   const inStore = store.find((element) => {
-    return element.skill === skill;
+    return element.skillName === skillName;
   });
 
   const skillState = (() => {
@@ -43,16 +40,12 @@ export default function Skills(Props: PropsInterface) {
   })();
 
   const [select, setSelect] = useState(skillState);
-  console.log("select");
-  console.log(select);
-  console.log("---");
 
   useEffect(() => {
-    const skill = skillName + attribute;
-    const skillProperty = { skill, proficiency: select };
+    const skillProperty = { skillName, attribute, proficiency: select };
 
     const inStore = store.find((element) => {
-      return element.skill === skillProperty.skill;
+      return element.skillName === skillName;
     });
 
     if (inStore) {
