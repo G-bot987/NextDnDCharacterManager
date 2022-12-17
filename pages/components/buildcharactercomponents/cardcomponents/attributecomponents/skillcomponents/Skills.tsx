@@ -54,9 +54,7 @@ export default function Skills(Props: PropsInterface) {
     const inStore = store.find((element) => {
       return element.skill === skillProperty.skill;
     });
-    console.log("instore");
-    console.log(inStore);
-    console.log("---");
+
     if (inStore) {
       if (inStore.proficiency === select) {
         return console.log("catch");
@@ -74,7 +72,7 @@ export default function Skills(Props: PropsInterface) {
   return (
     <li className="flex flex-col" onClick={() => setSelect(!select)}>
       <p>{skillName}</p>
-      <Skillproficiency {...{ proficiency, skillName, attribute }} />
+      <Skillproficiency {...{ select, skillName, attribute }} />
     </li>
   );
 }
