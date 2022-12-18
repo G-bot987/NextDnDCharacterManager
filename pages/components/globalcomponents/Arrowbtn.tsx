@@ -5,16 +5,17 @@ import styles from "../../../styles/Home.module.css";
 import Attribute from "../buildcharactercomponents/cardcomponents/Attribute";
 import Languages from "../buildcharactercomponents/cardcomponents/Languages";
 import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponents/languagecomponents/Selectedlanguageproperties";
-import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/Myskills";
+import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/myskills/Myskills";
 
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
+import { attributesRootState } from "../../../slices/skillSlice";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
 
   const store = useSelector(rootState);
-
+  const attributesStore = useSelector(attributesRootState);
   const cardValue = Object.keys(Props);
   const silderTitle = cardValue[0];
 
@@ -22,9 +23,11 @@ export default function ArrowBtn(Props: any) {
     (selectedVals) => selectedVals.selected === true
   );
 
-  const SelectedSkillProperties = store.filter(
-    (selectedVals) => selectedVals.selected === true
+  const selectedSkillProperties = attributesStore.filter(
+    (selectedVals) => selectedVals.proficiency === true
   );
+
+  console.log(" selected skill prop ", selectedSkillProperties, "----");
 
   const [show, setShow] = useState(false);
 
@@ -50,7 +53,9 @@ export default function ArrowBtn(Props: any) {
       </div>
       {show && attributes && (
         <ul className="min-h-min flex flex-row justify-around min-w-full min-w-min grow ">
-          {SelectedSkillProperties.length > 1000 && <Myskills />}
+          {selectedSkillProperties.length > 0 && (
+            <Myskills {...selectedSkillProperties} />
+          )}
           {Object.keys(attributes).map((attribute: string, index: number) => (
             <Attribute {...attributes[attribute]} key={`${index}`} />
           ))}

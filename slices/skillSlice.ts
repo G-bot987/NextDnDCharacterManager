@@ -1,27 +1,24 @@
 import { RootState } from "../store";
 
-export interface SkillProficiencyState {
-  skillArray: skillInterface[];
-}
-export interface skillInterface {
-  skillName: string | undefined;
-  attribute: string;
-  proficiency?: boolean;
-}
-const initialState: SkillProficiencyState = {
+import {
+  ReduxSkillInterface,
+  ReduxSkillProficiencyState,
+} from "../interfaces/componentInterfaces/skillInterfaces/skillInterfaces";
+
+const initialState: ReduxSkillProficiencyState = {
   skillArray: [],
 };
 
 // actions
 
-export const skillProTrue = (skill: skillInterface) => {
+export const skillProTrue = (skill: ReduxSkillInterface) => {
   return {
     type: "SKILL_PROFICIENCY_TRUE",
     payload: skill,
   };
 };
 
-export const skillProFalse = (skill: skillInterface) => {
+export const skillProFalse = (skill: ReduxSkillInterface) => {
   return {
     type: "SKILL_PROFICIENCY_FALSE",
     payload: skill,
@@ -55,5 +52,5 @@ export function skillPropertiesReducer(state = initialState, action: any) {
   }
 }
 
-export const rootState = (state: RootState) =>
+export const attributesRootState = (state: RootState) =>
   state.skillPropertiesReducer.skillArray;
