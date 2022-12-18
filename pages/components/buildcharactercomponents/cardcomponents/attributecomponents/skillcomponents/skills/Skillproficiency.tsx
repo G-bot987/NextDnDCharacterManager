@@ -7,14 +7,16 @@ interface SkillproficiencyInterface {
 }
 
 export default function Skillproficiency(Props: SkillproficiencyInterface) {
-  const { select } = Props;
+  const { select, skillName } = Props;
   return (
     <div
+      className="max-w-fit rounded-lg "
       style={{
-        background: select ? "purple" : "",
+        background: select ? "black" : "",
+        color: select ? "white" : "",
       }}
     >
-      selected
+      {skillName}
     </div>
   );
 }

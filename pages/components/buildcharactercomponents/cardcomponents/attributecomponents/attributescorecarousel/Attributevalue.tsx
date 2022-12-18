@@ -15,7 +15,7 @@ export default function Attributevalue(Props: any) {
   const ScoreToRender = Props[changeCard];
 
   return (
-    <div className=" flex flex-row">
+    <div className=" flex flex-row justify-center">
       <div onClick={() => SetCardChange(changeCard - 1)}>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div className={styles.arrowleft} />
