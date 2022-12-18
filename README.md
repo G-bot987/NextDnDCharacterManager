@@ -74,7 +74,9 @@ If you wish to get involved please message me on Linkedin you will find a link t
 
 # My Github Profile 
 
-[MyGit](https://github.com/G-bot987 "my GitHib")
+[MyGit](https://github.com/G-bot987 "my GitHub")
+
+[My LinkedIn](https://www.linkedin.com/in/georgia-h-b48434150/ "my LinkedIn")
 
 
 
