@@ -4,5 +4,5 @@ import { ScoreInterface } from "../../../../../../interfaces/componentInterfaces
 
 export default function ScoreRender(Props: ScoreInterface) {
   const { value } = Props;
-  return <div>Card score value in score render {value}</div>;
+  return <div>{value}</div>;
 }
