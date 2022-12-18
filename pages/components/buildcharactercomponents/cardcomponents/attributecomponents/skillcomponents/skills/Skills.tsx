@@ -4,10 +4,10 @@ import Skillproficiency from "./Skillproficiency";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  rootState,
+  attributesRootState,
   skillProTrue,
   skillProFalse,
-} from "../../../../../../slices/skillSlice";
+} from "../../../../../../../slices/skillSlice";
 
 interface SKillsInterface {
   skill: string;
@@ -20,7 +20,7 @@ interface PropsInterface {
 }
 
 export default function Skills(Props: PropsInterface) {
-  const store = useSelector(rootState);
+  const store = useSelector(attributesRootState);
 
   const { attribute } = Props;
   const skillName = Props.skill?.skill;

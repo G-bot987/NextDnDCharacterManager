@@ -7,7 +7,7 @@ import {
   skillInterface,
   scoreInterface,
 } from "../../../../interfaces/templateInterface";
-import Skills from "./attributecomponents/skillcomponents/Skills";
+import Skills from "./attributecomponents/skillcomponents/skills/Skills";
 
 export default function Attribute(Props: attributesInterface) {
   const { attribute, score, skills } = Props;
