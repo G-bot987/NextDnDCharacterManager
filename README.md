@@ -6,8 +6,12 @@ specifically the attributes section is being developed as of December 2022 this 
 
 # Deployment 
 
-This app is deployed with Vercel, at:  [deployed](https://next-dn-d-character-manager.vercel.app/ "live version") 
+This app is deployed with Vercel, at:  [deployed](https://next-dn-d-character-manager.vercel.app/ "https://next-dn-d-character-manager.vercel.app/") 
 
+## Demo
+
+Functionality as of December 2022
+[Demo](https://drive.google.com/file/d/1M_O8B_hebL1oOkDhuVBTKaInPSSiP_PH/view "https://drive.google.com/file/d/1M_O8B_hebL1oOkDhuVBTKaInPSSiP_PH/view")
 
 # About 
 
@@ -74,9 +78,9 @@ If you wish to get involved please message me on Linkedin you will find a link t
 
 # My Github Profile 
 
-[MyGit](https://github.com/G-bot987 "my GitHub")
+[MyGit](https://github.com/G-bot987 "https://github.com/G-bot987")
 
-[My LinkedIn](https://www.linkedin.com/in/georgia-h-b48434150/ "my LinkedIn")
+[My LinkedIn](https://www.linkedin.com/in/georgia-h-b48434150/ "https://www.linkedin.com/in/georgia-h-b48434150/")
 
 
 
