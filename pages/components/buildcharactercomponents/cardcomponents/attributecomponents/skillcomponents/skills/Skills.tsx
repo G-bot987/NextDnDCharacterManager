@@ -63,12 +63,14 @@ export default function Skills(Props: PropsInterface) {
 
   return (
     <li
-      className="flex flex-col bg-white text-black rounded-lg"
+      className="flex flex-col bg-white text-black rounded-lg "
       onClick={() => setSelect(!select)}
     >
-      <Skillproficiency
-        {...{ select: inStore?.proficiency, skillName, attribute }}
-      />
+      <div className="flex justify-center">
+        <Skillproficiency
+          {...{ select: inStore?.proficiency, skillName, attribute }}
+        />
+      </div>
     </li>
   );
 }
