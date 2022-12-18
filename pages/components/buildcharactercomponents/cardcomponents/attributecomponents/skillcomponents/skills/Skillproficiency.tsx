@@ -7,14 +7,14 @@ interface SkillproficiencyInterface {
 }
 
 export default function Skillproficiency(Props: SkillproficiencyInterface) {
-  const { select } = Props;
+  const { select, skillName } = Props;
   return (
     <div
       style={{
         background: select ? "purple" : "",
       }}
     >
-      selected
+      {skillName}
     </div>
   );
 }
