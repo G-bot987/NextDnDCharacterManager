@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "../../../../../styles/Home.module.css";
+import styles from "../../../../../../styles/Home.module.css";
 
-import { ReduxLanguageInterface } from "../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
+import { ReduxLanguageInterface } from "../../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
 
 import Selectedlanguageproperty from "./Selectedlanguageproperty";
 

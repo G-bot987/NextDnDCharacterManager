@@ -4,7 +4,7 @@ import styles from "../../../styles/Home.module.css";
 
 import Attribute from "../buildcharactercomponents/cardcomponents/Attribute";
 import Languages from "../buildcharactercomponents/cardcomponents/Languages";
-import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponents/languagecomponents/Selectedlanguageproperties";
+import Selectedlanguageproperties from "../buildcharactercomponents/cardcomponents/languagecomponents/mylanguageproperties/Selectedlanguageproperties";
 import Myskills from "../buildcharactercomponents/cardcomponents/attributecomponents/skillcomponents/myskills/Myskills";
 
 import { useSelector } from "react-redux";

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { ReduxLanguageInterface } from "../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
 
 import { useDispatch } from "react-redux";
-import { LanguageProFalse } from "../../../../../slices/languageSlice";
+import { LanguageProFalse } from "../../../../../../slices/languageSlice";
+
+import { ReduxLanguageInterface } from "../../../../../../interfaces/componentInterfaces/languageInterfaces/reduxInterfaces/reduxInterfaces";
 
 export default function Selectedlanguageproperty(
   Props: ReduxLanguageInterface
