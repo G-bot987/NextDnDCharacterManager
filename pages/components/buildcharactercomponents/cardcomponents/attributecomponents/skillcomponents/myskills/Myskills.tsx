@@ -6,9 +6,7 @@ import { ReduxSkillInterface } from "../../../../../../../interfaces/componentIn
 import Myskillsrender from "../myskills/Myskillrender";
 
 export default function Myskills(Props: ReduxSkillInterface[]) {
-  console.log("Props right comp ");
-  console.log(Props);
-  console.log("---");
+
   const [show, setShow] = useState(false);
 
   return (

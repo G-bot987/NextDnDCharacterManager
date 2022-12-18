@@ -138,6 +138,16 @@
   -webkit-transform: rotate(-45deg);
 }
 
+.arrowleft{
+  border: solid black;
+  border-width: 3px 0px 0px 3px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0.35rem 0 0 0.3rem;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
 .arrowdown{
   border: solid black;
   border-width: 0 3px 3px 0;
