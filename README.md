@@ -1,44 +1,81 @@
-deployed at: https://next-dn-d-character-manager.vercel.app/
+# This Project is current in development 
+
+    Currently front end elements and logic are being implemented, development currently focus on character creation in the card section of the app. The language section of the card is working as intended allowing the selection and deletion of language proficiences & rendering a selected language proficiences component. Language proficiencies can also be deleted from the selected Language Proficiences comp. 
+
+    specifically the attributes section is being developed as of December 2022 this is expected to be completed by Febuary 1st 2023, currently users can select skills. Next steps include: styling this section, a selected skills com, attribute score display. 
+
+# Deployment 
+
+    This app is deployed with Vercel, at: https://next-dn-d-character-manager.vercel.app/
+
+# About 
+
+    A app which has has the aspirational goal of allowing character creation for Dungeons & Dragons 5e. Through my experience of running games on digital tabletops I found the current market options for hosting limited and restrained. This platform is tailored for creation of characters in my homebrew world. Giving a detailed and bespoke language selection component as well as custom skills. This app will eventually allow players to log in and save characters to there profiles as well as providing a space for players to communicate through posts, provide notications with regards to player games and store journal notes. Yes this is to say I will eventually host my Dungeons and Dragons games on this platform! 
+
+# Production timeline
+
+##  MileStone 0.1.0, expected completion July 2023
+
+    Working character card, with all the generic Dungeons and Dragons requirements including; weapons, skills, inventory. This is the currently active Milestone ! 
+
+        * Languages *** complete
+        * Attributes/skills *** in progress...
+        * Basic Character info race class etc
+        * inventory
+        * Weapons
+        * Notes
 
 
-selected proficiency 
+##  Log In functionality 0.2.0 expected completion September 2023
 
-props in language journey
+    Intergrate login functionality with MongoDB to allow users to save there characters for future use
 
-get an api working
+        * establish API's
+        * authenticate users
+        * verify emails
+        * security 
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+##  Intergrated MongoDb 0.3.0 expected completion December 2023
 
-First, run the development server:
+    allow users to save characters to their profiles. 
+    *** A connection to a MongoDB database has been provisionally set up to ensure core functionality and intergration is possible
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+        * Backend setup
+        * Api's 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Implement unit testing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+    to protect funcionality and ensure intergitry of future versions
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+        * TDD using Jest
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Technologies
 
-## Learn More
+    Next.JS 
+    TypeScript
+    MongoDB
+    Redux
+    Tailwind
 
-To learn more about Next.js, take a look at the following resources:
+# Local use 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Local build: 'npm run dev'
+    Testing: 'npm run build'
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# branch protect
 
-## Deploy on Vercel
+    Main is protected all vercel build checks must pass before commits are made
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# colaboration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    If you wish to get involved please message me on Linkedin you will find a link to this on my profile home page and my professional portfolio
+
+# My Github Profile
+
+    https://github.com/G-bot987
+
+
+
+
