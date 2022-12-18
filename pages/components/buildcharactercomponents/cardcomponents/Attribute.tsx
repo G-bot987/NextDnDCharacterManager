@@ -8,9 +8,12 @@ import {
   scoreInterface,
 } from "../../../../interfaces/templateInterface";
 import Skills from "./attributecomponents/skillcomponents/skills/Skills";
+import Attributevalue from "./attributecomponents/attributescorecarousel/Attributevalue";
 
 export default function Attribute(Props: attributesInterface) {
+
   const { attribute, score, skills } = Props;
+
   const [show, setShow] = useState(false);
 
   return (
@@ -30,8 +33,9 @@ export default function Attribute(Props: attributesInterface) {
             />
           </div>
         )}
-        <div className="border-solid border-white border-2 rounded-t-lg">
+        <div className="border-solid border-white border-2 rounded-lg flex-col">
           {attribute}
+          <Attributevalue {...score} />
         </div>
         {skills && (
           <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
