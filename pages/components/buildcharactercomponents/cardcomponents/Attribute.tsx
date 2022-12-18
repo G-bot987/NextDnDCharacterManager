@@ -18,36 +18,37 @@ export default function Attribute(Props: attributesInterface) {
 
   return (
     <li className="flex flex-col space-y-4 min-w-[9%] ">
-      <div
-        onClick={() => setShow(!show)}
-        className="flex justify-center text-center flex-row"
-      >
-        {skills && (
-          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-            <div
-              className={styles.arrowdown}
-              style={{
-                transform: show ? "rotate(225deg)" : "",
-                transition: "transform 150ms ease",
-              }}
-            />
-          </div>
-        )}
+      <div className="flex justify-center text-center flex-row">
+        <div onClick={() => setShow(!show)}>
+          {skills && (
+            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+              <div
+                className={styles.arrowdown}
+                style={{
+                  transform: show ? "rotate(225deg)" : "",
+                  transition: "transform 150ms ease",
+                }}
+              />
+            </div>
+          )}
+        </div>
         <div className="border-solid border-white border-2 rounded-lg flex-col">
           {attribute}
           <Attributevalue {...score} />
         </div>
-        {skills && (
-          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-            <div
-              className={styles.arrowdown}
-              style={{
-                transform: show ? "rotate(225deg)" : "",
-                transition: "transform 150ms ease",
-              }}
-            />
-          </div>
-        )}
+        <div onClick={() => setShow(!show)}>
+          {skills && (
+            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+              <div
+                className={styles.arrowdown}
+                style={{
+                  transform: show ? "rotate(225deg)" : "",
+                  transition: "transform 150ms ease",
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
       {show && skills && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
