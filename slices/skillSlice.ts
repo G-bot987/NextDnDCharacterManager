@@ -52,5 +52,5 @@ export function skillPropertiesReducer(state = initialState, action: any) {
   }
 }
 
-export const attributesRootState = (state: RootState) =>
+export const skillRootState = (state: RootState) =>
   state.skillPropertiesReducer.skillArray;
