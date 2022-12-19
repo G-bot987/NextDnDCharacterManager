@@ -9,13 +9,13 @@ import Myskills from "../buildcharactercomponents/cardcomponents/attributecompon
 
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
-import { attributesRootState } from "../../../slices/skillSlice";
+import { skillRootState } from "../../../slices/skillSlice";
 
 export default function ArrowBtn(Props: any) {
   const { attributes, languages } = Props;
 
   const store = useSelector(rootState);
-  const attributesStore = useSelector(attributesRootState);
+  const skillRootStore = useSelector(skillRootState);
   const cardValue = Object.keys(Props);
   const silderTitle = cardValue[0];
 
@@ -23,7 +23,7 @@ export default function ArrowBtn(Props: any) {
     (selectedVals) => selectedVals.selected === true
   );
 
-  const selectedSkillProperties = attributesStore.filter(
+  const selectedSkillProperties = skillRootStore.filter(
     (selectedVals) => selectedVals.proficiency === true
   );
 
