@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ScoreRender from "./ScoreRender";
 import styles from "../../../../../../styles/Home.module.css";
 
-import ScoreRender from "./ScoreRender";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  attributesRootState,
+  attributeValue,
+} from "../../../../../../slices/attributesSlice";
 
 export default function Attributevalue(Props: any) {
-  var [changeCard, SetCardChange] = useState(0);
+  const { score, attribute } = Props;
+
+  const store = useSelector(attributesRootState);
+  const dispact = useDispatch();
+
+  const inStore = store.find((element) => {
+    return element.attribute === attribute;
+  });
+
+  const scoreState = (() => {
+    if (inStore === undefined) {
+      return 0;
+    } else {
+      return inStore.score.value - 1;
+    }
+  })();
+
+  var [changeCard, SetCardChange] = useState(scoreState);
 
   if (0 > changeCard) {
     changeCard = 19;
@@ -12,7 +35,12 @@ export default function Attributevalue(Props: any) {
     changeCard = 0;
   }
 
-  const ScoreToRender = Props[changeCard];
+  const ScoreToRender = score[changeCard];
+
+  useEffect(() => {
+    const ReduxPayload = { score: ScoreToRender, attribute };
+    dispact(attributeValue(ReduxPayload));
+  }, [ScoreToRender]);
 
   return (
     <div className=" flex flex-row justify-center">
