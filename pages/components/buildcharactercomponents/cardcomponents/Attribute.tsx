@@ -34,7 +34,7 @@ export default function Attribute(Props: attributesInterface) {
         </div>
         <div className="border-solid border-white border-2 rounded-lg flex-col">
           {attribute}
-          <Attributevalue {...score} />
+          <Attributevalue {...{score, attribute}} />
         </div>
         <div onClick={() => setShow(!show)}>
           {skills && (
