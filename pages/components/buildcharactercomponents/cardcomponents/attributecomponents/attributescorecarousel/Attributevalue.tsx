@@ -35,7 +35,13 @@ export default function Attributevalue(Props: any) {
     changeCard = 0;
   }
 
-  const ScoreToRender = score[changeCard];
+  const ScoreToRender = (() => {
+    if (score) {
+      return score[changeCard];
+    } else {
+      return score;
+    }
+  })();
 
   useEffect(() => {
     const ReduxPayload = { score: ScoreToRender, attribute };
