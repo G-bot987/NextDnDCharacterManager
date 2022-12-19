@@ -27,8 +27,6 @@ export default function ArrowBtn(Props: any) {
     (selectedVals) => selectedVals.proficiency === true
   );
 
-  console.log(" selected skill prop ", selectedSkillProperties, "----");
-
   const [show, setShow] = useState(false);
 
   return (

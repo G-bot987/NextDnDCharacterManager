@@ -5,13 +5,11 @@ import styles from "../../../../styles/Home.module.css";
 import {
   attributesInterface,
   skillInterface,
-  scoreInterface,
 } from "../../../../interfaces/templateInterface";
 import Skills from "./attributecomponents/skillcomponents/skills/Skills";
 import Attributevalue from "./attributecomponents/attributescorecarousel/Attributevalue";
 
 export default function Attribute(Props: attributesInterface) {
-
   const { attribute, score, skills } = Props;
 
   const [show, setShow] = useState(false);
@@ -34,7 +32,7 @@ export default function Attribute(Props: attributesInterface) {
         </div>
         <div className="border-solid border-white border-2 rounded-lg flex-col">
           {attribute}
-          <Attributevalue {...{score, attribute}} />
+          <Attributevalue {...{ score, attribute }} />
         </div>
         <div onClick={() => setShow(!show)}>
           {skills && (
