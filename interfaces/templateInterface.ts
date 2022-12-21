@@ -5,7 +5,7 @@ export interface templateInterface {
 }
 
 export interface profileInterface {
-  charName: string;
+  name: string;
   classes: classesInterface[];
   lv: lvInterface[];
   xp: number;
