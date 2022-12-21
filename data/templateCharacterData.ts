@@ -2,7 +2,7 @@
 
 const template = {
   profile: {
-    charName: "Name",
+    name: "a name",
     classes: [
       { class: "class 1", marker: 1 },
       { class: "class 2", marker: 2 },
@@ -35,9 +35,9 @@ const template = {
       { race: "race 2", marker: 2 },
       { race: "race 3", marker: 3 },
     ],
-    background: "Background",
-    strength: "Strengths",
-    weakness: "Weaknesses",
+    background: "a choosen background",
+    strength: "a strength",
+    weakness: "a weakness",
     image: { avatar: "a image", alt: "your characters image" },
   },
   attributes: [
