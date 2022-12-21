@@ -26,26 +26,26 @@ export default function Profile(Props: profileInterface) {
         className="min-w-100 flex flex-col space-y-4"
         method="post"
       >
-        <ul className="min-w-full flex flex-row flex-wrap">
+        <ul className="min-w-full flex flex-row space-x-4 flex-wrap">
           <div className="flex flex-col space-y-6">
-            <li>
+            <li className="text-left flex flex-row justify-between">
               <label htmlFor={name}>{nameOfProp[0]}</label>
 
               <input type="text" id={name} name={name} />
             </li>
-            <li>
+            <li className="text-left flex flex-row justify-between">
               <label htmlFor={background}>{nameOfProp[5]}</label>
 
               <input type="text" id={background} name={background} />
             </li>
           </div>
           <div className="flex flex-col justify-around space-y-6">
-            <li>
+            <li className="text-left flex flex-row justify-between">
               <label htmlFor={strength}>{nameOfProp[6]}</label>
 
               <input type="text" id={strength} name={strength} />
             </li>
-            <li>
+            <li className="text-left flex flex-row justify-between">
               <label htmlFor={weakness}>{nameOfProp[7]}</label>
               <input type="text" id={weakness} name={weakness} />
             </li>
