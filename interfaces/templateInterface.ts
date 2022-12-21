@@ -23,6 +23,7 @@ export interface classesInterface {
 export interface lvInterface {
   value: number;
   selected: null | boolean;
+  proBonus: number;
 }
 
 export interface raceInterface {
