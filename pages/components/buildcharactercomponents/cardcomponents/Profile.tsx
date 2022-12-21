@@ -23,7 +23,7 @@ export default function Profile(Props: profileInterface) {
 
       <form
         action="/send-data-here"
-        className="min-w-100 flex flex-col space-y-4"
+        className="min-w-100 flex flex-col space-y-4 self-center"
         method="post"
       >
         <ul className="min-w-full flex flex-row space-x-4 flex-wrap">
