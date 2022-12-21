@@ -9,8 +9,8 @@ export default function Card(Props: templateInterface) {
   const { profile, attributes, languages } = Props;
 
   return (
-    <ul className=" flex flex-col justify-around min-h-full space-y-4">
-      <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around ">
+    <ul className=" flex flex-col justify-around min-h-full space-y-4 min-h-100">
+      <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around min-h-[20%]">
         <Profile {...profile}></Profile>
       </li>
       <li>
