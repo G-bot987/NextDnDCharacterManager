@@ -18,12 +18,12 @@ export default function Profile(Props: profileInterface) {
   const nameOfProp = Object.keys(Props);
 
   return (
-    <div className="flex flex-col justify-center text-center min-w-[60%]">
+    <div className="flex flex-col justify-center text-center min-w-[60%] space-y-8 pt-2 pb-2">
       <div className="justify-center">profile</div>
 
       <form
         action="/send-data-here"
-        className="min-w-100 flex flex-col"
+        className="min-w-100 flex flex-col space-y-4"
         method="post"
       >
         <ul className="min-w-full flex flex-row flex-wrap">
