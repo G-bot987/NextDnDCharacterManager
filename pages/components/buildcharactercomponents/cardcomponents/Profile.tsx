@@ -28,7 +28,13 @@ export default function Profile(Props: profileInterface) {
     changeCard = 0;
   }
 
-  const LvCardState = lv[changeCard];
+  const LvCardState = (() => {
+    if (lv) {
+      return lv[changeCard];
+    } else {
+      return lv;
+    }
+  })();
 
   return (
     <div className=" min-w-100 flex flex-row">
