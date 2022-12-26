@@ -44,8 +44,13 @@ export default function Profile(Props: profileInterface) {
     }
   })();
 
+  const xpname = Object.keys(LvCardState);
+  console.log("xpname");
+  console.log(xpname);
+  console.log("---");
+  const { value, proBonus, experience } = LvCardState;
+
   useEffect(() => {
-    const { value, proBonus, experience } = LvCardState;
     const ReduxPayload = { value, proBonus, selected: true, experience };
     dispatch(levelValue(ReduxPayload));
   }, [changeCard]);
@@ -54,19 +59,31 @@ export default function Profile(Props: profileInterface) {
     <div className=" min-w-100 flex flex-row">
       <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2 ">
         <div className="">Level</div>
-        <div className=" flex flex-row justify-around min-w-[45%] border-solid border-white rounded-lg border-2 py-6 px-2">
-          <div onClick={() => SetCardChange(changeCard - 1)}>
-            <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center">
-              <div>
-                <div className={styles.arrowleft} />
+        <div className=" flex flex-col justify-around min-w-[45%] border-solid border-white rounded-lg border-2 py-6 px-2">
+          <div className="text-left flex flex-col text-center justify-between">
+            <label htmlFor={xpname[3]}>{xpname[3]}</label>
+            <input
+              className="text-center"
+              type="number"
+              id={xpname[3]}
+              name={xpname[3]}
+              defaultValue={`${experience}`}
+            />
+          </div>
+          <div className=" flex flex-row min-w-full">
+            <div onClick={() => SetCardChange(changeCard - 1)}>
+              <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center">
+                <div>
+                  <div className={styles.arrowleft} />
+                </div>
               </div>
             </div>
-          </div>
-          <Lvcarousel {...LvCardState} />
-          <div onClick={() => SetCardChange(changeCard + 1)}>
-            <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center ">
-              <div>
-                <div className={styles.arrowright} />
+            <Lvcarousel {...LvCardState} />
+            <div onClick={() => SetCardChange(changeCard + 1)}>
+              <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center ">
+                <div>
+                  <div className={styles.arrowright} />
+                </div>
               </div>
             </div>
           </div>
