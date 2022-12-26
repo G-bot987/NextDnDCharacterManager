@@ -36,7 +36,6 @@ Working character card, with all the generic Dungeons and Dragons requirements i
 Intergrate login functionality with MongoDB to allow users to save there characters for future use
 
 - [ ] establish API's
-- [ ] establish API's
 - [ ] authenticate users
 - [ ] verify emails
 - [ ] security 
