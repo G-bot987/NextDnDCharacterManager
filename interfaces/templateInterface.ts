@@ -24,6 +24,7 @@ export interface lvInterface {
   value: number;
   selected: null | boolean;
   proBonus: number;
+  experience: number;
 }
 
 export interface raceInterface {
