@@ -21,9 +21,6 @@ export const attributeValue = (attribute: ReduxScoreInterface) => {
 export function attributesReducer(state = initialState, action: any) {
   switch (action.type) {
     case "ATTRIBUTE_VALUE":
-      console.log("action payload");
-      console.log(action.payload);
-      console.log("---");
       const storeData = state.attributesArray.filter(
         (attributeScore) =>
           attributeScore.attribute !== action.payload.attribute
