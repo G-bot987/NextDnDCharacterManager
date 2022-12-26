@@ -39,14 +39,14 @@ export default function Profile(Props: profileInterface) {
     if (lv) {
       return lv[changeCard];
     } else {
-      const dummy = { value: 1, selected: null, proBonus: 2 };
+      const dummy = { value: 1, selected: null, proBonus: 2, experience: 0 };
       return dummy;
     }
   })();
 
   useEffect(() => {
-    const { value, proBonus } = LvCardState;
-    const ReduxPayload = { value, proBonus, selected: true };
+    const { value, proBonus, experience } = LvCardState;
+    const ReduxPayload = { value, proBonus, selected: true, experience };
     dispatch(levelValue(ReduxPayload));
   }, [changeCard]);
 
