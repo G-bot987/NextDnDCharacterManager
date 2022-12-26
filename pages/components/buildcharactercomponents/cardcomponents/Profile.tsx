@@ -29,9 +29,6 @@ export default function Profile(Props: profileInterface) {
   }
 
   const LvCardState = (() => {
-    console.log("lv to render");
-    console.log(lv);
-    console.log("----");
     if (lv) {
       return lv[changeCard];
     } else {
