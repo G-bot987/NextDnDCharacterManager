@@ -7,7 +7,10 @@ import { levelRootState, levelValue } from "../../../../slices/lvSlice";
 
 import Lvcarousel from "./profilecomponents/Lvcarousel";
 
-import { profileInterface } from "../../../../interfaces/templateInterface";
+import {
+  lvInterface,
+  profileInterface,
+} from "../../../../interfaces/templateInterface";
 
 export default function Profile(Props: profileInterface) {
   const {
@@ -52,7 +55,14 @@ export default function Profile(Props: profileInterface) {
     dispatch(levelValue(ReduxPayload));
   }, [changeCard]);
 
-  console.log(LvCardState.experience);
+  const findLv = (e: any) => {
+    const value = e.target.value;
+
+    const lvCard = lv.findLast(
+      (element: lvInterface) => element.experience < value
+    );
+  };
+
   return (
     <div className=" min-w-100 flex flex-row">
       <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2 ">
@@ -67,6 +77,7 @@ export default function Profile(Props: profileInterface) {
               id={xpname[3]}
               name={xpname[3]}
               defaultValue={`${experience}`}
+              onChange={findLv}
             />
           </div>
           <div className=" flex flex-row min-w-full">
