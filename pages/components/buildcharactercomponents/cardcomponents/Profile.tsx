@@ -45,9 +45,6 @@ export default function Profile(Props: profileInterface) {
   })();
 
   const xpname = Object.keys(LvCardState);
-  console.log("xpname");
-  console.log(xpname);
-  console.log("---");
   const { value, proBonus, experience } = LvCardState;
 
   useEffect(() => {
