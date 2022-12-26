@@ -19,9 +19,6 @@ export const levelValue = (level: lvInterface) => {
 export function levelReducer(state = initialState, action: any) {
   switch (action.type) {
     case "LEVEL_VALUE":
-      console.log("action.payload");
-      console.log(action.payload);
-      console.log("---");
       return {
         ...state,
         lvArray: [action.payload],
