@@ -52,6 +52,7 @@ export default function Profile(Props: profileInterface) {
     dispatch(levelValue(ReduxPayload));
   }, [changeCard]);
 
+  console.log(LvCardState.experience);
   return (
     <div className=" min-w-100 flex flex-row">
       <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2 ">
@@ -62,6 +63,7 @@ export default function Profile(Props: profileInterface) {
             <input
               className="text-center"
               type="number"
+              key={`${experience}`}
               id={xpname[3]}
               name={xpname[3]}
               defaultValue={`${experience}`}
