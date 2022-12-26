@@ -3,12 +3,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { languagePropertiesReducer } from "./slices/languageSlice";
 import { skillPropertiesReducer } from "./slices/skillSlice";
 import { attributesReducer } from "./slices/attributesSlice";
+import { levelReducer } from "./slices/lvSlice";
 
 export const store = configureStore({
   reducer: {
     languagePropertiesReducer,
     skillPropertiesReducer,
     attributesReducer,
+    levelReducer,
   },
 });
 
