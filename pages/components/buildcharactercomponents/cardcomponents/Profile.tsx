@@ -1,9 +1,13 @@
 import { profile } from "console";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../../../styles/Home.module.css";
 
-import { profileInterface } from "../../../../interfaces/templateInterface";
+import { useSelector, useDispatch } from "react-redux";
+import { levelRootState, levelValue } from "../../../../slices/lvSlice";
+
 import Lvcarousel from "./profilecomponents/Lvcarousel";
+
+import { profileInterface } from "../../../../interfaces/templateInterface";
 
 export default function Profile(Props: profileInterface) {
   const {
@@ -17,6 +21,9 @@ export default function Profile(Props: profileInterface) {
     classes,
     image,
   } = Props;
+
+  const store = useSelector(levelRootState);
+  const dispatch = useDispatch();
 
   const nameOfProp = Object.keys(Props);
 
@@ -36,6 +43,12 @@ export default function Profile(Props: profileInterface) {
       return dummy;
     }
   })();
+
+  useEffect(() => {
+    const { value, proBonus } = LvCardState;
+    const ReduxPayload = { value, proBonus, selected: true };
+    dispatch(levelValue(ReduxPayload));
+  }, [changeCard]);
 
   return (
     <div className=" min-w-100 flex flex-row">
