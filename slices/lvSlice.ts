@@ -1,14 +1,11 @@
 import { RootState } from "../store";
 
-import {
-  ReduxScoreInterface,
-  ReduxScoreProficiencyState,
-} from "../interfaces/componentInterfaces/scoreInterfaces/score";
-
 import { lvInterface } from "../interfaces/templateInterface";
 import { ReduxLevelState } from "../interfaces/componentInterfaces/levelInterfaces/level";
 
-const initialState: ReduxLevelState = {};
+const initialState: ReduxLevelState = {
+  lvArray: [],
+};
 
 // actions
 
@@ -22,8 +19,12 @@ export const levelValue = (level: lvInterface) => {
 export function levelReducer(state = initialState, action: any) {
   switch (action.type) {
     case "LEVEL_VALUE":
+      console.log("action.payload");
+      console.log(action.payload);
+      console.log("---");
       return {
         ...state,
+        lvArray: [action.payload],
       };
 
     default:
