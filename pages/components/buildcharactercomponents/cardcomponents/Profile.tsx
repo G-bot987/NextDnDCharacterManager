@@ -39,18 +39,22 @@ export default function Profile(Props: profileInterface) {
 
   return (
     <div className=" min-w-100 flex flex-row">
-      <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2">
+      <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2 ">
         <div className="">Level</div>
-        <div className=" flex flex-row justify-around min-w-[45%]">
+        <div className=" flex flex-row justify-around min-w-[45%] border-solid border-white rounded-lg border-2 py-6 px-2">
           <div onClick={() => SetCardChange(changeCard - 1)}>
-            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-              <div className={styles.arrowleft} />
+            <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center">
+              <div>
+                <div className={styles.arrowleft} />
+              </div>
             </div>
           </div>
           <Lvcarousel {...LvCardState} />
           <div onClick={() => SetCardChange(changeCard + 1)}>
-            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-              <div className={styles.arrowright} />
+            <div className="w-6 h-full bg-white border-solid border-black rounded-full flex flex-col justify-center ">
+              <div>
+                <div className={styles.arrowright} />
+              </div>
             </div>
           </div>
         </div>
