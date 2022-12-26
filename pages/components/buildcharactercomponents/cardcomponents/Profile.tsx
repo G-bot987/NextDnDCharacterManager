@@ -29,9 +29,6 @@ export default function Profile(Props: profileInterface) {
   }
 
   const LvCardState = (() => {
-    console.log("lv to render");
-    console.log(lv);
-    console.log("----");
     if (lv) {
       return lv[changeCard];
     } else {
@@ -42,16 +39,19 @@ export default function Profile(Props: profileInterface) {
 
   return (
     <div className=" min-w-100 flex flex-row">
-      <div className=" min-w-[30%] flex flex-row items-center">
-        <div onClick={() => SetCardChange(changeCard - 1)}>
-          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-            <div className={styles.arrowleft} />
+      <div className=" min-w-[30%] flex flex-col items-center space-y-8">
+        <div className="">Level</div>
+        <div className=" flex flex-row ">
+          <div onClick={() => SetCardChange(changeCard - 1)}>
+            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+              <div className={styles.arrowleft} />
+            </div>
           </div>
-        </div>
-        <Lvcarousel {...LvCardState} />
-        <div onClick={() => SetCardChange(changeCard + 1)}>
-          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-            <div className={styles.arrowright} />
+          <Lvcarousel {...LvCardState} />
+          <div onClick={() => SetCardChange(changeCard + 1)}>
+            <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+              <div className={styles.arrowright} />
+            </div>
           </div>
         </div>
       </div>
