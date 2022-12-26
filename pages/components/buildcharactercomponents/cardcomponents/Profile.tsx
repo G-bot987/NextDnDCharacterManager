@@ -29,10 +29,14 @@ export default function Profile(Props: profileInterface) {
   }
 
   const LvCardState = (() => {
+    console.log("lv to render");
+    console.log(lv);
+    console.log("----");
     if (lv) {
       return lv[changeCard];
     } else {
-      return lv;
+      const dummy = { value: 1, selected: null, proBonus: 2 };
+      return dummy;
     }
   })();
 

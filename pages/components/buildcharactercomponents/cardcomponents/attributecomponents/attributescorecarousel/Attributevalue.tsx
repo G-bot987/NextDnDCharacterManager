@@ -36,10 +36,14 @@ export default function Attributevalue(Props: any) {
   }
 
   const ScoreToRender = (() => {
+    console.log("score to render");
+    console.log(score);
+    console.log("----");
     if (score) {
       return score[changeCard];
     } else {
-      return score;
+      const dummy = { value: 1, selected: null };
+      return dummy;
     }
   })();
 
