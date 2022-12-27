@@ -50,18 +50,30 @@ export default function Profile(Props: profileInterface) {
   const xpname = Object.keys(LvCardState);
   const { value, proBonus, experience } = LvCardState;
 
-  useEffect(() => {
-    const ReduxPayload = { value, proBonus, selected: true, experience };
-    dispatch(levelValue(ReduxPayload));
-  }, [changeCard]);
-
   const findLv = (e: any) => {
-    const value = e.target.value;
+    const userXp: number = e.target.value;
 
     const lvCard = lv.findLast(
-      (element: lvInterface) => element.experience < value
+      (element: lvInterface) => element.experience < userXp
     );
+    if (lvCard !== undefined) {
+      const { value, proBonus } = lvCard;
+      const reduxPayload = {
+        value,
+        proBonus,
+        selected: true,
+        experience: userXp,
+      };
+
+      return dispatch(levelValue(reduxPayload));
+    }
   };
+
+  useEffect(() => {
+    const ReduxPayload = { value, proBonus, selected: true, experience };
+
+    dispatch(levelValue(ReduxPayload));
+  }, [changeCard]);
 
   return (
     <div className=" min-w-100 flex flex-row">
