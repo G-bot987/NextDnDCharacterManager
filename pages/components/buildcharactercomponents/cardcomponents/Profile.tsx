@@ -47,13 +47,6 @@ export default function Profile(Props: profileInterface) {
     }
   })();
 
-  if (store[0] !== undefined && store[0].value !== LvCardState) {
-    LvCardState.value = store[0].value;
-    LvCardState.selected = store[0].selected;
-    LvCardState.proBonus = store[0].proBonus;
-    LvCardState.experience = store[0].experience;
-  }
-
   const xpname = Object.keys(LvCardState);
   const { value, proBonus, experience } = LvCardState;
 
