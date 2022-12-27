@@ -5,6 +5,6 @@ declare global {
     findLast(
       predicate: (value: T, index: number, obj: T[]) => unknown,
       thisArg?: any
-    ): number;
+    ): any;
   }
 }
