@@ -29,5 +29,4 @@ export function levelReducer(state = initialState, action: any) {
   }
 }
 
-export const levelRootState = (state: RootState) =>
-  state.attributesReducer.attributesArray;
+export const levelRootState = (state: RootState) => state.levelReducer.lvArray;
