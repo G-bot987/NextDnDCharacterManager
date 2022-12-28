@@ -118,7 +118,7 @@ export default function Profile(Props: profileInterface) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center text-center min-w-fit space-y-8 pt-2 pb-2 min-h-full">
+      <div className="flex flex-col  text-center min-w-fit space-y-8 pt-2 pb-2 min-h-full justify-start">
         <div className="justify-center">profile</div>
 
         <form
