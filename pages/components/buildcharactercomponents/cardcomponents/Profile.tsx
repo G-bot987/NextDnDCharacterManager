@@ -1,9 +1,8 @@
-import { profile } from "console";
 import React, { useEffect, useState } from "react";
 import styles from "../../../../styles/Home.module.css";
 
-import { useSelector, useDispatch } from "react-redux";
-import { levelRootState, levelValue } from "../../../../slices/lvSlice";
+import { useDispatch } from "react-redux";
+import { levelValue } from "../../../../slices/lvSlice";
 
 import Lvcarousel from "./profilecomponents/Lvcarousel";
 
@@ -25,12 +24,27 @@ export default function Profile(Props: profileInterface) {
     image,
   } = Props;
 
-  const store = useSelector(levelRootState);
   const dispatch = useDispatch();
 
   const nameOfProp = Object.keys(Props);
 
   var [changeCard, SetCardChange] = useState(0);
+
+  const [xpValue, SetXpValue] = useState(0);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    const lvCard = lv.findLastIndex(
+      (element: lvInterface) => element.experience < xpValue
+    );
+
+    if (lvCard === -1) {
+      return;
+    }
+
+    SetCardChange((changeCard = lvCard));
+  };
 
   if (changeCard < 0) {
     changeCard = 19;
@@ -38,7 +52,7 @@ export default function Profile(Props: profileInterface) {
     changeCard = 0;
   }
 
-  const LvCardState = (() => {
+  var LvCardState = (() => {
     if (lv) {
       return lv[changeCard];
     } else {
@@ -49,25 +63,6 @@ export default function Profile(Props: profileInterface) {
 
   const xpname = Object.keys(LvCardState);
   const { value, proBonus, experience } = LvCardState;
-
-  const findLv = (e: any) => {
-    const userXp: number = e.target.value;
-
-    const lvCard = lv.findLast(
-      (element: lvInterface) => element.experience < userXp
-    );
-    if (lvCard !== undefined) {
-      const { value, proBonus } = lvCard;
-      const reduxPayload = {
-        value,
-        proBonus,
-        selected: true,
-        experience: userXp,
-      };
-
-      return dispatch(levelValue(reduxPayload));
-    }
-  };
 
   useEffect(() => {
     const ReduxPayload = { value, proBonus, selected: true, experience };
@@ -81,16 +76,20 @@ export default function Profile(Props: profileInterface) {
         <div className="">Level</div>
         <div className=" flex flex-col justify-around min-w-[45%] border-solid border-white rounded-lg border-2 py-6 px-2">
           <div className="text-left flex flex-col text-center justify-between">
-            <label htmlFor={xpname[3]}>{xpname[3]}</label>
-            <input
-              className="text-center"
-              type="number"
-              key={`${experience}`}
-              id={xpname[3]}
-              name={xpname[3]}
-              defaultValue={`${experience}`}
-              onChange={findLv}
-            />
+            <form onSubmit={handleSubmit}>
+              <label htmlFor={xpname[3]}>{xpname[3]}</label>
+              <input
+                className="text-center"
+                type="number"
+                key={`${experience}`}
+                id={xpname[3]}
+                name={xpname[3]}
+                defaultValue={`${experience}`}
+                value={xpValue}
+                onChange={(e: any) => SetXpValue(e.target.value)}
+              />
+              <input type="submit" />
+            </form>
           </div>
           <div className=" flex flex-row min-w-full">
             <div onClick={() => SetCardChange(changeCard - 1)}>

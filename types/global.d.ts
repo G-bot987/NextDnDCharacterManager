@@ -2,7 +2,7 @@ export {};
 
 declare global {
   interface Array<T> {
-    findLast(
+    findLastIndex(
       predicate: (value: T, index: number, obj: T[]) => unknown,
       thisArg?: any
     ): any;
