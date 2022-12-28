@@ -75,9 +75,14 @@ export default function Profile(Props: profileInterface) {
       <div className=" min-w-[30%] flex flex-col items-center space-y-8 pt-2 pb-2 ">
         <div className="">Level</div>
         <div className=" flex flex-col justify-around min-w-[45%] border-solid border-white rounded-lg border-2 py-6 px-2">
-          <div className="text-left flex flex-col text-center justify-between">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor={xpname[3]}>{xpname[3]}</label>
+          <div className="text-left flex flex-col text-center min-h-[70%]">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col justify-evenly min-h-[100%] "
+            >
+              <label htmlFor={xpname[3]} className="border-solid border-b-2">
+                {xpname[3]}
+              </label>
               <input
                 className="text-center"
                 type="number"
@@ -88,7 +93,10 @@ export default function Profile(Props: profileInterface) {
                 value={xpValue}
                 onChange={(e: any) => SetXpValue(e.target.value)}
               />
-              <input type="submit" />
+              <input
+                type="submit"
+                className="rounded-full bg-white text-black"
+              />
             </form>
           </div>
           <div className=" flex flex-row min-w-full">
@@ -110,7 +118,7 @@ export default function Profile(Props: profileInterface) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-center text-center min-w-fit space-y-8 pt-2 pb-2">
+      <div className="flex flex-col justify-center text-center min-w-fit space-y-8 pt-2 pb-2 min-h-full">
         <div className="justify-center">profile</div>
 
         <form
