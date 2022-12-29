@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 import { useDispatch } from "react-redux";
 import { LanguageProFalse } from "../../../../../../slices/languageSlice";
 
@@ -28,7 +27,7 @@ export default function Selectedlanguageproperty(
       </div>
 
       <div
-        className="bg-black border-2 border-solid"
+        className="bg-black border-2 border-solid rounded-r-lg"
         onClick={() => setDeselect(!deselect)}
       >
         <p className="text-white">Remove Proficiency</p>

@@ -39,7 +39,7 @@ export default function Selectedlanguageproperties(
         </div>
       </div>
       {show && (
-        <ul className="flex flex-col justify-around  text-center  space-y-4">
+        <ul className="flex flex-col justify-around  text-center  space-y-4 px-8">
           {Object.keys(Props).map((property: any, index: number) => (
             <Selectedlanguageproperty {...Props[property]} key={index} />
           ))}
