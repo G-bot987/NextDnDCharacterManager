@@ -31,23 +31,25 @@ export default function ArrowBtn(Props: any) {
 
   return (
     <div className="min-w-full flex flex flex-row inline-flex ">
-      <p
-        style={{
-          display: show ? "none" : "",
-        }}
-      >
-        {silderTitle}
-      </p>
-      <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-        <div
-          className={`${styles.arrowright}`}
+      <div className=" bg-white flex inline flex border-solid border-black rounded-full text-black p-3 max-h-12">
+        <p
           style={{
-            transform: show ? "rotate(130deg)" : "",
-            transition: "transform 150ms ease",
-            margin: show ? "0.3rem 0 0 0.4rem" : "",
+            display: show ? "none" : "",
           }}
-          onClick={() => setShow(!show)}
-        />
+        >
+          {silderTitle}
+        </p>
+        <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+          <div
+            className={`${styles.arrowright}`}
+            style={{
+              transform: show ? "rotate(130deg)" : "",
+              transition: "transform 150ms ease",
+              margin: show ? "0.3rem 0 0 0.4rem" : "",
+            }}
+            onClick={() => setShow(!show)}
+          />
+        </div>
       </div>
       {show && attributes && (
         <ul className="min-h-min flex flex-row justify-around min-w-full min-w-min grow ">

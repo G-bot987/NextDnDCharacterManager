@@ -62,7 +62,7 @@ export default function Skills(Props: PropsInterface) {
 
   return (
     <li
-      className="flex flex-col bg-white text-black rounded-lg "
+      className="flex flex-col bg-white text-black rounded-full "
       onClick={() => setSelect(!select)}
     >
       <div className="flex justify-center">
