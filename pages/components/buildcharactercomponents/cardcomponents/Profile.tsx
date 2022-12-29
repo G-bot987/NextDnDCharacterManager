@@ -152,7 +152,12 @@ export default function Profile(Props: profileInterface) {
             </div>
           </ul>
           <div>
-            <button type="submit">Submit</button>
+            <button
+              type="submit"
+              className="rounded-full bg-white text-black min-w-[20%]"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
