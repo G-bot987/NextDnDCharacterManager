@@ -12,7 +12,7 @@ export default function Languages(Props: languagesInterface) {
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col space-y-4 min-w-[9%]">
+    <li className="flex flex-col space-y-4 min-w-[13%]">
       <div
         className="flex justify-center text-center flex-row"
         onClick={() => setShow(!show)}

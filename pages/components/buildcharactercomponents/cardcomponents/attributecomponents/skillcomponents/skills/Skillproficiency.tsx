@@ -10,10 +10,11 @@ export default function Skillproficiency(Props: SkillproficiencyInterface) {
   const { select, skillName } = Props;
   return (
     <div
-      className="max-w-fit rounded-lg "
+      className="max-w-fit rounded-lg border-2 border-white p-2"
       style={{
         background: select ? "black" : "",
         color: select ? "white" : "",
+        border: select ? "solid" : "",
       }}
     >
       {skillName}
