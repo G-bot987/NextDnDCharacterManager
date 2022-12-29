@@ -19,10 +19,10 @@ export default function Skill(Props: ReduxSkillInterface) {
   }, [deselect]);
 
   return (
-    <li className="flex justify-center text-center flex-row bg-white rounded-lg text-black">
+    <li className="flex justify-center text-center flex-row bg-white rounded-lg text-black justify-between">
       {Props.skillName} {Props.attribute}
       <div
-        className="bg-black border-2 border-solid"
+        className="bg-black border-2 border-solid rounded-r-lg"
         onClick={() => setDeselect(!deselect)}
       >
         <p className="text-white">Remove Proficiency</p>
