@@ -21,23 +21,25 @@ export default function Selectedlanguageproperty(
   }, [deselect]);
 
   return (
-    <div className="flex justify-center text-center flex-row bg-white rounded-full p-[4px]">
-      {dialect === language && (
-        <div className="text-black">
-          {property} {language}
-        </div>
-      )}
-      {dialect !== language && (
-        <div className="text-black">
-          {property} {language} {dialect}
-        </div>
-      )}
+    <div className="flex flex-row justify-between text-center flex-row bg-white rounded-full ">
+      <div className="p-2">
+        {dialect === language && (
+          <div className="text-black">
+            {property} {language}
+          </div>
+        )}
+        {dialect !== language && (
+          <div className="text-black ">
+            {property} {language} {dialect}
+          </div>
+        )}
+      </div>
 
       <div
-        className="bg-black border-2 min-h-full min-2-full rounded-r-full"
+        className="bg-black border-2 min-h-full min-2-full rounded-r-full flex items-center p-2"
         onClick={() => setDeselect(!deselect)}
       >
-        <p className="text-white">Remove Proficiency</p>
+        <p className="text-white ">Remove</p>
       </div>
     </div>
   );

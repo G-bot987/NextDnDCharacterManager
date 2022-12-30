@@ -11,9 +11,9 @@ export default function Selectedlanguageproperties(
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col space-y-4 min-w-[9%]">
+    <li className="flex flex-col space-y-4 min-w-[14%] items-center px-1">
       <div
-        className="flex justify-center text-center flex-row"
+        className="flex justify-between text-center flex-row min-w-full"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
@@ -25,9 +25,7 @@ export default function Selectedlanguageproperties(
             }}
           />
         </div>
-        <div className="border-white border-2 rounded-full">
-          My Language Proficiencies
-        </div>
+        <div className="border-white border-2 rounded-full p-1">Selected</div>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div
             className={styles.arrowdown}
@@ -39,7 +37,7 @@ export default function Selectedlanguageproperties(
         </div>
       </div>
       {show && (
-        <ul className="flex flex-col justify-around  text-center  space-y-4 px-8">
+        <ul className="flex flex-col justify-around text-center max-w-[80%] max-w-min space-y-4">
           {Object.keys(Props).map((property: any, index: number) => (
             <Selectedlanguageproperty {...Props[property]} key={index} />
           ))}
