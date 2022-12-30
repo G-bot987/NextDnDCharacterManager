@@ -50,7 +50,7 @@ export default function Attributevalue(Props: any) {
   }, [ScoreToRender]);
 
   return (
-    <div className=" flex flex-row justify-center">
+    <div className=" flex flex-row justify-between">
       <div onClick={() => SetCardChange(changeCard - 1)}>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
           <div className={styles.arrowleft} />
