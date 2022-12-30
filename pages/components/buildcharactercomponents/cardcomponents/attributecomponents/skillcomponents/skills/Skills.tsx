@@ -65,7 +65,7 @@ export default function Skills(Props: PropsInterface) {
       className=" max-w-full flex justify-center"
       onClick={() => setSelect(!select)}
     >
-      <div className="flex justify-center flex flex-col bg-white text-black rounded-full max-w-[50%] ">
+      <div className="flex justify-center flex flex-col bg-black text-white rounded-full max-w-[50%] ">
         <Skillproficiency
           {...{ select: inStore?.proficiency, skillName, attribute }}
         />

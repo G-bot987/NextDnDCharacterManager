@@ -12,8 +12,8 @@ export default function Skillproficiency(Props: SkillproficiencyInterface) {
     <div
       className="max-w-fit rounded-full border-2 border-white p-2"
       style={{
-        background: select ? "black" : "",
-        color: select ? "white" : "",
+        background: select ? "white" : "",
+        color: select ? "black" : "",
         border: select ? "solid" : "",
       }}
     >
