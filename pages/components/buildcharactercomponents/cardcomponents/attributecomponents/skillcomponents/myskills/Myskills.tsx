@@ -11,7 +11,7 @@ export default function Myskills(Props: ReduxSkillInterface[]) {
   return (
     <li className="flex flex-col space-y-4 min-w-[14%]">
       <div
-        className="flex justify-center text-center flex-row justify-between px-1"
+        className="flex justify-center text-center flex-row justify-between px-1 min-w-full"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
@@ -23,7 +23,7 @@ export default function Myskills(Props: ReduxSkillInterface[]) {
             }}
           />
         </div>
-        <div className="border-white border-2 rounded-full">
+        <div className="border-white border-2 rounded-full mx-[4px]">
           My Skill Proficiencies
         </div>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">

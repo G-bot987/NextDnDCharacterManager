@@ -8,7 +8,8 @@ export default function LanguagePropertiesState(
   return (
     <div
       style={{
-        background: selected ? "purple" : "",
+        background: selected ? "white" : "",
+        color: selected ? "black" : "",
       }}
     >
       {Props.property}
