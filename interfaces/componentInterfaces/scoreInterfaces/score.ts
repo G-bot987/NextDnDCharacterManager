@@ -1,6 +1,7 @@
 export interface ScoreInterface {
   value: number;
   selected: null | boolean;
+  mod: number;
 }
 
 export interface ReduxScoreInterface {
