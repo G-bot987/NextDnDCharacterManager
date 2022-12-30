@@ -47,6 +47,7 @@ export interface attributesInterface {
 export interface scoreInterface {
   value: number;
   selected: null | boolean;
+  mod: number;
 }
 
 export interface skillInterface {
