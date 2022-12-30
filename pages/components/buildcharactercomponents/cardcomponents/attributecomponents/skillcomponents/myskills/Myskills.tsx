@@ -6,13 +6,12 @@ import { ReduxSkillInterface } from "../../../../../../../interfaces/componentIn
 import Myskillsrender from "../myskills/Myskillrender";
 
 export default function Myskills(Props: ReduxSkillInterface[]) {
-
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col space-y-4 min-w-[9%]">
+    <li className="flex flex-col space-y-4 min-w-[14%]">
       <div
-        className="flex justify-center text-center flex-row"
+        className="flex justify-center text-center flex-row justify-between px-1"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
@@ -38,7 +37,7 @@ export default function Myskills(Props: ReduxSkillInterface[]) {
         </div>
       </div>
       {show && (
-        <ul className="flex flex-col justify-around  text-center  space-y-4">
+        <ul className="flex flex-col justify-center  text-center  space-y-4">
           {Object.keys(Props).map((property: any, index: number) => (
             <Myskillsrender {...Props[property]} key={index} />
           ))}

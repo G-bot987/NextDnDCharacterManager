@@ -15,8 +15,8 @@ export default function Attribute(Props: attributesInterface) {
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col space-y-4 min-w-[15%] ">
-      <div className="flex  text-center flex-row min-w-full justify-between">
+    <li className="flex flex-col space-y-4 min-w-[14%] ">
+      <div className="flex  text-center flex-row min-w-full justify-between px-1">
         <div onClick={() => setShow(!show)}>
           {skills && (
             <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
