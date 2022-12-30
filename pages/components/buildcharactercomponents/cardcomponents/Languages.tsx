@@ -14,7 +14,7 @@ export default function Languages(Props: languagesInterface) {
   return (
     <li className="flex flex-col space-y-4 min-w-[13%]">
       <div
-        className="flex justify-center text-center flex-row"
+        className="flex justify-around text-center flex-row"
         onClick={() => setShow(!show)}
       >
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
@@ -26,7 +26,7 @@ export default function Languages(Props: languagesInterface) {
             }}
           />
         </div>
-        <div className="border-white border-2 rounded-full">
+        <div className="border-white border-2 rounded-full p-[4px]">
           {ancestralgroup}
         </div>
         <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
