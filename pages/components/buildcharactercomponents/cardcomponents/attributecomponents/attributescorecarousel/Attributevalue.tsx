@@ -10,7 +10,7 @@ import {
 } from "../../../../../../slices/attributesSlice";
 
 export default function Attributevalue(Props: any) {
-  const { score, attribute } = Props;
+  const { score, attribute, mod } = Props;
 
   const store = useSelector(attributesRootState);
   const dispact = useDispatch();
@@ -45,7 +45,7 @@ export default function Attributevalue(Props: any) {
   })();
 
   useEffect(() => {
-    const ReduxPayload = { score: ScoreToRender, attribute };
+    const ReduxPayload = { score: ScoreToRender, attribute, mod };
     dispact(attributeValue(ReduxPayload));
   }, [ScoreToRender]);
 
