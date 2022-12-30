@@ -15,8 +15,8 @@ export default function Attribute(Props: attributesInterface) {
   const [show, setShow] = useState(false);
 
   return (
-    <li className="flex flex-col space-y-4 min-w-[9%] ">
-      <div className="flex justify-center text-center flex-row">
+    <li className="flex flex-col space-y-4 min-w-[15%] ">
+      <div className="flex  text-center flex-row min-w-full justify-between">
         <div onClick={() => setShow(!show)}>
           {skills && (
             <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
@@ -30,7 +30,7 @@ export default function Attribute(Props: attributesInterface) {
             </div>
           )}
         </div>
-        <div className="border-solid border-white border-2 rounded-lg flex-col">
+        <div className="border-solid border-white border-2 rounded-lg flex-col p-3 min-w-[50%]">
           {attribute}
           <Attributevalue {...{ score, attribute }} />
         </div>
@@ -49,7 +49,7 @@ export default function Attribute(Props: attributesInterface) {
         </div>
       </div>
       {show && skills && (
-        <ul className="flex flex-col justify-around  text-center  space-y-4">
+        <ul className="flex flex-col   text-center  space-y-4 justify-center">
           {skills?.map((skill: skillInterface, index: number) => (
             <Skills {...{ skill, attribute }} key={index} />
           ))}
