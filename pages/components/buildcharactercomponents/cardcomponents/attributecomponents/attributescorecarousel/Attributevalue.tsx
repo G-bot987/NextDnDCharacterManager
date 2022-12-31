@@ -45,7 +45,7 @@ export default function Attributevalue(Props: any) {
   })();
 
   useEffect(() => {
-    const ReduxPayload = { score: ScoreToRender, attribute, mod };
+    const ReduxPayload = { score: ScoreToRender, attribute };
     dispact(attributeValue(ReduxPayload));
   }, [ScoreToRender]);
 
