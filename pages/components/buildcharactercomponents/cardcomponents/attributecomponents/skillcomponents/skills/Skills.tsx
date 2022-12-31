@@ -29,16 +29,17 @@ export default function Skills(Props: PropsInterface) {
   const attributesStore = useSelector(attributesRootState);
   const dispatch = useDispatch();
 
-  console.log("attributes store in skill rend");
-  console.log(attributesStore);
-  console.log("---");
-
   const attributeMod = attributesStore.find((element) => {
     return element.attribute === attribute;
   });
 
-  const mod = attributeMod.score.mod;
-
+  const mod = (() => {
+    if (attribute) {
+      return attributeMod.score.mod;
+    } else {
+      return "an error occured";
+    }
+  })();
 
   const inStore = store.find((element) => {
     return element.skillName === skillName;
