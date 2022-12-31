@@ -9,6 +9,8 @@ import {
   skillProFalse,
 } from "../../../../../../../slices/skillSlice";
 
+import { attributesRootState } from "../../../../../../../slices/attributesSlice";
+
 interface SKillsInterface {
   skill: string;
   proficiency: null | boolean;
@@ -24,7 +26,19 @@ export default function Skills(Props: PropsInterface) {
   const skillName = Props.skill?.skill;
 
   const store = useSelector(skillRootState);
+  const attributesStore = useSelector(attributesRootState);
   const dispatch = useDispatch();
+
+  console.log("attributes store in skill rend");
+  console.log(attributesStore);
+  console.log("---");
+
+  const attributeMod = attributesStore.find((element) => {
+    return element.attribute === attribute;
+  });
+
+  const mod = attributeMod.score.mod;
+
 
   const inStore = store.find((element) => {
     return element.skillName === skillName;
@@ -67,7 +81,7 @@ export default function Skills(Props: PropsInterface) {
     >
       <div className="flex justify-center flex flex-col bg-black text-white rounded-full max-w-[50%] ">
         <Skillproficiency
-          {...{ select: inStore?.proficiency, skillName, attribute }}
+          {...{ select: inStore?.proficiency, skillName, attribute, mod }}
         />
       </div>
     </li>
