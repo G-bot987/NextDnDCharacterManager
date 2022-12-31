@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Skills from "./attributecomponents/skillcomponents/skills/Skills";
+import Attributevalue from "./attributecomponents/attributescorecarousel/Attributevalue";
 
 import styles from "../../../../styles/Home.module.css";
 
@@ -6,8 +8,6 @@ import {
   attributesInterface,
   skillInterface,
 } from "../../../../interfaces/templateInterface";
-import Skills from "./attributecomponents/skillcomponents/skills/Skills";
-import Attributevalue from "./attributecomponents/attributescorecarousel/Attributevalue";
 
 export default function Attribute(Props: attributesInterface) {
   const { attribute, score, skills } = Props;

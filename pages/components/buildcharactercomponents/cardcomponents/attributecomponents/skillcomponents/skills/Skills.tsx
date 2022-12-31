@@ -8,9 +8,10 @@ import {
   skillProTrue,
   skillProFalse,
 } from "../../../../../../../slices/skillSlice";
-
 import { attributesRootState } from "../../../../../../../slices/attributesSlice";
 import { levelRootState } from "../../../../../../../slices/lvSlice";
+
+import { ReduxSkillInterface } from "../../../../../../../interfaces/componentInterfaces/skillInterfaces/skillInterfaces";
 
 interface SKillsInterface {
   skill: string;
@@ -24,6 +25,7 @@ interface PropsInterface {
 
 export default function Skills(Props: PropsInterface) {
   const { attribute } = Props;
+
   const skillName = Props.skill?.skill;
 
   const store = useSelector(skillRootState);
@@ -36,7 +38,7 @@ export default function Skills(Props: PropsInterface) {
   });
 
   var mod = (() => {
-    if (attribute) {
+    if (attributeMod) {
       return attributeMod.score.mod;
     } else {
       return "an error occured";
@@ -47,7 +49,7 @@ export default function Skills(Props: PropsInterface) {
     return element.skillName === skillName;
   });
 
-  const skillState = (() => {
+  var skillState = (() => {
     if (inStore === undefined) {
       return false;
     } else {
@@ -55,31 +57,21 @@ export default function Skills(Props: PropsInterface) {
     }
   })();
 
-  if (skillState) {
+  var [select, setSelect] = useState(skillState);
+
+  if (skillState === true) {
     mod = +mod + +lvStore[0].proBonus;
   }
 
-  const [select, setSelect] = useState(skillState);
-
   useEffect(() => {
-    const skillProperty = { skillName, attribute, proficiency: select };
-
-    const inStore = store.find((element) => {
-      return element.skillName === skillName;
-    });
-
-    if (inStore) {
-      if (inStore.proficiency === select) {
-        return console.log("catch");
-      }
-    }
+    const skillProperty = { skillName, attribute, proficiency: select, mod };
 
     if (select === true) {
       dispatch(skillProTrue(skillProperty));
     } else {
       dispatch(skillProFalse(skillProperty));
     }
-  }, [select]);
+  }, [select, lvStore, attributesStore, mod, skillState]);
 
   return (
     <li
@@ -89,10 +81,11 @@ export default function Skills(Props: PropsInterface) {
       <div className="flex justify-center flex flex-col bg-black text-white rounded-full max-w-[50%] ">
         <Skillproficiency
           {...{
-            select: inStore?.proficiency,
+            select: select,
             skillName,
             attribute,
             mod,
+            setSelect,
           }}
         />
       </div>
