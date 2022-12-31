@@ -10,6 +10,7 @@ import {
 } from "../../../../../../../slices/skillSlice";
 
 import { attributesRootState } from "../../../../../../../slices/attributesSlice";
+import { levelRootState } from "../../../../../../../slices/lvSlice";
 
 interface SKillsInterface {
   skill: string;
@@ -27,13 +28,14 @@ export default function Skills(Props: PropsInterface) {
 
   const store = useSelector(skillRootState);
   const attributesStore = useSelector(attributesRootState);
+  const lvStore = useSelector(levelRootState);
   const dispatch = useDispatch();
 
   const attributeMod = attributesStore.find((element) => {
     return element.attribute === attribute;
   });
 
-  const mod = (() => {
+  var mod = (() => {
     if (attribute) {
       return attributeMod.score.mod;
     } else {
@@ -52,6 +54,10 @@ export default function Skills(Props: PropsInterface) {
       return inStore.proficiency;
     }
   })();
+
+  if (skillState) {
+    mod = +mod + +lvStore[0].proBonus;
+  }
 
   const [select, setSelect] = useState(skillState);
 
@@ -82,7 +88,12 @@ export default function Skills(Props: PropsInterface) {
     >
       <div className="flex justify-center flex flex-col bg-black text-white rounded-full max-w-[50%] ">
         <Skillproficiency
-          {...{ select: inStore?.proficiency, skillName, attribute, mod }}
+          {...{
+            select: inStore?.proficiency,
+            skillName,
+            attribute,
+            mod,
+          }}
         />
       </div>
     </li>
