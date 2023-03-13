@@ -46,16 +46,19 @@ export default function Skillproficiency(Props: SkillproficiencyInterface) {
   return (
     <div
       onClick={() => setSelected(!selected)}
-      className="max-w-fit rounded-full border-2 border-white p-2"
+      className="max-w-fit rounded-full border-2 border-white p-2 flex-col"
       style={{
         background: select ? "white" : "",
         color: select ? "black" : "",
         border: select ? "solid" : "",
       }}
     >
-      {skillName}
-
-      {mod}
+      <p>
+        {skillName}
+      </p>
+      <p>
+        {mod}
+      </p>
     </div>
   );
 }
