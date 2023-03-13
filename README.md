@@ -24,7 +24,7 @@ A app which has has the aspirational goal of allowing character creation for Dun
 Working character card, with all the generic Dungeons and Dragons requirements including; weapons, skills, inventory. This is the currently active Milestone !
 
 - [x] Languages  
-- [ ] Attributes/skills 
+- [x] Attributes/skills 
 - [ ] Basic Character info race class etc
 - [ ] inventory
 - [ ] Weapons
