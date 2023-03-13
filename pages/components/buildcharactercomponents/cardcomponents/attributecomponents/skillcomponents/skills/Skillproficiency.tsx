@@ -38,7 +38,7 @@ export default function Skillproficiency(Props: SkillproficiencyInterface) {
   }, [selected])
 
   useEffect(() => {
-    if (!inStore.proficiency && selected) {
+    if (!inStore?.proficiency && selected) {
       setSelected(!selected)
     }
   }, [inStore])
