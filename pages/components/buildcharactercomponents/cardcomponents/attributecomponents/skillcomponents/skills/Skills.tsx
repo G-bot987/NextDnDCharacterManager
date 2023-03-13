@@ -25,7 +25,6 @@ interface PropsInterface {
 
 export default function Skills(Props: PropsInterface) {
   const { attribute } = Props;
-
   const skillName = Props.skill?.skill;
 
   const store = useSelector(skillRootState);
@@ -57,36 +56,32 @@ export default function Skills(Props: PropsInterface) {
     }
   })();
 
-  var [select, setSelect] = useState(skillState);
-
   if (skillState === true) {
     mod = +mod + +lvStore[0].proBonus;
   }
 
-  useEffect(() => {
-    const skillProperty = { skillName, attribute, proficiency: select, mod };
+  const skillProperty = { skillName, attribute, proficiency: skillState, mod };
+  if (inStore === undefined) {
+    dispatch(skillProFalse(skillProperty));
+  }
 
-    if (select === true) {
+  useEffect(() => {
+
+    if (skillProperty.proficiency === true) {
       dispatch(skillProTrue(skillProperty));
     } else {
       dispatch(skillProFalse(skillProperty));
     }
-  }, [select, lvStore, attributesStore, mod, skillState]);
+
+  }, [lvStore, attributesStore, mod]);
 
   return (
     <li
       className=" max-w-full flex justify-center"
-      onClick={() => setSelect(!select)}
     >
       <div className="flex justify-center flex flex-col bg-black text-white rounded-full max-w-[50%] ">
         <Skillproficiency
-          {...{
-            select: select,
-            skillName,
-            attribute,
-            mod,
-            setSelect,
-          }}
+          {...inStore}
         />
       </div>
     </li>
