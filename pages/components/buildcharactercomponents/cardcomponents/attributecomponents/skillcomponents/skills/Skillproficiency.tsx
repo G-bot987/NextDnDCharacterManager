@@ -7,7 +7,7 @@ interface SkillproficiencyInterface {
   skillName?: string;
   attribute: string;
   mod: number;
-  proficiency: boolean
+  proficiency?: boolean
 }
 
 export default function Skillproficiency(Props: SkillproficiencyInterface) {
