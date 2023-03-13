@@ -60,7 +60,7 @@ export default function Skills(Props: PropsInterface) {
     mod = +mod + +lvStore[0].proBonus;
   }
 
-  const skillProperty = { skillName, attribute, proficiency: skillState, mod };
+  const skillProperty = { skillName, attribute, proficiency: skillState || false, mod };
   if (inStore === undefined) {
     dispatch(skillProFalse(skillProperty));
   }
