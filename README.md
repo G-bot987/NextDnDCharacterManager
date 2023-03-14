@@ -1,5 +1,14 @@
 # This Project is currently in development 
 
+## Update March 2023
+Skills section is complete, users can select level or input experience points manually to give character lv, users can select attribute points. When A user selects a skill it is then rendered in a skill proficiency comp. The rendering of skills bonus will dynamically update when attribute scores and character level are selected. 
+
+styling and UI tuning is required. 
+
+currently working on Mongo DB, sedding data. For both weapons and items components. Currently on course for July completion! :) 
+
+
+## December 2022
 Currently front end elements and logic are being implemented, development currently focus on character creation in the card section of the app. The language section of the card is working as intended allowing the selection and deletion of language proficiences & rendering a selected language proficiences component. Language proficiencies can also be deleted from the selected Language Proficiences comp. 
 
 specifically the attributes section is being developed as of December 2022 this is expected to be completed by Febuary 1st 2023, currently users can select skills. Next steps include: styling this section, a selected skills com, attribute score display. 
