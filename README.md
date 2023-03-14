@@ -1,4 +1,4 @@
-# This Project is current in development 
+# This Project is currently in development 
 
 Currently front end elements and logic are being implemented, development currently focus on character creation in the card section of the app. The language section of the card is working as intended allowing the selection and deletion of language proficiences & rendering a selected language proficiences component. Language proficiencies can also be deleted from the selected Language Proficiences comp. 
 
@@ -16,6 +16,28 @@ Functionality as of December 2022
 # About 
 
 A app which has has the aspirational goal of allowing character creation for Dungeons & Dragons 5e. Through my experience of running games on digital tabletops I found the current market options for hosting limited and restrained. This platform is tailored for creation of characters in my homebrew world. Giving a detailed and bespoke language selection component as well as custom skills. This app will eventually allow players to log in and save characters to there profiles as well as providing a space for players to communicate through posts, provide notications with regards to player games and store journal notes. Yes this is to say I will eventually host my Dungeons and Dragons games on this platform! 
+
+# etiquette 
+
+Please don't fork without requesting
+
+## Running locally
+
+- [ ] npm i
+- [ ] npm run dev
+
+## Merge protocol
+
+- [ ] ask to colaborat 
+- [ ] pull latest version
+- [ ] branch from main 
+- [ ] test build with npm run build
+- [ ] push branch
+- [ ] branch must pass vercel bot build validation 
+- [ ] request review
+- [ ] merge 
+- [ ] check deployment
+
 
 # Production timeline 
 
