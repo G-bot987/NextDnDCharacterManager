@@ -23,20 +23,20 @@ Please don't fork without requesting
 
 ## Running locally
 
-- [ ] npm i
-- [ ] npm run dev
+- npm i
+- npm run dev
 
 ## Merge protocol
 
-- [ ] ask to colaborat 
-- [ ] pull latest version
-- [ ] branch from main 
-- [ ] test build with npm run build
-- [ ] push branch
-- [ ] branch must pass vercel bot build validation 
-- [ ] request review
-- [ ] merge 
-- [ ] check deployment
+- ask to colaborat 
+- pull latest version
+- branch from main 
+- test build with npm run build
+- push branch
+- branch must pass vercel bot build validation 
+- request review
+- merge 
+- check deployment
 
 
 # Production timeline 
