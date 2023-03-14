@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   languagesInterface,
   languageInterface,
-} from "../../../../interfaces/templateInterface";
+} from "../../../../interfaces/dataInterfaces/templateInterface";
 
 import styles from "../../../../styles/Home.module.css";
 import Language from "./languagecomponents/Language";
