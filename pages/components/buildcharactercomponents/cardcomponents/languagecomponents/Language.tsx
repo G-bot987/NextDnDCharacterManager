@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { languageInterface } from "../../../../../interfaces/templateInterface";
+import { languageInterface } from "../../../../../interfaces/dataInterfaces/templateInterface";
 
 import styles from "../../../../../styles/Home.module.css";
 

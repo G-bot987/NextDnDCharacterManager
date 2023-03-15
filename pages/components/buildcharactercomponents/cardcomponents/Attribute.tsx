@@ -7,7 +7,7 @@ import styles from "../../../../styles/Home.module.css";
 import {
   attributesInterface,
   skillInterface,
-} from "../../../../interfaces/templateInterface";
+} from "../../../../interfaces/dataInterfaces/templateInterface";
 
 export default function Attribute(Props: attributesInterface) {
   const { attribute, score, skills } = Props;

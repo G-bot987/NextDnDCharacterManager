@@ -1,6 +1,6 @@
 import { RootState } from "../store";
 
-import { lvInterface } from "../interfaces/templateInterface";
+import { lvInterface } from "../interfaces/dataInterfaces/templateInterface";
 import { ReduxLevelState } from "../interfaces/componentInterfaces/levelInterfaces/level";
 
 const initialState: ReduxLevelState = {

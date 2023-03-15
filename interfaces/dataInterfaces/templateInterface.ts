@@ -1,7 +1,14 @@
+import { weaponDataInterface } from "./weaponDataInterface";
+import { itemDataInterface } from "./itemsDataInterface";
+
 export interface templateInterface {
-  profile: profileInterface;
-  attributes: attributesInterface[];
-  languages: languagesInterface[];
+  template: {
+    profile: profileInterface;
+    attributes: attributesInterface[];
+    languages: languagesInterface[];
+  }
+  weaponData: weaponDataInterface[];
+  items: itemDataInterface[];
 }
 
 export interface profileInterface {

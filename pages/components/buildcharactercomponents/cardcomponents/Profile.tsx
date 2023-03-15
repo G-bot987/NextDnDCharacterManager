@@ -9,7 +9,7 @@ import Lvcarousel from "./profilecomponents/Lvcarousel";
 import {
   lvInterface,
   profileInterface,
-} from "../../../../interfaces/templateInterface";
+} from "../../../../interfaces/dataInterfaces/templateInterface";
 
 export default function Profile(Props: profileInterface) {
   const {
