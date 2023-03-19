@@ -46,10 +46,6 @@ export default function App({
   itemData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
-  console.log('itemData')
-  console.log(itemData)
-  console.log('---')
-
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 
@@ -60,7 +56,7 @@ export default function App({
 
       const renderTab = () => {
         if (buildCharTab === "card") {
-          return <Card {...{ template, items, weaponData }} />;
+          return <Card {...{ template, items: itemData, weaponData }} />;
         }
         if (buildCharTab === "notes") {
           return <Notes />;
