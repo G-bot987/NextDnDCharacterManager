@@ -48,7 +48,7 @@ export default function App({
 
   console.log('itemData')
   console.log(itemData)
-  console.log('--')
+  console.log('---')
 
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
