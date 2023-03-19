@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import clientPromise from '../lib/mongodb'
 import { InferGetServerSidePropsType } from 'next'
 
+import { config } from '../lib/config'
 import Header from "./mainnav/Header";
 // top lv tabs
 import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
@@ -26,8 +27,8 @@ export async function getServerSideProps(context: any) {
   try {
     await clientPromise
 
-    const DB = (await clientPromise).db(process.env.DB)
-    const collection = DB.collection(`${process.env.ITEMS_COLLECTION}`);
+    const DB = (await clientPromise).db(config.DB)
+    const collection = DB.collection(`${config.ITEMS_COLLECTION}`);
     const dataPreParse = await collection.find({}).toArray()
     const data = JSON.parse(JSON.stringify(dataPreParse))
 
