@@ -10,9 +10,11 @@ import Myskills from "../buildcharactercomponents/cardcomponents/attributecompon
 import { useSelector } from "react-redux";
 import { rootState } from "../../../slices/languageSlice";
 import { skillRootState } from "../../../slices/skillSlice";
+import { itemDataInterface } from "../../../interfaces/dataInterfaces/itemsDataInterface";
+import Items from "../buildcharactercomponents/cardcomponents/Items";
 
 export default function ArrowBtn(Props: any) {
-  const { attributes, languages } = Props;
+  const { attributes, languages, items } = Props;
 
   const store = useSelector(rootState);
   const skillRootStore = useSelector(skillRootState);
@@ -69,6 +71,14 @@ export default function ArrowBtn(Props: any) {
           )}
           {Object.keys(languages).map((language: string, index: number) => (
             <Languages {...languages[language]} key={`${index}`} />
+          ))}
+        </ul>
+      )}
+
+      {show && items && (
+        <ul className="min-h-min flex flex-row justify-around   min-w-min grow ">
+          {items.map((item: itemDataInterface, index: number) => (
+            <Items {...item} key={index} />
           ))}
         </ul>
       )}
