@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 
+import clientPromise from '../lib/mongodb'
+import { InferGetServerSidePropsType } from 'next'
+
+import { config } from '../lib/config'
+
 import Header from "./mainnav/Header";
 // top lv tabs
 import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
@@ -17,9 +22,31 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 // data & interfaces
 import template from "../data/templateCharacterData";
 
-// redux
 
-export default function App() {
+export async function getServerSideProps(context: any) {
+  try {
+    await clientPromise
+
+    const DB = (await clientPromise).db(config.DB)
+    const collection = DB.collection(`${config.COLLECTION}`);
+    const dataPreParse = await collection.find({}).toArray()
+    const data = JSON.parse(JSON.stringify(dataPreParse))
+
+    return {
+      props: { itemData: data },
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      props: { isConnected: false },
+    }
+  }
+}
+
+export default function App({
+  itemData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 
