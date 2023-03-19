@@ -21,7 +21,8 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 
 // data & interfaces
 import template from "../data/templateCharacterData";
-
+import { weaponData } from "../data/weaponData";
+import { items } from "../data/itemData";
 
 export async function getServerSideProps(context: any) {
   try {
@@ -57,7 +58,7 @@ export default function App({
 
       const renderTab = () => {
         if (buildCharTab === "card") {
-          return <Card {...template} />;
+          return <Card {...{ template, items, weaponData }} />;
         }
         if (buildCharTab === "notes") {
           return <Notes />;

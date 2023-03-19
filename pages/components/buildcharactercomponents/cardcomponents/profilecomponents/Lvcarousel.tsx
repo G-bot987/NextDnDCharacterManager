@@ -1,5 +1,5 @@
 import React from "react";
-import { lvInterface } from "../../../../../interfaces/templateInterface";
+import { lvInterface } from "../../../../../interfaces/dataInterfaces/templateInterface";
 
 export default function Lvcarousel(Props: lvInterface) {
   const { value, proBonus } = Props;

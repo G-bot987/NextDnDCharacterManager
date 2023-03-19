@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { templateInterface } from "../../../../../interfaces/templateInterface";
+import { templateInterface } from "../../../../../interfaces/dataInterfaces/templateInterface";
 
 import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 import ArrowBtn from "../../../globalcomponents/Arrowbtn";
 
 export default function Card(Props: templateInterface) {
-  const { profile, attributes, languages } = Props;
+
+  const { profile, attributes, languages } = Props.template ?? {};
 
   return (
     <ul className=" flex flex-col justify-around min-h-full space-y-4 min-h-100">
