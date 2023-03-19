@@ -6,9 +6,7 @@ import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 import ArrowBtn from "../../../globalcomponents/Arrowbtn";
 
 export default function Card(Props: templateInterface) {
-  console.log('props')
-  console.log(Props)
-  console.log('---')
+
   const { profile, attributes, languages } = Props.template ?? {};
 
   return (

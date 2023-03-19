@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 
+import clientPromise from '../lib/mongodb'
+import { InferGetServerSidePropsType } from 'next'
+
 import Header from "./mainnav/Header";
 // top lv tabs
 import BuildCharacter from "./components/mainpages/characternavbar/BuildCharacter";
@@ -18,9 +21,35 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 import template from "../data/templateCharacterData";
 import { weaponData } from "../data/weaponData";
 import { items } from "../data/itemData";
-// redux
 
-export default function App() {
+export async function getServerSideProps(context: any) {
+  try {
+    await clientPromise
+
+    const DB = (await clientPromise).db(process.env.DB)
+    const collection = DB.collection(`${process.env.ITEMS_COLLECTION}`);
+    const dataPreParse = await collection.find({}).toArray()
+    const data = JSON.parse(JSON.stringify(dataPreParse))
+
+    return {
+      props: { itemData: data },
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      props: { isConnected: false },
+    }
+  }
+}
+
+export default function App({
+  itemData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
+  console.log('itemData')
+  console.log(itemData)
+  console.log('---')
+
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 
@@ -68,7 +97,6 @@ export default function App() {
   return (
     <div className="flex-col flex justify-evenly flex-wrap">
       <Header currentPage={pg} handlePageChange={handlePageChange} />
-
       {renderPage()}
     </div>
   );
