@@ -8,6 +8,7 @@ import ArrowBtn from "../../../globalcomponents/Arrowbtn";
 export default function Card(Props: templateInterface) {
 
   const { profile, attributes, languages } = Props.template ?? {};
+  const { items } = Props
 
   return (
     <ul className=" flex flex-col justify-around min-h-full space-y-4 min-h-100">
@@ -19,6 +20,9 @@ export default function Card(Props: templateInterface) {
       </li>
       <li>
         <ArrowBtn {...{ languages }} />
+      </li>
+      <li>
+        <ArrowBtn {...{ items }} />
       </li>
     </ul>
   );
