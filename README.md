@@ -32,6 +32,10 @@ Please don't fork without requesting
 
 ## Running locally
 
+## Mongo Locally
+
+See example.env, you will need to set up a connection to a mongoDB for local use, see https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/ . you will need to provide your username, password and dbname in the MONGODB_URI as per these instructions. alternately watch https://www.youtube.com/watch?v=aAupumVpqcE&t=2388s. Do not attempt to commit your env or ammend any process.env variables. Vercel build bot will, block your merge if do. Do not commit loose credentials. In a local instance you will need a MongoAtlas acc. The deployed instance is connected too a production MongoDB. 
+
 - npm i
 - npm run dev
 
@@ -67,6 +71,7 @@ Working character card, with all the generic Dungeons and Dragons requirements i
 Intergrate login functionality with MongoDB to allow users to save there characters for future use
 
 - [ ] establish API's
+- [ ] mongoose intergration models etc.
 - [ ] authenticate users
 - [ ] verify emails
 - [ ] security 
@@ -76,7 +81,7 @@ Intergrate login functionality with MongoDB to allow users to save there charact
 allow users to save characters to their profiles. 
 *** A connection to a MongoDB database has been provisionally set up to ensure core functionality and intergration is possible
 
-- [ ] Backend setup
+- [x] Backend setup
 - [ ] Api's 
 
 ## Implement unit testing 
