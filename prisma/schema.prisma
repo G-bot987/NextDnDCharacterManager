@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model items {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  weight   Int
+  quantity Int
+  catagory String
+}
+
+model templete {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  profile profile[]
+}
+
+model profile {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  classes    classes[]
+  xp         Int
+  races      races[]
+  background String
+  strength   String
+  weakness   String
+  template   templete  @relation(fields: [id], references: [id])
+  // image??
+  image      image[]
+}
+
+model image {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  avatar  Bytes
+  alt     String
+  profile profile? @relation(fields: [id], references: [id])
+}
+
+model races {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  race    String
+  profile profile @relation(fields: [id], references: [id])
+}
+
+model classes {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  class   String
+  profile profile @relation(fields: [id], references: [id])
+}
+
+// model User {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   createdAt DateTime @default(now())
+//   email     String   @unique
+//   name      String?
+//   role      Role     @default(USER)
+//   posts     Post[]
+// }
+
+// model Post {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+//   published Boolean  @default(false)
+//   title     String
+//   author    User?    @relation(fields: [authorId], references: [id])
+//   authorId  String   @db.ObjectId
+// }
+
+enum Role {
+  USER
+  ADMIN
+}
