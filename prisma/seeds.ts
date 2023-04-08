@@ -7,19 +7,6 @@ const prisma = new PrismaClient()
 
 
 async function main() {
-    // await prisma.user.create({
-    //     data: {
-    //         email: 'sdkfkjsd@flkdsfjk.com',
-    //         posts: {
-    //             create: {
-    //                 title: 'sdfsdfa',
-    //                 content: 'safddsfa',
-    //                 published: true,
-    //             }
-    //         }
-    //     }
-
-    // })
 
     await prisma.languages.create({
         data: {
