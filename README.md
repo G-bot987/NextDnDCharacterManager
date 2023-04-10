@@ -1,5 +1,9 @@
 # This Project is currently in development 
 
+## Update April 2023
+
+Progess is on schedule and proceeding well, despite some personal difficulties. Mongoose was Removed in Favour of Prisma, due to performance intergration and ease of use. Mongo Intergration is progressing well with Prisma and data can now be seeded. Mock data is in the progress of being migrated Mongo, A seeds file has been implemented to allow for local use. Data can be successfully retrieved from mongo and displayed using the getServerSideProps method. soon the Mongo, Prisma, retrieve server side props pattern will be established across the application for all character card data. 
+
 ## Update March 2023
 Skills section is complete, users can select level or input experience points manually to give character lv, users can select attribute points. When A user selects a skill it is then rendered in a skill proficiency comp. The rendering of skills bonus will dynamically update when attribute scores and character level are selected. 
 
@@ -26,6 +30,15 @@ Functionality as of December 2022
 
 A app which has has the aspirational goal of allowing character creation for Dungeons & Dragons 5e. Through my experience of running games on digital tabletops I found the current market options for hosting limited and restrained. This platform is tailored for creation of characters in my homebrew world. Giving a detailed and bespoke language selection component as well as custom skills. This app will eventually allow players to log in and save characters to there profiles as well as providing a space for players to communicate through posts, provide notications with regards to player games and store journal notes. Yes this is to say I will eventually host my Dungeons and Dragons games on this platform! 
 
+# Technologies 
+
+- TypeScript
+- Next
+- Prisma
+- MongoDB
+- Redux
+- Tailwind
+
 # etiquette 
 
 Please don't fork without requesting
@@ -37,6 +50,8 @@ Please don't fork without requesting
 See example.env, you will need to set up a connection to a mongoDB for local use, see https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/ . you will need to provide your username, password and dbname in the MONGODB_URI as per these instructions. alternately watch https://www.youtube.com/watch?v=aAupumVpqcE&t=2388s. Do not attempt to commit your env or ammend any process.env variables. Vercel build bot will, block your merge if do. Do not commit loose credentials. In a local instance you will need a MongoAtlas acc. The deployed instance is connected too a production MongoDB. 
 
 - npm i
+- update env variables to your local mongodb instance, you will need to follow https://www.mongodb.com/try/download/community to get a mongo locally
+- run seeds 'npx prisma db seed', you will need the prisma CLI, https://www.prisma.io/docs/concepts/components/prisma-cli/installation, I had issues with getting the seeds to work so needed to run 'npm i -D tsx' I think. 
 - npm run dev
 
 ## Merge protocol
@@ -50,7 +65,6 @@ See example.env, you will need to set up a connection to a mongoDB for local use
 - request review
 - merge 
 - check deployment
-
 
 # Production timeline 
 
@@ -70,8 +84,8 @@ Working character card, with all the generic Dungeons and Dragons requirements i
 
 Intergrate login functionality with MongoDB to allow users to save there characters for future use
 
-- [ ] establish API's
-- [ ] mongoose intergration models etc.
+- [x] establish API's
+- [x] Prisma intergration models etc.
 - [ ] authenticate users
 - [ ] verify emails
 - [ ] security 
@@ -82,21 +96,13 @@ allow users to save characters to their profiles.
 *** A connection to a MongoDB database has been provisionally set up to ensure core functionality and intergration is possible
 
 - [x] Backend setup
-- [ ] Api's 
+- [x] Api's 
 
 ## Implement unit testing 
 
 to protect funcionality and ensure intergitry of future versions
 
 - [ ] TDD using Jest
-
-# Technologies 
-
-*Next.JS 
-*TypeScript
-*MongoDB
-*Redux
-*Tailwind
 
 # Local use 
 
