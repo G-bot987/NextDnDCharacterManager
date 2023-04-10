@@ -20,19 +20,30 @@ import Notes from "./components/mainpages/characternavbar/tabs/Notes";
 // data & interfaces
 import template from "../data/templateCharacterData";
 import { weaponData } from "../data/weaponData";
-import { items } from "../data/itemData";
+import prisma from "../src/lib/prisma";
 
 export async function getServerSideProps(context: any) {
   try {
     await clientPromise
 
-    const DB = (await clientPromise).db(process.env.DB)
-    const collection = DB.collection(`${process.env.ITEMS_COLLECTION}`);
-    const dataPreParse = await collection.find({}).toArray()
-    const data = JSON.parse(JSON.stringify(dataPreParse))
+    const getData = async () => {
+      const languageData = await prisma.languages.findMany({
+        include: {
+          variants: {
+            include: {
+              dialects: {
+              }
+            }
+          }
+        }
+      });
+      return languageData
+    }
 
+    const itemData = await prisma.items.findMany()
+    const languageData = await getData()
     return {
-      props: { itemData: data },
+      props: { itemData, languageData },
     }
   } catch (e) {
     console.error(e)
@@ -43,7 +54,7 @@ export async function getServerSideProps(context: any) {
 }
 
 export default function App({
-  itemData,
+  itemData, languageData
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   const [pg, setCurrentPG] = useState(`bio`);

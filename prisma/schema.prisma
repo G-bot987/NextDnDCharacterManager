@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model items {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  weight   Int
+  quantity Int
+  catagory String
+}
+
+model templete {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  profile profile[]
+}
+
+model profile {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  classes    classes[]
+  xp         Int
+  races      races[]
+  background String
+  strength   String
+  weakness   String
+  template   templete  @relation(fields: [id], references: [id])
+  // image??
+  image      image[]
+}
+
+model image {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  avatar  Bytes
+  alt     String
+  profile profile? @relation(fields: [id], references: [id])
+}
+
+model races {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  race    String
+  profile profile @relation(fields: [id], references: [id])
+}
+
+model classes {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  class   String
+  profile profile @relation(fields: [id], references: [id])
+}
+
+model Languages {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  ancestralgroup String
+  variants       Variant[]
+}
+
+model Variant {
+  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  language         String
+  written          Boolean?
+  spoken           Boolean?
+  inflection       Boolean?
+  proficiency      Boolean?
+  parentLanguage   Languages @relation(references: [id], fields: [parentLanguageID])
+  parentLanguageID String    @db.ObjectId
+  dialects         Dialect[]
+}
+
+model Dialect {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  language        String?
+  written         Boolean?
+  spoken          Boolean?
+  inflection      Boolean?
+  proficiency     Boolean?
+  parentVariant   Variant? @relation(references: [id], fields: [parentVariantID])
+  parentVariantID String?  @db.ObjectId
+}
+
+enum Role {
+  USER
+  ADMIN
+}
