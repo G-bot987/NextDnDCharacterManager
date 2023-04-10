@@ -55,10 +55,10 @@ async function main() {
                                 },
                                 {
                                     language: "Karsgerdi",
-                                    written: null,
-                                    spoken: null,
-                                    inflection: null,
-                                    proficiency: null,
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
                                 },
                                 {
                                     language: "Rius",
