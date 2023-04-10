@@ -1,11 +1,10 @@
 import React from "react";
 
-import { templateInterface } from "../../../../../interfaces/dataInterfaces/templateInterface";
-
 import Profile from "../../../buildcharactercomponents/cardcomponents/Profile";
 import ArrowBtn from "../../../globalcomponents/Arrowbtn";
+import { templateInterface } from "../../../../../interfaces/dataInterfaces/templateInterface";
 
-export default function Card(Props: templateInterface) {
+export default function Card(Props: any) {
 
   const { profile, attributes, languages } = Props.template ?? {};
   const { items } = Props
