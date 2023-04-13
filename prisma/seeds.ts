@@ -3,11 +3,8 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-
-
-
-async function main() {
-
+async function createImperialTongues() {
+    console.log('creating imperial tongues')
     await prisma.languages.create({
         data: {
             ancestralgroup: 'imperialtongues',
@@ -188,8 +185,474 @@ async function main() {
         }
     })
 
+}
+
+async function createTonguesOfOldMan() {
+    console.log('creating Tongues Of OldMan')
+    await prisma.languages.create({
+        data: {
+            ancestralgroup: 'tonguesofoldman',
+            variants: {
+                create: [
+                    {
+                        language: 'Hulecian',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "Old",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+                    {
+                        language: 'Liundian',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+
+                    {
+                        language: 'Heroneese',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Moni",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Pheroni",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Lae",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Carames",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Nepti",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Xousi",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Hasi",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Tri",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Ous",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Findi",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Hydran",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Reean",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Itees",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Annian",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Tirca",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Gari",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Antonese",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Swordkin",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Pirate",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                            ]
+                        }
+                    },
+                    {
+                        language: 'Deep valley',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "Ende",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Old",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+
+                ]
+            }
+        }
+    })
+
+}
+
+async function createEndeTongues() {
+    console.log('creating Tongues Of OldMan')
+    await prisma.languages.create({
+        data: {
+            ancestralgroup: 'Ende Tongues',
+            variants: {
+                create: [
+                    {
+                        language: 'Haulende',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+                    {
+                        language: 'Astralende',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Nys",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
 
 
+                            ]
+                        }
+                    },
+
+
+
+                ]
+            }
+        }
+    })
+
+}
+
+async function createMontainKinTongues() {
+    console.log('creating Montain Kin Tongues')
+    await prisma.languages.create({
+        data: {
+            ancestralgroup: 'Mountain kin Tongues',
+            variants: {
+                create: [
+                    {
+                        language: 'Clans of Fulgrix',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Singing Valley",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+                    {
+                        language: 'Sons of Aiger',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                            ]
+                        }
+                    },
+
+
+
+                ]
+            }
+        }
+    })
+
+}
+
+async function createArcaneTongues() {
+    console.log('creating Arcane Tongues')
+    await prisma.languages.create({
+        data: {
+            ancestralgroup: 'Arcane Tongues',
+            variants: {
+                create: [
+                    {
+                        language: 'Rocian',
+                        written: false,
+                        spoken: false,
+                        inflection: false,
+                        proficiency: false,
+
+                    },
+                    {
+                        language: 'Gnomish',
+                        written: false,
+                        spoken: false,
+                        inflection: false,
+                        proficiency: false,
+
+                    },
+                ]
+            }
+        }
+    })
+
+}
+
+async function createPyricTongues() {
+    console.log('creating Pyric Tongues')
+    await prisma.languages.create({
+        data: {
+            ancestralgroup: 'Pyric Tongues',
+            variants: {
+
+                create: [
+                    {
+                        language: 'Pyric',
+                        dialects:
+                        {
+                            create: [
+                                {
+                                    language: "High",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+                                {
+                                    language: "Low",
+                                    written: false,
+                                    spoken: false,
+                                    inflection: false,
+                                    proficiency: false,
+                                },
+
+                            ]
+                        }
+                    },
+                ]
+            }
+        }
+    })
+
+}
+
+
+
+function createLanguages() {
+    console.log('creating Imperial Tongues')
+    createImperialTongues()
+    console.log('Imperial Tongues created')
+    createTonguesOfOldMan()
+    console.log('Tongues of Old Man created')
+    createEndeTongues()
+    console.log('Ende Tongues Created')
+    createMontainKinTongues()
+    console.log('Montain Kin Tongues Created')
+    createArcaneTongues()
+    console.log('Arcane Tongues Created')
+    createPyricTongues()
+    console.log('Pyric Tongues Created')
+
+}
+
+
+async function main() {
+    console.log('seeding database')
+    console.log('creating languages')
+    createLanguages()
+    console.log('languages seeded ...')
 
     console.log(`Seeding finished.`)
 }
