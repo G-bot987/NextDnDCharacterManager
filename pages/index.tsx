@@ -57,6 +57,11 @@ export default function App({
   itemData, languageData
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
+
+  console.log('from get serverside props')
+  console.log(itemData)
+  console.log(languageData)
+  console.log('--')
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
 
