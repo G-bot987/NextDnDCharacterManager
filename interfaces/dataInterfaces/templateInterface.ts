@@ -64,22 +64,25 @@ export interface skillInterface {
 
 export interface languagesInterface {
   ancestralgroup: string;
-  varients: languageInterface[];
+  id: string;
+  variants: languageInterface[];
 }
 
 export interface languageInterface {
   language: string;
-  written?: null | boolean;
-  spoken?: null | boolean;
-  inflection?: null | boolean;
-  proficiency?: null | boolean;
+  id: string;
+  written?: boolean;
+  spoken?: boolean;
+  inflection?: boolean;
+  proficiency?: boolean;
   dialects?: dialectInterface[];
 }
 
 export interface dialectInterface {
   language: string;
-  written: null | boolean;
-  spoken: null | boolean;
-  inflection: null | boolean;
-  proficiency: null | boolean;
+  id: string;
+  written: boolean;
+  spoken: boolean;
+  inflection: boolean;
+  proficiency: boolean;
 }
