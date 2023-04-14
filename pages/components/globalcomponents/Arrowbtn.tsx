@@ -14,7 +14,7 @@ import { itemDataInterface } from "../../../interfaces/dataInterfaces/itemsDataI
 import Items from "../buildcharactercomponents/cardcomponents/Items";
 
 export default function ArrowBtn(Props: any) {
-  const { attributes, languages, items } = Props;
+  const { attributes, languageData, items } = Props;
 
   const store = useSelector(rootState);
   const skillRootStore = useSelector(skillRootState);
@@ -64,13 +64,13 @@ export default function ArrowBtn(Props: any) {
         </ul>
       )}
 
-      {show && languages && (
+      {show && languageData && (
         <ul className="min-h-min flex flex-row justify-around   min-w-min grow ">
           {hasSelectedLanguageProperties.length > 0 && (
             <Selectedlanguageproperties {...hasSelectedLanguageProperties} />
           )}
-          {Object.keys(languages).map((language: string, index: number) => (
-            <Languages {...languages[language]} key={`${index}`} />
+          {Object.keys(languageData).map((language: string, index: number) => (
+            <Languages {...languageData[language]} key={`${index}`} />
           ))}
         </ul>
       )}
