@@ -8,7 +8,7 @@ import styles from "../../../../styles/Home.module.css";
 import Language from "./languagecomponents/Language";
 
 export default function Languages(Props: languagesInterface) {
-  const { ancestralgroup, varients } = Props;
+  const { ancestralgroup, variants } = Props;
   const [show, setShow] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ export default function Languages(Props: languagesInterface) {
       </div>
       {show && (
         <ul className="flex flex-col justify-around  text-center  space-y-4">
-          {varients.map((varient: languageInterface, index: number) => (
+          {variants.map((varient: languageInterface, index: number) => (
             <Language {...varient} key={index} />
           ))}
         </ul>

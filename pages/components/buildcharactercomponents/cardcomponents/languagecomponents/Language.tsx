@@ -40,7 +40,7 @@ export default function Language(Props: languageInterface) {
           />
         </div>
       </div>
-      {show && !dialects && (
+      {show && dialects?.length === 0 && (
         <div className="flex flex-row  border-solid border-2 border-white rounded-lg mt-6">
           <div className="flex flex-col  justify-center text-center border-r-2 border-solid border-white min-w-[50%]">
             <div>
@@ -60,7 +60,7 @@ export default function Language(Props: languageInterface) {
           </div>
         </div>
       )}
-      {show && dialects && language && (
+      {show && dialects && dialects?.length >= 1 && language && (
         <ul className="rounded-lg border-solid border-white border-2 mt-6">
           {dialects.map((dialect, index) => (
             <Dialect {...{ dialect, language }} key={index} />

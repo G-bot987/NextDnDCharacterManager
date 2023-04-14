@@ -67,7 +67,7 @@ export default function App({
 
       const renderTab = () => {
         if (buildCharTab === "card") {
-          return <Card {...{ template, items: itemData, weaponData }} />;
+          return <Card {...{ template, items: itemData, weaponData, languageData }} />;
         }
         if (buildCharTab === "notes") {
           return <Notes />;
