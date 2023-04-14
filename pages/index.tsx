@@ -22,28 +22,56 @@ import template from "../data/templateCharacterData";
 import { weaponData } from "../data/weaponData";
 import prisma from "../src/lib/prisma";
 
+// export async function getServerSideProps(context: any) {
+//   try {
+//     await clientPromise
+
+//     const getData = async () => {
+//       const languageData = await prisma.languages.findMany({
+//         include: {
+//           variants: {
+//             include: {
+//               dialects: {
+//               }
+//             }
+//           }
+//         }
+//       });
+//       return languageData
+//     }
+
+//     const itemData = await prisma.items.findMany()
+//     const languageData = await getData()
+
+//     console.log('itemdata')
+//     console.log(itemData)
+//     console.log('--')
+//     return {
+//       props: { itemData, languageData },
+//     }
+//   } catch (e) {
+//     console.error(e)
+//     return {
+//       props: { isConnected: false },
+//     }
+//   }
+// }
+
+
 export async function getServerSideProps(context: any) {
   try {
     await clientPromise
 
-    const getData = async () => {
-      const languageData = await prisma.languages.findMany({
-        include: {
-          variants: {
-            include: {
-              dialects: {
-              }
-            }
-          }
-        }
-      });
-      return languageData
-    }
+    const DB = (await clientPromise).db(process.env.DB)
+    const collection = DB.collection(`${process.env.ITEMS_COLLECTION}`);
+    const dataPreParse = await collection.find({}).toArray()
+    const data = JSON.parse(JSON.stringify(dataPreParse))
 
-    const itemData = await prisma.items.findMany()
-    const languageData = await getData()
+    const LANGUAGES_COLLECTION = DB.collection(`${process.env.LANGUAGES_COLLECTION}`);
+    const dataPreParseLan = await LANGUAGES_COLLECTION.find({}).toArray()
+    const languageData = JSON.parse(JSON.stringify(dataPreParseLan))
     return {
-      props: { itemData, languageData },
+      props: { itemData: data, languageData },
     }
   } catch (e) {
     console.error(e)
@@ -60,7 +88,6 @@ export default function App({
 
   console.log('from get serverside props')
   console.log(itemData)
-  console.log(languageData)
   console.log('--')
   const [pg, setCurrentPG] = useState(`bio`);
   const [buildCharTab, setCurrentbuildCharTab] = useState(`bio`);
