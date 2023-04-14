@@ -6,9 +6,9 @@ import { templateInterface } from "../../../../../interfaces/dataInterfaces/temp
 
 export default function Card(Props: any) {
 
-  const { profile, attributes, languages } = Props.template ?? {};
+  const { languageData } = Props
+  const { profile, attributes } = Props.template ?? {};
   const { items } = Props
-
   return (
     <ul className=" flex flex-col justify-around min-h-full space-y-4 min-h-100">
       <li className=" border-solid border-white border-2 rounded-full flex flex-row justify-around min-h-[20%]">
@@ -18,7 +18,7 @@ export default function Card(Props: any) {
         <ArrowBtn {...{ attributes }} />
       </li>
       <li>
-        <ArrowBtn {...{ languages }} />
+        <ArrowBtn {...{ languageData }} />
       </li>
       <li>
         <ArrowBtn {...{ items }} />
