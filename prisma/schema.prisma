@@ -11,8 +11,7 @@ datasource db {
 }
 
 model items {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
+  id       String         @id @default(auto()) @map("_id") @db.ObjectId
   catagory itemCatagory[]
 }
 
