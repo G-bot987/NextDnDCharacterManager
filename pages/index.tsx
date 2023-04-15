@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Home.module.css";
 
-import clientPromise from '../lib/mongodb'
 import { InferGetServerSidePropsType } from 'next'
 
 import Header from "./mainnav/Header";
@@ -22,40 +21,7 @@ import template from "../data/templateCharacterData";
 import { weaponData } from "../data/weaponData";
 import prisma from "../src/lib/prisma";
 
-export async function getServerSideProps(context: any) {
-  try {
-    await clientPromise
 
-    const getData = async () => {
-      const languageData = await prisma.languages.findMany({
-        include: {
-          variants: {
-            include: {
-              dialects: {
-              }
-            }
-          }
-        }
-      });
-      return languageData
-    }
-
-    const itemData = await prisma.items.findMany()
-    const languageData = await getData()
-
-    console.log('itemdata')
-    console.log(itemData)
-    console.log('--')
-    return {
-      props: { itemData, languageData },
-    }
-  } catch (e) {
-    console.error(e)
-    return {
-      props: { isConnected: false },
-    }
-  }
-}
 
 export default function App({
   itemData, languageData
@@ -115,4 +81,36 @@ export default function App({
       {renderPage()}
     </div>
   );
+}
+
+
+export async function getServerSideProps(context: any) {
+  try {
+
+    const languageData = await prisma.languages.findMany({
+      include: {
+        variants: {
+          include: {
+            dialects: {
+            }
+          }
+        }
+      }
+    });
+
+
+    const itemData = await prisma.items.findMany()
+
+    console.log('itemdata')
+    console.log(itemData)
+    console.log('--')
+    return {
+      props: { itemData, languageData },
+    }
+  } catch (e) {
+    console.error(e)
+    return {
+      props: { isConnected: false },
+    }
+  }
 }
