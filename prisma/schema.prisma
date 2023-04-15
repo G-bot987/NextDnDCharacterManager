@@ -64,6 +64,7 @@ model subRaces {
   subRacialProficiencies String
   subRacialBonus         String
   race                   races  @relation(fields: [id], references: [id])
+  parentRaceID           String @db.ObjectId
   variants               String
 }
 
