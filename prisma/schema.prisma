@@ -11,11 +11,19 @@ datasource db {
 }
 
 model items {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  catagory itemCatagory[]
+}
+
+model itemCatagory {
+  items    items  @relation(fields: [id], references: [id])
   name     String
   weight   Int
   quantity Int
-  catagory String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+
+  itemsId String? @db.ObjectId
 }
 
 model templete {
@@ -28,7 +36,6 @@ model profile {
   name       String
   classes    classes[]
   xp         Int
-  races      races[]
   background String
   strength   String
   weakness   String
@@ -45,9 +52,19 @@ model image {
 }
 
 model races {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  race    String
-  profile profile @relation(fields: [id], references: [id])
+  id                  String     @id @default(auto()) @map("_id") @db.ObjectId
+  race                String
+  racialBonus         String
+  racialProficiencies String
+  subRaces            subRaces[]
+}
+
+model subRaces {
+  id                     String @id @default(auto()) @map("_id") @db.ObjectId
+  subRacialProficiencies String
+  subRacialBonus         String
+  race                   races  @relation(fields: [id], references: [id])
+  variants               String
 }
 
 model classes {
