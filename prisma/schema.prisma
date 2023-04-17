@@ -59,12 +59,22 @@ model races {
 }
 
 model subRaces {
-  id                     String @id @default(auto()) @map("_id") @db.ObjectId
+  id                     String     @id @default(auto()) @map("_id") @db.ObjectId
   subRacialProficiencies String
   subRacialBonus         String
-  race                   races  @relation(fields: [id], references: [id])
-  parentRaceID           String @db.ObjectId
+  race                   races      @relation(fields: [parentRaceID], references: [id])
+  parentRaceID           String     @db.ObjectId
   variants               String
+  heritages              heritage[]
+}
+
+model heritage {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  subRaces      subRaces @relation(fields: [subRacesID], references: [id])
+  subRacesID    String   @db.ObjectId
+  bonus         String
+  proficiencies String
+  denomination  String
 }
 
 model classes {
