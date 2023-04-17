@@ -647,12 +647,87 @@ function createLanguages() {
 
 }
 
+function createClothes() {
+
+}
+
+function createConsumables() {
+
+}
+
+function createItems() {
+    console.log('creating clothes')
+    createClothes()
+    console.log('clothes created')
+    console.log('creating food')
+    createConsumables()
+    console.log('food created')
+}
+
+async function createMoralRaces() {
+    await prisma.races.create({
+        data: {
+            race: 'Moral',
+            racialBonus: 'racial Bonuses',
+            racialProficiencies: 'racial pros',
+            subRaces: {
+                create: [
+                    {
+                        subRacialBonus: 'sub racial bonus',
+                        subRacialProficiencies: 'sub racial pro',
+                        variants: 'Imperial Human',
+                        heritages: {
+                            create: [
+                                {
+                                    bonus: 'bonus',
+                                    proficiencies: 'pros',
+                                    denomination: 'Royalian'
+                                }
+
+                            ]
+                        }
+
+                    },
+                ]
+            }
+        }
+    })
+
+}
+
+
+async function createRaces() {
+    console.log('creating races')
+    createMoralRaces()
+    console.log('creating Moral Races')
+    createMoralRaces()
+    console.log('Moral Races Create')
+
+
+    // await prisma.races.createMany({
+    //     data: [
+    //         { race: 'Moral' },
+    //         { race: 'Ende' },
+    //         { race: 'MountainKin' },
+    //         { race: 'Gnomish' },
+
+    //     ],
+    // })
+
+}
+
 
 async function main() {
     console.log('seeding database')
     console.log('creating languages')
     createLanguages()
     console.log('languages seeded ...')
+    console.log('seeding Items')
+    createItems()
+    console.log('items created')
+    console.log('creating races')
+    createRaces()
+    console.log('races created')
 
     console.log(`Seeding finished.`)
 }
