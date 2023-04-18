@@ -54,7 +54,7 @@ model races {
   id                  String                         @id @default(auto()) @map("_id") @db.ObjectId
   race                String
   racialBonus         String
-  speed               String
+  speed               Int
   size                String
   racialProficiencies raciallyGrantedProficiencies[]
   subRaces            subRaces[]
