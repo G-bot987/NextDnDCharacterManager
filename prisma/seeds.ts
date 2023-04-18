@@ -664,18 +664,34 @@ function createItems() {
     console.log('food created')
 }
 
-async function createMoralRaces() {
+async function createMortalRaces() {
     await prisma.races.create({
         data: {
-            race: 'Moral',
-            racialBonus: 'racial Bonuses',
-            racialProficiencies: 'racial pros',
+            race: "Mortal",
+            racialBonus: "A racial bonus",
+            racialProficiencies: {
+                create: [
+                    {
+                        skills: {
+                            create: [
+                                {
+                                    skill: "Athletics",
+                                    granted: true
+                                }
+                            ]
+                        },
+                        languages: {
+                            create: []
+                        }
+                    }
+                ]
+            },
             subRaces: {
                 create: [
                     {
-                        subRacialBonus: 'sub racial bonus',
-                        subRacialProficiencies: 'sub racial pro',
-                        variants: 'Imperial Human',
+                        subRacialBonus: "A sub race bonus",
+                        subRacialProficiencies: "Sub race proficiencies",
+                        variants: "Imperial Human",
                         heritages: {
                             create: [
                                 {
@@ -686,10 +702,11 @@ async function createMoralRaces() {
 
                             ]
                         }
-
-                    },
+                    }
                 ]
-            }
+            },
+            speed: 30,
+            size: "Medium"
         }
     })
 
@@ -698,10 +715,9 @@ async function createMoralRaces() {
 
 async function createRaces() {
     console.log('creating races')
-    createMoralRaces()
     console.log('creating Moral Races')
-    createMoralRaces()
-    console.log('Moral Races Create')
+    createMortalRaces()
+    console.log('Mortal Races Create')
 
 
     // await prisma.races.createMany({
