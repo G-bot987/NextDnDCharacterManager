@@ -43,6 +43,15 @@ model profile {
   image      image[]
 }
 
+model lv {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  value      Int
+  selected   Boolean
+  proBonus   Int
+  experience Int
+}
+
 model image {
   id      String   @id @default(auto()) @map("_id") @db.ObjectId
   avatar  Bytes
