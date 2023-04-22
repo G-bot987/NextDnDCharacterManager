@@ -669,23 +669,6 @@ async function createMortalRaces() {
         data: {
             race: "Mortal",
             racialBonus: "A racial bonus",
-            racialProficiencies: {
-                create: [
-                    {
-                        skills: {
-                            create: [
-                                {
-                                    skill: "Athletics",
-                                    granted: true
-                                }
-                            ]
-                        },
-                        languages: {
-                            create: []
-                        }
-                    }
-                ]
-            },
             subRaces: {
                 create: [
                     {
