@@ -60,66 +60,28 @@ model image {
 }
 
 model races {
-  id                  String                         @id @default(auto()) @map("_id") @db.ObjectId
-  race                String
-  racialBonus         String
-  speed               Int
-  size                String
-  racialProficiencies raciallyGrantedProficiencies[]
-  subRaces            subRaces[]
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  race        String
+  racialBonus String
+  speed       Int
+  size        String
+  subRaces    subRaces[]
 }
 
 model subRaces {
-  id                     String     @id @default(auto()) @map("_id") @db.ObjectId
-  subRacialProficiencies String
-  subRacialBonus         String
-  race                   races      @relation(fields: [parentRaceID], references: [id])
-  parentRaceID           String     @db.ObjectId
-  variants               String
-  heritages              heritage[]
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  race         races      @relation(fields: [parentRaceID], references: [id])
+  parentRaceID String     @db.ObjectId
+  variants     String
+  heritages    heritage[]
 }
 
 model heritage {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  subRaces      subRaces @relation(fields: [subRacesID], references: [id])
-  subRacesID    String   @db.ObjectId
-  bonus         String
-  proficiencies String
-  denomination  String
-}
-
-model raciallyGrantedProficiencies {
-  id        String                                 @id @default(auto()) @map("_id") @db.ObjectId
-  races     races                                  @relation(fields: [RacesID], references: [id])
-  RacesID   String                                 @db.ObjectId
-  skills    raciallyGrantedSkills[]
-  languages raciallyGrantedLanguageProficiencies[]
-}
-
-model raciallyGrantedLanguageProficiencies {
-  id       String                              @id @default(auto()) @map("_id") @db.ObjectId
-  language racialLanguageProficienciesGained[]
-
-  raciallyGrantedProficiencies   raciallyGrantedProficiencies @relation(fields: [raciallyGrantedProficienciesID], references: [id])
-  raciallyGrantedProficienciesID String                       @db.ObjectId
-}
-
-model racialLanguageProficienciesGained {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-
-  VariantIDs String[]  @db.ObjectId
-  Variant    Variant[] @relation(fields: [VariantIDs], references: [id])
-
-  raciallyGrantedLanguageProficiencies   raciallyGrantedLanguageProficiencies? @relation(fields: [raciallyGrantedLanguageProficienciesId], references: [id])
-  raciallyGrantedLanguageProficienciesId String?                               @db.ObjectId
-}
-
-model raciallyGrantedSkills {
-  id                             String                       @id @default(auto()) @map("_id") @db.ObjectId
-  skill                          String
-  granted                        Boolean
-  raciallyGrantedProficiencies   raciallyGrantedProficiencies @relation(fields: [raciallyGrantedProficienciesID], references: [id])
-  raciallyGrantedProficienciesID String                       @db.ObjectId
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  subRaces     subRaces @relation(fields: [subRacesID], references: [id])
+  subRacesID   String   @db.ObjectId
+  denomination String
 }
 
 model classes {
@@ -145,9 +107,6 @@ model Variant {
 
   parentLanguage   Languages @relation(references: [id], fields: [parentLanguageID])
   parentLanguageID String    @db.ObjectId
-
-  racialLanguageProficienciesGainedIDs String[]                            @db.ObjectId
-  racialLanguageProficienciesGained    racialLanguageProficienciesGained[] @relation(fields: [racialLanguageProficienciesGainedIDs], references: [id])
 }
 
 model Dialect {
