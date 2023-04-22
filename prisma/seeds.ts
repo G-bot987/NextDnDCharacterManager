@@ -669,40 +669,18 @@ async function createMortalRaces() {
         data: {
             race: "Mortal",
             racialBonus: "A racial bonus",
-            racialProficiencies: {
-                create: [
-                    {
-                        skills: {
-                            create: [
-                                {
-                                    skill: "Athletics",
-                                    granted: true
-                                }
-                            ]
-                        },
-                        languages: {
-                            create: []
-                        }
-                    }
-                ]
-            },
             subRaces: {
                 create: [
                     {
-                        subRacialBonus: "A sub race bonus",
-                        subRacialProficiencies: "Sub race proficiencies",
-                        variants: "Imperial Human",
+                        variants: 'Impperial Human',
                         heritages: {
                             create: [
                                 {
-                                    bonus: 'bonus',
-                                    proficiencies: 'pros',
-                                    denomination: 'Royalian'
-                                }
-
+                                    denomination: 'Royalian',
+                                },
                             ]
                         }
-                    }
+                    },
                 ]
             },
             speed: 30,
