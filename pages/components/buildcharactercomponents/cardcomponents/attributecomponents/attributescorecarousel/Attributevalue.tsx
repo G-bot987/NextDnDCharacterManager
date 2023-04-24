@@ -45,6 +45,23 @@ export default function Attributevalue(Props: any) {
   })();
 
   useEffect(() => {
+    async function fetchData() {
+      const res = await fetch('/api/pointbuy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ScoreToRender, attribute })
+      })
+      const json = await res.json()
+      console.log(json)
+    }
+    fetchData()
+
+  }, [ScoreToRender])
+
+
+  useEffect(() => {
     const ReduxPayload = { score: ScoreToRender, attribute };
     dispact(attributeValue(ReduxPayload));
   }, [ScoreToRender]);
