@@ -7,36 +7,25 @@ export default function handler(
     res: NextApiResponse<Data>
 ) {
 
-
-    console.log('req')
-    console.log(req.body)
-    console.log('--')
-
-
     const calculatePointBuyCost = (abilityScores: number) => {
         const pointsSpentTable = [0, 1, 2, 3, 4, 5, 7, 9];
         const pointBuyCost = Object.values(abilityScores).reduce((totalPointsSpent, score) => {
-            const pointsSpent = pointsSpentTable[score - 8];
+
+            const newScore = score.score
+            const pointsSpent = pointsSpentTable[newScore - 8];
             return totalPointsSpent + pointsSpent;
         }, 0);
+
         if (pointBuyCost === 27) {
 
-            return pointBuyCost;
+            return 'you have spent all your points';
+        } else if (pointBuyCost >= 27) {
+            return `you have spent ${pointBuyCost} you can only spent 27 points`
         } else {
-            return 'you have not spent 27 points'
+            return `you have only spent ${pointBuyCost} points`
         }
     };
 
-
-
-    const pointBuyCost = calculatePointBuyCost(req.body);
-
-
-
-
-    res.status(200).json({ test: 'test' })
+    const pointBuyCost = calculatePointBuyCost(req.body.data);
+    res.status(200).json({ pointBuyCost })
 }
-
-// inputs
-
-// status with boolean, msg spend more or less points. is the return
