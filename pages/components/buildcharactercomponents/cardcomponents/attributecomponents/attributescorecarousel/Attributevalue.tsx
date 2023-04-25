@@ -44,14 +44,30 @@ export default function Attributevalue(Props: any) {
     }
   })();
 
+  const getAllScores = store.filter((element) => {
+    return element.attribute !== attribute;
+  });
+
   useEffect(() => {
+
+    const data: { attribute: string; score: number }[] = []
+    const score = ScoreToRender.value
+    data.push({ attribute, score })
+    getAllScores.forEach(element => {
+      const attribute = element.attribute
+      const score = element.score.value
+      const attributeWithValue = { attribute, score }
+      return data.push(attributeWithValue)
+    });
+
+
     async function fetchData() {
       const res = await fetch('/api/pointbuy', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ScoreToRender, attribute })
+        body: JSON.stringify({ data })
       })
       const json = await res.json()
       console.log(json)
