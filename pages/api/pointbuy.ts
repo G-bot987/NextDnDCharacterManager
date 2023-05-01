@@ -16,13 +16,14 @@ export default function handler(
             return totalPointsSpent + pointsSpent;
         }, 0);
 
-        if (pointBuyCost === 27) {
-
+        if (Number.isNaN(pointBuyCost)) {
+            return 'you can not have a score less than 8'
+        } else if (pointBuyCost === 27) {
             return 'you have spent all your points';
         } else if (pointBuyCost >= 27) {
             return `you have spent ${pointBuyCost} you can only spent 27 points`
         } else {
-            return `you have only spent ${pointBuyCost} points`
+            return `you have only spent ${pointBuyCost} points of 27`
         }
     };
 
