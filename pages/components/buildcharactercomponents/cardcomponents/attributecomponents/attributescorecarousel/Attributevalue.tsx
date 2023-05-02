@@ -21,7 +21,7 @@ export default function Attributevalue(Props: any) {
 
   const scoreState = (() => {
     if (inStore === undefined) {
-      return 0;
+      return 7;
     } else {
       return inStore.score.value - 1;
     }
