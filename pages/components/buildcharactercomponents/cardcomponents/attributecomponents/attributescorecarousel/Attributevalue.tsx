@@ -8,6 +8,7 @@ import {
   attributesRootState,
   attributeValue,
 } from "../../../../../../slices/attributesSlice";
+import PointSpendPrompt from "../PointSpendPrompt";
 
 export default function Attributevalue(Props: any) {
   const { score, attribute, mod } = Props;
@@ -60,7 +61,6 @@ export default function Attributevalue(Props: any) {
       return data.push(attributeWithValue)
     });
 
-
     async function fetchData() {
       const res = await fetch('/api/pointbuy', {
         method: 'POST',
@@ -70,10 +70,12 @@ export default function Attributevalue(Props: any) {
         body: JSON.stringify({ data })
       })
       const json = await res.json()
+      console.log('json')
       console.log(json)
+      console.log('--')
+      return json
     }
     fetchData()
-
   }, [ScoreToRender])
 
 
@@ -83,18 +85,21 @@ export default function Attributevalue(Props: any) {
   }, [ScoreToRender]);
 
   return (
-    <div className=" flex flex-row justify-between">
-      <div onClick={() => SetCardChange(changeCard - 1)}>
-        <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-          <div className={styles.arrowleft} />
+    <div className="flex flex-col">
+      <div className=" flex flex-row justify-between">
+        <div onClick={() => SetCardChange(changeCard - 1)}>
+          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+            <div className={styles.arrowleft} />
+          </div>
+        </div>
+        <ScoreRender {...ScoreToRender} />
+        <div onClick={() => SetCardChange(changeCard + 1)}>
+          <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
+            <div className={styles.arrowright} />
+          </div>
         </div>
       </div>
-      <ScoreRender {...ScoreToRender} />
-      <div onClick={() => SetCardChange(changeCard + 1)}>
-        <div className="w-6 h-6 bg-white border-solid border-black rounded-full">
-          <div className={styles.arrowright} />
-        </div>
-      </div>
+      <PointSpendPrompt {...{}} />
     </div>
   );
 }
