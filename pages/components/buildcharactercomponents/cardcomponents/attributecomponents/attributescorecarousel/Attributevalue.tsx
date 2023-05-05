@@ -70,9 +70,23 @@ export default function Attributevalue(Props: any) {
         body: JSON.stringify({ data })
       })
       const json = await res.json()
-      console.log('json')
-      console.log(json)
-      console.log('--')
+      return json
+    }
+    fetchData()
+  }, [ScoreToRender])
+
+
+  useEffect(() => {
+
+    async function fetchData() {
+      const res = await fetch('/api/minimumEightPts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ScoreToRender })
+      })
+      const json = await res.json()
       return json
     }
     fetchData()
