@@ -1,0 +1,32 @@
+.nav {
+    &__title {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    &__list {
+        display: inline-flex;
+        font-size: 1rem;
+        padding: 2rem;
+        font-style: italic;
+
+        &--navigation {
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__item {
+        &--headertab {
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__link {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
