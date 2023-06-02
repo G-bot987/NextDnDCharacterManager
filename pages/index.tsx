@@ -77,7 +77,7 @@ export default function App({
   const handlePageChange = (page: any) => setCurrentPG(page);
   return (
     <section className={styles.contentWrapper}>
-      <Header currentPage={pg} handlePageChange={handlePageChange} />
+      <Header  handlePageChange={handlePageChange} />
       {renderPage()}
     </section>
   );

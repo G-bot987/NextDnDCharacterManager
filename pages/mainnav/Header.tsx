@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface PropsInterface {
-  currentPage: any;
   handlePageChange: any;
 }
 
 export default function Header({
-  currentPage,
+
   handlePageChange,
 }: PropsInterface) {
   return (
