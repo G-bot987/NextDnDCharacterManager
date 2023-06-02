@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/Home.module.css";
+import styles from './index.module.scss'
 
 import { InferGetServerSidePropsType } from 'next'
 
@@ -76,10 +76,10 @@ export default function App({
 
   const handlePageChange = (page: any) => setCurrentPG(page);
   return (
-    <div className="flex-col flex justify-evenly flex-wrap">
+    <section className={styles.contentWrapper}>
       <Header currentPage={pg} handlePageChange={handlePageChange} />
       {renderPage()}
-    </div>
+    </section>
   );
 }
 
