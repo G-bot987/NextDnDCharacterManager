@@ -1,5 +1,8 @@
 # This Project is currently in development 
 
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=G-Bot987&repo=NextDnDCharacterManager&theme=chartreuse-dark&show_owner=true)](https://github.com/anuraghazra/github-readme-stats)
+
 ## Update April 2023
 
 Progess is on schedule and proceeding well, despite some personal difficulties. Mongoose was Removed in Favour of Prisma, due to performance intergration and ease of use. Mongo Intergration is progressing well with Prisma and data can now be seeded. Mock data is in the progress of being migrated Mongo, A seeds file has been implemented to allow for local use. Data can be successfully retrieved from mongo and displayed using the getServerSideProps method. soon the Mongo, Prisma, retrieve server side props pattern will be established across the application for all character card data. 
