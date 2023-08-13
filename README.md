@@ -1,7 +1,6 @@
 # This Project is currently in development 
 
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=G-Bot987&repo=NextDnDCharacterManager&theme=chartreuse-dark&show_owner=true)](https://github.com/anuraghazra/github-readme-stats)
 
 ## Update April 2023
 
